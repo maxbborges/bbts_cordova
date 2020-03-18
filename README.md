@@ -5,12 +5,12 @@
 - Entrar na pasta clonada e na pasta do projeto
 
         $ docker image build -t NOME_IMAGEM .
-        $ docker run -d -P -p X:80 -p X:8000 -p X:90 -p X:3001 -v "$PWD/bbts:/home/user/backup" --name NOME_PROJETO NOME_IMAGEM
-        $ docker exec -it -u user [nome do container] bin/bash
+        $ docker run -d -P -p 80:80 -p 8000:8000 -p 90:90 -p 3001:3001 -p 22:22 -v "$PWD/bbts/:/home/user/backup" --name bbts bbts
+        $ docker exec -it -u user bbts bin/bash
         
 - Acesar a pasta do usuário
 
-        $ git clone https://gitlab.com/maxbborges/bbts.git OU ACESSAR A PASTA CLONADA 
+        $ git clone https://gitlab.com/maxbborges/bbts.git
         $ cd bbts/app
         $ npm install
         $ cordova platforms add browser
