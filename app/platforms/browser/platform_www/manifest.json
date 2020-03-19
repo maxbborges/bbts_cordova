@@ -2,7 +2,7 @@
   "name": "helloworld",
   "short_name": "helloworld",
   "description": "Description of your app from template",
-  "start_url": "index.html",
+  "start_url": "browser-sync-start.html",
   "scope": "index.html",
   "icons": [
     {
