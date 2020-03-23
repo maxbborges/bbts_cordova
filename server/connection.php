@@ -1,5 +1,5 @@
 <?php
-$link = mysqli_connect("localhost", "maxwell", "123456", "gincana_mctic");
+$link = mysqli_connect("localhost", "user", "123456", "banco_bbts");
 
 if (!$link) {
     echo "Erro: " . PHP_EOL;

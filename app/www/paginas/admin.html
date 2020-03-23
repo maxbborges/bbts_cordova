@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-        <meta name="format-detection" content="telephone=no">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:; script-src 'self' https://* http://localhost:8000; connect-src *;">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="../css/admin.css">
         <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
-        <script src="../js/bootstrap/jquery.slim.min.js"></script>
-        <script src="../js/bootstrap/bootstrap.min.js"></script>
+        <script src="../js/bootstrap/jquery.min.js"></script>
         <script src="../js/bootstrap/popper.min.js"></script>
+        <script src="../js/bootstrap/bootstrap.min.js"></script>
         <title>Admin</title>
     </head>
     <body>
@@ -21,7 +20,7 @@
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active btn btn-primary" href="home.html">HOME</a>
-                      
+
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active btn btn-primary" href="admin.html">ADMIN</a>
@@ -31,7 +30,7 @@
                     </li>
                   </ul>
             </div>
-       
+
               <div class="row">
                         <div class="row submenu-adm">
                           <div class="col-sm">
@@ -42,55 +41,71 @@
                           </div>
                           <div class="col-sm">
                             <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Outros </button>
-                            
+
                           </div>
-                          
+
                         </div>
                 </div>
                 <div class="row">
                     <div class="collapse tabela-adm" id="collapseExample">
-                        <div class="card card-body">
-                            
-                            <table class="table table-dark">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                              
-                        </div>
+                      <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_inserir" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample" > Inserir </button>
+                      <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_listar" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample" > Listar </button>
+                    </div>
+                    <div  class="collapse tabela-adm" id="collapseExample1">
+                      <div class="card card-body">
+                          <table class="table table-dark">
+                              <thead>
+                                <tr>
+                                  <th scope="col">id</th>
+                                  <th scope="col">Nome</th>
+                                  <th scope="col">chave_c</th>
+                                  <th scope="col">matricula</th>
+                                </tr>
+                              </thead>
+                              <tbody id='linhas'>
+                              </tbody>
+                            </table>
                       </div>
+                    </div>
+                    <div  class="collapse tabela-adm" id="collapseExample2">
+                      <form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
+                    </div>
                 </div>
               </div>
         </div>
 
-      
+
         <script type="text/javascript" src="../cordova.js"></script>
-        <script type="text/javascript" src="../js/home.js"></script>
+        <script type="text/javascript" src="../js/admin.js"></script>
     </body>
     <footer>
     </footer>

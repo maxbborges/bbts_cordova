@@ -1,0 +1,10 @@
+INSERT INTO funcionario (nome,chave_c,matricula) values ('maxwell', 'xxxx','112243');
+INSERT INTO funcionario (nome,chave_c,matricula) values ('maxwell1', 'xxxx','112243');
+INSERT INTO funcionario (nome,chave_c,matricula) values ('maxwell2', 'xxxx','112243');
+INSERT INTO funcionario (nome,chave_c,matricula) values ('maxwell3', 'xxxx','112243');
+INSERT INTO funcionario (nome,chave_c,matricula) values ('maxwell4', 'xxxx','112243');
+INSERT INTO funcionario (nome,chave_c,matricula) values ('luiz', 'xxxx','112243');
+INSERT INTO funcionario (nome,chave_c,matricula) values ('luiz1', 'xxxx','112243');
+INSERT INTO funcionario (nome,chave_c,matricula) values ('luiz2', 'xxxx','112243');
+INSERT INTO funcionario (nome,chave_c,matricula) values ('luiz3', 'xxxx','112243');
+INSERT INTO funcionario (nome,chave_c,matricula) values ('luiz4', 'xxxx','112243');
