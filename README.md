@@ -22,15 +22,16 @@
         
         $ sudo mysql
  
-        CREATE USER 'user'@'localhost' IDENTIFIED BY '123456';
-        GRANT ALL PRIVILEGES ON * . * TO 'user'@'localhost';
+        CREATE USER 'user'@'%' IDENTIFIED BY '123456';
+        GRANT ALL PRIVILEGES ON * . * TO 'user'@'%';
         FLUSH PRIVILEGES;
         exit
 
 - Acessar a pasta gingacana_mctic
     - Popular o banco
         
-        $ mysql -u user -p123456 gincana_mctic < sql_gincana_mctic.sql
+        $ mysql -u user -p123456 ----TABELA----- < ----ARQUIVO.SQL----
+
         $ mysql -p123456
         
 
@@ -38,9 +39,9 @@
 
         $ sudo nano /etc/apache2/sites-enabled/000-default.conf
 
-        DocumentRoot /home/maxwell/gincana-mctic/gincana_server
+        DocumentRoot /home/user/bbts/server
             
-        <Directory /home/maxwell/gincana-mctic/gincana_server>
+        <Directory /home/user/bbts/server>
             AllowOverride none 
             Require all granted
         </Directory>
