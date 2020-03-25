@@ -1,119 +1,144 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;  font-src *;script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232; connect-src *;">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" type="text/css" href="../css/admin.css">
-        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
-        <script src="../js/bootstrap/jquery.min.js"></script>
-        <script src="../js/bootstrap/popper.min.js"></script>
-        <script src="../js/bootstrap/bootstrap.min.js"></script>
-        <title>Admin</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item">
-                      <a class="nav-link active btn btn-primary" href="../index.html">INDEX</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active btn btn-primary" href="home.html">HOME</a>
 
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active btn btn-primary" href="admin.html">ADMIN</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">DISABLED</a>
-                    </li>
-                  </ul>
-            </div>
+<head>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;  font-src *;script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232; connect-src *;">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <link rel="stylesheet" type="text/css" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+  <script src="../js/bootstrap/jquery.min.js"></script>
+  <script src="../js/bootstrap/popper.min.js"></script>
+  <script src="../js/bootstrap/bootstrap.min.js"></script>
+  <script src="../js/header.js"></script>
+  <title>Admin</title>
+</head>
 
-              <div class="row">
-                        <div class="row submenu-adm">
-                          <div class="col-sm">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Ferias </button>
-                          </div>
-                          <div class="col-sm">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Abono </button>
-                          </div>
-                          <div class="col-sm">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Outros </button>
-                          </div>
-                          <div class="col-sm">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Funcionários</button>
-                          </div>
-
-                        </div>
-                </div>
-                <div class="row">
-                    <div class="collapse tabela-adm" id="collapseExample">
-                      <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_inserir" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample" > Inserir </button>
-                      <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_listar" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample" > Listar </button>
-                    </div>
-                    <div  class="collapse tabela-adm" id="collapseExample1">
-                      <div class="card card-body">
-                          <table class="table table-dark">
-                              <thead>
-                                <tr>
-                                  <th scope="col">id</th>
-                                  <th scope="col">Nome</th>
-                                  <th scope="col">chave_c</th>
-                                  <th scope="col">matricula</th>
-                                  <th scope="col">email</th>
-                                  <th scope="col">telefone</th>
-                                </tr>
-                              </thead>
-                              <tbody id='linhas'>
-                              </tbody>
-                            </table>
-                      </div>
-                    </div>
-                    <div  class="collapse tabela-adm" id="collapseExample2">
-
-
-                      <form id="form_novo_funcionario" action="#">
-                        <div class="form-group">
-                          <label for="inputAddress">Nome:</label>
-                          <input type="text" class="form-control" id="input_name" placeholder="">
-                        </div>
-                            <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label for="inputEmail4">Chanve C</label>
-                              <input type="text" class="form-control" id="input_chavec">
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label for="inputPassword4">Matrícula</label>
-                              <input type="text" class="form-control" id="input_matricula">
-                            </div>
-                          </div>
-                          <div class="form-row">
-                          <div class="form-group col-md-6">
-                            <label for="inputEmail4">Email:</label>
-                            <input type="email" class="form-control" id="input_email">
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="inputPassword4">Telefone:</label>
-                            <input type="text" class="form-control" id="input_telefone">
-                          </div>
-                        </div>
-                        <div class="form-group">
-
-                        </div>
-                        <button id="novo_funcionario" type="submit" class="btn btn-primary">Enviar</button>
-                      </form>
-                    </div>
-                </div>
-              </div>
+<body>
+  <div class="container">
+    <header>
+    </header>
+    <div class="row">
+      <div class="row submenu-adm">
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_ferias" data-toggle="collapse" href="#collapse_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Ferias </button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_abonos" data-toggle="collapse" href="#collapse_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Abono </button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_outros" data-toggle="collapse" href="#collapse_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Outros </button>
+        </div>
+        <div class="col-sm">
+          <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_funcionarios" data-toggle="collapse" href="#collapse_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Funcionários</button>
         </div>
 
+      </div>
+    </div>
+    <div class="row">
+      <div class="collapse" id="collapse_ferias">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_inserir" data-toggle="collapse" href="#collapse_inserir_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir ferias </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_listar" data-toggle="collapse" href="#collapse_listar_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar ferias </button>
+      </div>
+
+      <div class="collapse" id="collapse_abonos">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_inserir" data-toggle="collapse" href="#collapse_inserir_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir abono </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_listar" data-toggle="collapse" href="#collapse_listar_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar abonos </button>
+      </div>
+
+      <div class="collapse" id="collapse_outros">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_inserir" data-toggle="collapse" href="#collapse_inserir_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir outros </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_listar" data-toggle="collapse" href="#collapse_listar_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar outros </button>
+      </div>
+
+      <div class="collapse" id="collapse_funcionarios">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_inserir" data-toggle="collapse" href="#collapse_inserir_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir Funcionario </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_listar" data-toggle="collapse" href="#collapse_listar_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar Funcionarios </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="collapse sub_collapse_listar" id="collapse_listar_ferias">
+        LISTAR FERIAS
+      </div>
+      <div class="collapse sub_collapse_inserir" id="collapse_inserir_ferias">
+        INSERIR FERIAS
+      </div>
+
+      <div class="collapse sub_collapse_listar" id="collapse_listar_abonos">
+        LISTAR ABONO
+      </div>
+      <div class="collapse sub_collapse_inserir" id="collapse_inserir_abonos">
+        INSERIR ABONO
+      </div>
+
+      <div class="collapse sub_collapse_listar" id="collapse_listar_outros">
+        LISTAR OUTROS
+      </div>
+      <div class="collapse sub_collapse_inserir" id="collapse_inserir_outros">
+        INSERIR OUTROS
+      </div>
+
+      <div class="collapse sub_collapse_listar" id="collapse_listar_funcionarios">
+        <div class="card card-body">
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">chave_c</th>
+                <th scope="col">matricula</th>
+                <th scope="col">email</th>
+                <th scope="col">telefone</th>
+              </tr>
+            </thead>
+            <tbody id='linhas'>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="collapse sub_collapse_inserir" id="collapse_inserir_funcionarios">
+        <form id="form_novo_funcionario" action="#">
+          <div class="form-group">
+            <label for="inputAddress">Nome:</label>
+            <input type="text" class="form-control" id="input_name" placeholder="">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Chanve C</label>
+              <input type="text" class="form-control" id="input_chavec">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Matrícula</label>
+              <input type="text" class="form-control" id="input_matricula">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Email:</label>
+              <input type="email" class="form-control" id="input_email">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Telefone:</label>
+              <input type="text" class="form-control" id="input_telefone">
+            </div>
+          </div>
+          <div class="form-group">
+
+          </div>
+          <button id="novo_funcionario" type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
 
 
-        <script type="text/javascript" src="../cordova.js"></script>
-        <script type="text/javascript" src="../js/admin.js"></script>
-    </body>
-    <footer>
-    </footer>
+
+  <script type="text/javascript" src="../cordova.js"></script>
+  <script type="text/javascript" src="../js/admin.js"></script>
+</body>
+<footer>
+</footer>
+
 </html>

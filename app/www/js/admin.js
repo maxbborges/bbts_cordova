@@ -15,8 +15,6 @@ $("#botao_listar").click(function(){
 });
 
 $("#novo_funcionario").click(function(){
-  // var dados = $('#form_novo_funcionario').serialize();
-
   $.ajax({
     type: "POST",
     url: "http://"+window.location.hostname+":90/admin.php",
@@ -27,5 +25,43 @@ $("#novo_funcionario").click(function(){
 
     },
   });
+});
 
+$( document ).ready(function() {
+  $(".submenu-adm button").click(function(){
+    $(".sub_collapse_inserir").removeClass('show').addClass("");
+    $(".sub_collapse_listar").removeClass('show').addClass("");
+  });
+
+  $("#botao_inserir").click(function(){
+    $(".sub_collapse_listar").removeClass('show').addClass("");
+  });
+
+  $("#botao_listar").click(function(){
+    $(".sub_collapse_inserir").removeClass('show').addClass("");
+  });
+
+  $(".submenu-adm button.btn_ferias").click(function(){
+    $("#collapse_funcionarios").removeClass('show');
+    $("#collapse_abonos").removeClass('show');
+    $("#collapse_outros").removeClass('show');
+  });
+
+  $(".submenu-adm button.btn_abonos").click(function(){
+    $("#collapse_funcionarios").removeClass('show');
+    $("#collapse_ferias").removeClass('show');
+    $("#collapse_outros").removeClass('show');
+  });
+
+  $(".submenu-adm button.btn_outros").click(function(){
+    $("#collapse_funcionarios").removeClass('show');
+    $("#collapse_abonos").removeClass('show');
+    $("#collapse_ferias").removeClass('show');
+  });
+
+  $(".submenu-adm button.btn_funcionarios").click(function(){
+    $("#collapse_ferias").removeClass('show');
+    $("#collapse_abonos").removeClass('show');
+    $("#collapse_outros").removeClass('show');
+  });
 });
