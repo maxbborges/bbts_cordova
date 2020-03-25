@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline';font-src *; media-src *; img-src 'self' data: content:; script-src 'unsafe-inline' https://* localhost:8000; connect-src *;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="../css/home.css">
         <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
-        <script src="../js/bootstrap/jquery.slim.min.js"></script>
-        <script src="../js/bootstrap/bootstrap.min.js"></script>
+        <script src="../js/bootstrap/jquery.min.js"></script>
         <script src="../js/bootstrap/popper.min.js"></script>
+        <script src="../js/bootstrap/bootstrap.min.js"></script>
         <title>Home</title>
     </head>
     <body>
@@ -21,7 +21,7 @@
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active btn btn-primary" href="home.html">HOME</a>
-                      
+
                     </li>
                     <li class="nav-item">
                       <a class="nav-link active btn btn-primary" href="admin.html">ADMIN</a>
@@ -31,34 +31,78 @@
                     </li>
                   </ul>
             </div>
-            <div class="row">
-              Essa será a home
-                <div class="col">
-                  <div class="row">
-                        
-                  </div>
-                  <div class="row">
-                    
-                </div>
-                </div>
-                <div class="col">
-                  
+            <div class="row" style=''>
+              LEGENDA: <br>
+              AMARELO: ABONO<br>
+              VERDE: FERIAS<br>
+              AZUL: OUTROS
+            </div>
+            <div class="row" id='calendario_home'>
+              <div class="col">
+                <div class="card card-body">
+                  <p>MARÇO</p>
+                    <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">D</th>
+                            <th scope="col">S</th>
+                            <th scope="col">T</th>
+                            <th scope="col">Q</th>
+                            <th scope="col">Q</th>
+                            <th scope="col">S</th>
+                            <th scope="col">S</th>
+                          </tr>
+                        </thead>
+                        <tbody id='calendario1'>
+                        </tbody>
+                      </table>
                 </div>
               </div>
-              <div class="row">
-                <div class="col">
-                  
-                </div>
-                <div class="col">
-                  
-                </div>
-                <div class="col">
-                  
+              <div class="col">
+                <div class="card card-body">
+                  <p>ABRIL</p>
+                    <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">D</th>
+                            <th scope="col">S</th>
+                            <th scope="col">T</th>
+                            <th scope="col">Q</th>
+                            <th scope="col">Q</th>
+                            <th scope="col">S</th>
+                            <th scope="col">S</th>
+                          </tr>
+                        </thead>
+                        <tbody id='calendario2'>
+                        </tbody>
+                      </table>
                 </div>
               </div>
+              <div class="col">
+                <div class="card card-body">
+                  <p>JUNHO</p>
+                    <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">D</th>
+                            <th scope="col">S</th>
+                            <th scope="col">T</th>
+                            <th scope="col">Q</th>
+                            <th scope="col">Q</th>
+                            <th scope="col">S</th>
+                            <th scope="col">S</th>
+                          </tr>
+                        </thead>
+                        <tbody id='calendario3'>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+            </div>
+
         </div>
 
-      
+
         <script type="text/javascript" src="../cordova.js"></script>
         <script type="text/javascript" src="../js/home.js"></script>
     </body>
