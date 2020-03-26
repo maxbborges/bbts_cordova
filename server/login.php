@@ -9,11 +9,10 @@ require_once './connection.php';
    $check = "select id from funcionario where matricula=".(int)$login.";";
    $consulta = mysqli_query($link,$check);
    if (($consulta->fetch_row())[0] == null){
-     echo (0);
+     echo 0;
    }else {
-     echo (1);
+     echo 1;
    }
-
  } else {
     echo "erro";
   }
