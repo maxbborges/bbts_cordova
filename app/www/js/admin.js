@@ -1,4 +1,3 @@
-console.log(window.location.hostname);
 $("#botao_listar").click(function(){
   $('#linhas').html('');
   $.ajax({
