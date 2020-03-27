@@ -6,7 +6,6 @@ function login(){
       data: {'login': $("#input_login").val(), 'password': $("#input_password").val()},
       datatype: 'json',
       success: function(resultado){
-        console.log(resultado);
           if (resultado == 0){
               alert("Usuario incorreto");
           } else {
