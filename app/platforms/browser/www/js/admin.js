@@ -1,8 +1,8 @@
-$("#botao_listar").click(function(){
+function listarFuncionarios(){
   $('#linhas').html('');
   $.ajax({
     type: "GET",
-    url: "http://"+window.location.hostname+":90",
+    url: "http://"+window.location.hostname+":90/admin.php?logar",
     datatype: 'json',
     success: function(resultado){
       for (var i=0;i<resultado.length;i++){
@@ -11,20 +11,25 @@ $("#botao_listar").click(function(){
 
     },
   });
-});
+}
 
-$("#novo_funcionario").click(function(){
+function inserirFuncionarios(){
   $.ajax({
     type: "POST",
     url: "http://"+window.location.hostname+":90/admin.php",
     data: {'nome': $("#input_name").val(), 'chavec': $("#input_chavec").val(),'matricula': $("#input_matricula").val(),'email': $("#input_email").val(),'telefone': $("#input_telefone").val()},
     datatype: 'json',
     success: function(resultado){
-    console.log(resultado);
-
+      if (resultado==1){
+        alert ("Inserido com sucesso");
+      } else {
+        alert('Erro ao inserir');
+      }
     },
+  }).fail(function(jqXHR, textStatus){
+    console.log(jqXHR);
   });
-});
+}
 
 $( document ).ready(function() {
   $(".submenu-adm button").click(function(){
@@ -32,11 +37,11 @@ $( document ).ready(function() {
     $(".sub_collapse_listar").removeClass('show').addClass("");
   });
 
-  $("#botao_inserir").click(function(){
+  $(".btn_inserir").click(function(){
     $(".sub_collapse_listar").removeClass('show').addClass("");
   });
 
-  $("#botao_listar").click(function(){
+  $(".btn_listar").click(function(){
     $(".sub_collapse_inserir").removeClass('show').addClass("");
   });
 

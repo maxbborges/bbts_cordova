@@ -38,27 +38,30 @@
       </div>
     </div>
     <div class="row">
+      <div class="col">
       <div class="collapse" id="collapse_ferias">
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_inserir" data-toggle="collapse" href="#collapse_inserir_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir ferias </button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_listar" data-toggle="collapse" href="#collapse_listar_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar ferias </button>
+            <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir ferias </button>
+            <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" data-toggle="collapse" href="#collapse_listar_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar ferias </button>
       </div>
 
       <div class="collapse" id="collapse_abonos">
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_inserir" data-toggle="collapse" href="#collapse_inserir_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir abono </button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_listar" data-toggle="collapse" href="#collapse_listar_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar abonos </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir abono </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" data-toggle="collapse" href="#collapse_listar_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar abonos </button>
       </div>
 
       <div class="collapse" id="collapse_outros">
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_inserir" data-toggle="collapse" href="#collapse_inserir_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir outros </button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_listar" data-toggle="collapse" href="#collapse_listar_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar outros </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir outros </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" data-toggle="collapse" href="#collapse_listar_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar outros </button>
       </div>
 
       <div class="collapse" id="collapse_funcionarios">
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_inserir" data-toggle="collapse" href="#collapse_inserir_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir Funcionario </button>
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="botao_listar" data-toggle="collapse" href="#collapse_listar_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar Funcionarios </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir Funcionario </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" onclick="listarFuncionarios()" data-toggle="collapse" href="#collapse_listar_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar Funcionarios </button>
       </div>
     </div>
+    </div>
     <div class="row">
+      <div class='col'>
       <div class="collapse sub_collapse_listar" id="collapse_listar_ferias">
         LISTAR FERIAS
 
@@ -258,9 +261,10 @@
           <div class="form-group">
 
           </div>
-          <button id="novo_funcionario" type="submit" class="btn btn-primary">Enviar</button>
+          <button type="submit" class="btn btn-primary" onclick="inserirFuncionarios()">Enviar</button>
         </form>
       </div>
+    </div>
     </div>
   </div>
   </div>
