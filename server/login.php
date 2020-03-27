@@ -14,6 +14,6 @@ require_once './connection.php';
      echo 1;
    }
  } else {
-    echo "erro";
+    echo 0;
   }
 ?>

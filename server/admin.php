@@ -5,10 +5,23 @@ header("Access-Control-Allow-Headers: Content-Type");
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
-require_once './connection.php';
+if (isset($_GET['logar'])){
+  require_once './connection.php';
+
+  $resultado = [];
+  $consulta = mysqli_query($link,"select id,nome,chave_c,matricula,email,telefone from funcionario");
+
+  while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
+    array_push($resultado,$linha);
+  }
+
+  mysqli_close($link);
+  header('Content-type: application/json');
+  echo json_encode($resultado);
+}
 
 if (!empty($_POST)) {
-  echo var_dump($_POST);
+  require_once './connection.php';
   $nome = isset($_POST['nome']) ? $_POST['nome'] : NULL;
   $chavec = isset($_POST['chavec']) ? $_POST['chavec'] : NULL;
   $matricula = isset($_POST['matricula']) ? $_POST['matricula'] : NULL;
@@ -17,11 +30,8 @@ if (!empty($_POST)) {
   $linha = "insert into funcionario (nome,chave_c,matricula,email,telefone) values ('".$nome."','".$chavec."',".$matricula.",'".$email."',".(int)$telefone.");";
   $consulta = mysqli_query($link,$linha);
 
-  echo var_dump($linha);
-
-  // Verifica se a variável $_POST['nome'] existe
-} else {
-  echo "Não houve submit no formulário";
+  mysqli_close($link);
+  echo $consulta;
 }
 
 // if(!empty($_POST)){
