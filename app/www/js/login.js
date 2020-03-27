@@ -1,4 +1,4 @@
-$("#entrar").click(function(){
+function login(){
   if (($("#input_login").val())!=''&&($("#input_password").val())!=''){
     $.ajax({
       type: "POST",
@@ -20,4 +20,4 @@ $("#entrar").click(function(){
   } else {
     alert("Preencha todos os campos");
   }
-});
+}
