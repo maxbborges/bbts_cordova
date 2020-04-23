@@ -2,7 +2,6 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type");
 require_once './connection.php';
-
  if (!empty($_POST)) {
    $login = isset($_POST['login']) ? $_POST['login'] : NULL;
    $password = isset($_POST['password']) ? $_POST['password'] : NULL;
@@ -16,4 +15,3 @@ require_once './connection.php';
  } else {
     echo 0;
   }
-?>

@@ -20,18 +20,41 @@ if (isset($_GET['logar'])){
   echo json_encode($resultado);
 }
 
-if (!empty($_POST)) {
+if (isset($_GET['listarFerias'])){
   require_once './connection.php';
-  $nome = isset($_POST['nome']) ? $_POST['nome'] : NULL;
-  $chavec = isset($_POST['chavec']) ? $_POST['chavec'] : NULL;
-  $matricula = isset($_POST['matricula']) ? $_POST['matricula'] : NULL;
-  $email = isset($_POST['email']) ? $_POST['email'] : NULL;
-  $telefone = isset($_POST['telefone']) ? $_POST['telefone'] : NULL;
-  $linha = "insert into funcionario (nome,chave_c,matricula,email,telefone) values ('".$nome."','".$chavec."',".$matricula.",'".$email."',".(int)$telefone.");";
-  $consulta = mysqli_query($link,$linha);
+
+  $resultado = [];
+  $consulta = mysqli_query($link,"select data_inicial,data_final,data_solicitacao,num_abono,adiantamento,funcionario from ferias");
+
+  while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
+    array_push($resultado,$linha);
+  }
 
   mysqli_close($link);
-  echo $consulta;
+  header('Content-type: application/json');
+  echo json_encode($resultado);
+}
+
+if (!empty($_POST)) {
+  require_once './connection.php';
+  if ($_POST['acao']=='inserirFuncionario'){
+    $nome = isset($_POST['nome']) ? $_POST['nome'] : NULL;
+    $chavec = isset($_POST['chavec']) ? $_POST['chavec'] : NULL;
+    $matricula = isset($_POST['matricula']) ? $_POST['matricula'] : NULL;
+    $email = isset($_POST['email']) ? $_POST['email'] : NULL;
+    $telefone = isset($_POST['telefone']) ? $_POST['telefone'] : NULL;
+    $linha = "insert into funcionario (nome,chave_c,matricula,email,telefone) values ('".$nome."','".$chavec."',".$matricula.",'".$email."',".(int)$telefone.");";
+    $consulta = mysqli_query($link,$linha);
+
+    mysqli_close($link);
+    echo $consulta;
+  } else if ($_POST['acao']=='inserirFerias'){
+    $linha = "insert into ferias (data_inicial,data_final,data_solicitacao,num_abono,adiantamento) values ('".$_POST['dataInicial']."','".$_POST['dataFinal']."','".date('d/m/Y')."',".$_POST['numAbono'].",".(int)$_POST['adiantamento'].");";
+    $consulta = mysqli_query($link,$linha);
+    mysqli_close($link);
+    echo $consulta;
+
+  }
 }
 
 // if(!empty($_POST)){

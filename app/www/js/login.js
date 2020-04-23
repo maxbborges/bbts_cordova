@@ -1,4 +1,4 @@
-function login(){
+function func_login(){
   if (($("#input_login").val())!=''&&($("#input_password").val())!=''){
     $.ajax({
       type: "POST",
@@ -13,8 +13,10 @@ function login(){
             window.location = "home.html";
           }
       },
-    }).fail(function(jqXHR, textStatus){
+    }).fail(function(jqXHR, textStatus, errorThrown){
       console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
     });
   } else {
     alert("Preencha todos os campos");

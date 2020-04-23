@@ -16,6 +16,7 @@
     "bootstrap": "^4.4.1",
     "browser-sync": "2.26.7",
     "cheerio": "^0.22.0",
+    "cordova-plugin-browsersync-gen2": "^1.1.7",
     "cordova-browser": "^6.0.0",
     "csp-parse": "0.0.2",
     "jquery": "^3.4.1",
@@ -26,7 +27,8 @@
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-browsersync-gen2": {}
     },
     "platforms": [
       "browser"

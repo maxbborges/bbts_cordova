@@ -6,3 +6,7 @@
 .tabela-adm {
     min-width: 100%;
 }
+
+div.form-group.input_qtd_abono {
+    display: none;
+}

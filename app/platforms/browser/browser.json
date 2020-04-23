@@ -9,11 +9,15 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "br.com.bbts"
+    },
+    "cordova-plugin-browsersync-gen2": {
+      "PACKAGE_NAME": "br.com.bbts"
     }
   },
   "dependent_plugins": {},
   "modules": [],
   "plugin_metadata": {
-    "cordova-plugin-whitelist": "1.3.4"
+    "cordova-plugin-whitelist": "1.3.4",
+    "cordova-plugin-browsersync-gen2": "1.1.7"
   }
 }

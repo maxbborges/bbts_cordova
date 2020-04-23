@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline';font-src *; media-src *; img-src 'self' data: content:; script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232; connect-src *;">
+    content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://*;font-src *; media-src *; img-src 'self' data: content:; script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232; connect-src *;">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -37,7 +37,7 @@
             <label for="exampleInputPassword1">Password:</label>
             <input type="password" class="form-control" id="input_password">
           </div>
-          <button type="button" onclick="login()" class="btn btn-primary">Entrar</button>
+          <button type="button" onclick="func_login()" class="btn btn-primary">Entrar</button>
         </form>
       </div>
       <div class="col col-lg-2">

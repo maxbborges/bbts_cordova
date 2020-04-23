@@ -1,1 +1,2 @@
-CREATE TABLE funcionario (id int NOT NULL AUTO_INCREMENT PRIMARY KEY,nome varchar(255), chave_c varchar(255),matricula int,email varchar(255), telefone int );
+CREATE TABLE funcionario (id int NOT NULL AUTO_INCREMENT PRIMARY KEY,nome varchar(255), chave_c varchar(255),matricula int,email varchar(255), telefone int, contratacao varchar(255),ferias_restantes int);
+CREATE TABLE ferias (id int NOT NULL AUTO_INCREMENT PRIMARY KEY, funcionario varchar(255), data_inicial varchar(255), data_final varchar(255), data_solicitacao varchar(255), num_abono int, adiantamento int,status varchar(255));
