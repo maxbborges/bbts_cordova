@@ -7,6 +7,11 @@ $( document ).ready(function() {
     });
   } else {
     $("header").load("header.html", function(){
+      $("#btn_logout").click(function(){
+        alert('sair!');
+        localStorage.clear();
+        location.reload();
+      });
     });
   }
 });

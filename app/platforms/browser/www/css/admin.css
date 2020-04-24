@@ -10,3 +10,11 @@
 div.form-group.input_qtd_abono {
     display: none;
 }
+
+input#input_ferias_quantidade_dias,input#input_abono_dias {
+    min-width: 128px;
+}
+
+input#input_final_abono,input#input_ferias_final {
+    min-width: 108px;
+}

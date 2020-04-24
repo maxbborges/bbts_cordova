@@ -1,8 +1,15 @@
+var url;
+if (window.location.hostname=='localhost'){
+  url = 'http://localhost:90'
+} else {
+  url = 'https://mbbdev.site/wp-content/plugins/plugin_maxwell/includes/teste1/server'
+}
+
 function func_login(){
   if (($("#input_login").val())!=''&&($("#input_password").val())!=''){
     $.ajax({
       type: "POST",
-      url: "http://"+window.location.hostname+":90/login.php",
+      url: url+"/login.php",
       data: {'login': $("#input_login").val(), 'password': $("#input_password").val()},
       datatype: 'json',
       success: function(resultado){

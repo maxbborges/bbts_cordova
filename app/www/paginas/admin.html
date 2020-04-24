@@ -13,6 +13,7 @@
   <script src="../js/bootstrap/popper.min.js"></script>
   <script src="../js/bootstrap/bootstrap.min.js"></script>
   <script src="../js/header.js"></script>
+  <script src="../js/verifica_sessao.js"></script>
   <title>Admin</title>
 </head>
 
@@ -38,49 +39,53 @@
       </div>
     </div>
 
-      <div class="collapse" id="collapse_ferias">
-        <div class="row">
-          <div class="col">
-            <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir ferias </button>
-          </div>
-          <div class="col">
-            <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" onclick="listarFerias()" data-toggle="collapse" href="#collapse_listar_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar ferias </button>
-          </div>
+    <div class="collapse" id="collapse_ferias">
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir ferias </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" onclick="listarFerias()" data-toggle="collapse" href="#collapse_listar_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar ferias
+          </button>
         </div>
       </div>
+    </div>
 
 
-      <div class="collapse" id="collapse_abonos">
-        <div class="row">
-          <div class="col">
-            <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir abono </button>
-          </div>
-          <div class="col">
-            <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" onclick="listarAbonos()" data-toggle="collapse" href="#collapse_listar_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar abonos </button>
-          </div>
+    <div class="collapse" id="collapse_abonos">
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir abono </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" onclick="listarAbonos()" data-toggle="collapse" href="#collapse_listar_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar abonos
+          </button>
         </div>
       </div>
+    </div>
 
-      <div class="collapse" id="collapse_outros">
-        <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir outros </button>
-        <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" data-toggle="collapse" href="#collapse_listar_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar outros </button>
-      </div>
+    <div class="collapse" id="collapse_outros">
+      <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir outros </button>
+      <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" data-toggle="collapse" href="#collapse_listar_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar outros </button>
+    </div>
 
-      <div class="collapse" id="collapse_funcionarios">
-        <div class="row">
-          <div class="col">
-            <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir Funcionario </button>
-          </div>
-          <div class="col">
-            <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" onclick="listarFuncionarios()" data-toggle="collapse" href="#collapse_listar_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar Funcionarios </button>
-          </div>
+    <div class="collapse" id="collapse_funcionarios">
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir Funcionario </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" onclick="listarFuncionarios()" data-toggle="collapse" href="#collapse_listar_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar
+            Funcionarios </button>
         </div>
       </div>
+    </div>
 
     <div class="row">
       <div class='col'>
-      <div class="collapse sub_collapse_listar" id="collapse_listar_ferias">
-          <div class="card card-body table-responsive">
+        <div class="collapse sub_collapse_listar" id="collapse_listar_ferias">
+          <div class="card card-body">
+            <div class="table-responsive">
             <table class="table table-dark">
               <thead>
                 <tr>
@@ -96,112 +101,131 @@
               </tbody>
             </table>
           </div>
-      </div>
-<!-- -----------------------------------INSERIR FERIAS ----------------------------------- -->
-      <div class="collapse sub_collapse_inserir" id="collapse_inserir_ferias">
-        <form>
-          <div class="row">
-            <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput"></label>
-            <input type="date" class="form-control" id="input_ferias_data_inicial" placeholder="Data inicial Pretendida:">
           </div>
         </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput2"></label>
-            <input type="number" class="form-control" id="input_ferias_quantidade_dias" placeholder="Quantidade de dias:" min="1" max="30">
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput2"></label>
-            <input type="text" class="form-control" id='input_ferias_final' placeholder="Data final:" disabled>
-          </div>
-        </div>
-          </div>
-          <!-- ----------------------------------- ABONO ----------------------------- -->
-          <div class="row">
-            <div class='col'>
-          <fieldset class="form-group">
-              <legend class="pt-0">Abono </legend>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="ferias_abono" id="ferias_com_abono" value='1'>
-                  <label class="form-check-label" for="ferias_com_abono">
-                    Com abono pecuniário
-                  </label>
-                </div>
-                <div class="form-check" nome='teste'>
-                  <input class="form-check-input" type="radio" name="ferias_abono" id="ferias_sem_abono" value='0' checked>
-                  <label class="form-check-label" for="ferias_sem_abono">
-                    Sem abono pecuniário
-                  </label>
-              </div>
-          </fieldset>
-          </div>
-
-          <!-- ----------------------------------- decimo Terceiro ----------------------------- -->
-          <div class="col">
-          <fieldset class="form-group1">
-              <legend class="pt-0">Adiantamento do 13° </legend>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="ferias_adiantamento" id="ferias_adiantamento_sim" value="1">
-                  <label class="form-check-label" for="ferias_adiantamento_sim">
-                    Adiantamento deo 13°
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="ferias_adiantamento" id="ferias_adiantamento_nao" value="0" checked>
-                  <label class="form-check-label" for="ferias_adiantamento_nao">
-                    Não adiantar o 13°
-                  </label>
+        <!-- -----------------------------------INSERIR FERIAS ----------------------------------- -->
+        <div class="collapse sub_collapse_inserir" id="collapse_inserir_ferias">
+          <form>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput"></label>
+                  <input type="date" class="form-control" id="input_ferias_data_inicial" placeholder="Data inicial Pretendida:">
                 </div>
               </div>
-          </fieldset>
-          </div>
-          <!-- ----------------------------------- QTD ABONO ----------------------------- -->
-          <div class="form-group input_qtd_abono">
-            <label for="ferias_qtd_dias_abono"></label>
-            <input type="text" class="form-control" id="ferias_qtd_dias_abono" placeholder="Quantidade dias de abono pecuniário:">
-          </div>
-          <div class="row">
-            <button type="button" onclick="inserirFerias()" class="btn btn-primary btn-lg btn-block collapse-button"> Inserir </button>
-          </div>
-        </form>
-      </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput2"></label>
+                  <input type="number" class="form-control" id="input_ferias_quantidade_dias" placeholder="Quantidade de dias:" min="1" max="30">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput2"></label>
+                  <input type="text" class="form-control" id='input_ferias_final' placeholder="Data final:" disabled>
+                </div>
+              </div>
+            </div>
+            <!-- ----------------------------------- ABONO ----------------------------- -->
+            <div class="row">
+              <div class='col'>
+                <fieldset class="form-group">
+                  <legend class="pt-0">Abono </legend>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ferias_abono" id="ferias_com_abono" value='1'>
+                    <label class="form-check-label" for="ferias_com_abono">
+                      Com abono pecuniário
+                    </label>
+                  </div>
+                  <div class="form-check" nome='teste'>
+                    <input class="form-check-input" type="radio" name="ferias_abono" id="ferias_sem_abono" value='0' checked>
+                    <label class="form-check-label" for="ferias_sem_abono">
+                      Sem abono pecuniário
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
 
-      <div class="collapse sub_collapse_listar" id="collapse_listar_abonos">
-        Listar de abonos
-      </div>
-      <div class="collapse sub_collapse_inserir" id="collapse_inserir_abonos">
-        <form>
-          <div class="row">
-          <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput"></label>
-            <input type="text" class="form-control" id="input_data_abono" placeholder="Data inicial Pretendida:">
-          </div>
+              <!-- ----------------------------------- decimo Terceiro ----------------------------- -->
+              <div class="col">
+                <fieldset class="form-group1">
+                  <legend class="pt-0">Adiantamento do 13° </legend>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ferias_adiantamento" id="ferias_adiantamento_sim" value="1">
+                    <label class="form-check-label" for="ferias_adiantamento_sim">
+                      Adiantamento deo 13°
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ferias_adiantamento" id="ferias_adiantamento_nao" value="0" checked>
+                    <label class="form-check-label" for="ferias_adiantamento_nao">
+                      Não adiantar o 13°
+                    </label>
+                  </div>
+              </div>
+              </fieldset>
+            </div>
+            <!-- ----------------------------------- QTD ABONO ----------------------------- -->
+            <div class="form-group input_qtd_abono">
+              <label for="ferias_qtd_dias_abono"></label>
+              <input type="text" class="form-control" id="ferias_qtd_dias_abono" placeholder="Quantidade dias de abono pecuniário:">
+            </div>
+            <div class="row">
+              <button type="button" onclick="inserirFerias()" class="btn btn-primary btn-lg btn-block collapse-button"> Inserir </button>
+            </div>
+          </form>
         </div>
-          <div class="col">
-          <div class="form-group">
-            <label for="formGroupExampleInput2"></label>
-            <input type="text" class="form-control" id="input_abono_dias" placeholder="Quantidade de dias:">
-          </div>
-        </div>
-        <div class="col">
-        <div class="form-group">
-          <label for="formGroupExampleInput2"></label>
-          <input type="text" class="form-control" id="input_final_abono" placeholder="Data Final" disabled>
-        </div>
-      </div>
-        </div>
-          <div class="row">
-            <button type="button" onclick="inserirAbono()" class="btn btn-primary btn-lg btn-block collapse-button"> Inserir </button>
-          </div>
-        </form>
-      </div>
 
-      <div class="collapse sub_collapse_listar" id="collapse_listar_outros">
+<!-- -----------------------------------LISTAR ABONOS ----------------------------------- -->
+        <div class="collapse sub_collapse_listar" id="collapse_listar_abonos">
+          <div class="card card-body">
+            <div class="table-responsive">
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">Funcionario</th>
+                  <th scope="col">Inicial</th>
+                  <th scope="col">Final</th>
+                  <th scope="col">Cadastramento</th>
+                </tr>
+              </thead>
+              <tbody id='linhas_abonos'>
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+
+<!-- -----------------------------------INSERIR ABONOS ----------------------------------- -->
+        <div class="collapse sub_collapse_inserir" id="collapse_inserir_abonos">
+          <form>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput"></label>
+                  <input type="date" class="form-control" id="input_data_abono" placeholder="Data inicial Pretendida:">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput2"></label>
+                  <input type="number" class="form-control" id="input_abono_dias" placeholder="Quantidade de dias:">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput2"></label>
+                  <input type="text" class="form-control" id="input_final_abono" placeholder="Data Final" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <button type="button" onclick="inserirAbono()" class="btn btn-primary btn-lg btn-block collapse-button"> Inserir </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- <div class="collapse sub_collapse_listar" id="collapse_listar_outros">
         Listar outros
       </div>
       <div class="collapse sub_collapse_inserir" id="collapse_inserir_outros">
@@ -251,59 +275,61 @@
           </div>
           <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
-      </div>
+      </div> -->
 
-      <div class="collapse sub_collapse_listar" id="collapse_listar_funcionarios">
-        <div class="card card-body table-responsive">
-          <table class="table table-dark">
-            <thead>
-              <tr>
-                <th scope="col">id</th>
-                <th scope="col">Nome</th>
-                <th scope="col">chave_c</th>
-                <th scope="col">matricula</th>
-                <th scope="col">email</th>
-                <th scope="col">telefone</th>
-              </tr>
-            </thead>
-            <tbody id='linhas'>
-            </tbody>
-          </table>
+        <div class="collapse sub_collapse_listar" id="collapse_listar_funcionarios">
+          <div class="card card-body">
+            <div class="table-responsive">
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">id</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">chave_c</th>
+                  <th scope="col">matricula</th>
+                  <th scope="col">email</th>
+                  <th scope="col">telefone</th>
+                </tr>
+              </thead>
+              <tbody id='linhas'>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+        <div class="collapse sub_collapse_inserir" id="collapse_inserir_funcionarios">
+          <form id="form_novo_funcionario" action="#">
+            <div class="form-group">
+              <label for="inputAddress"></label>
+              <input type="text" class="form-control" id="input_name" placeholder="Nome do funcionário:">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4"></label>
+                <input type="text" class="form-control" id="input_chavec" placeholder="Chave C do funcionário:">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4"></label>
+                <input type="text" class="form-control" id="input_matricula" placeholder="Matrícula do funcionário:">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4"></label>
+                <input type="email" class="form-control" id="input_email" placeholder="Email do funcionário:">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4"></label>
+                <input type="text" class="form-control" id="input_telefone" placeholder="Telefone do funcionário:git ">
+              </div>
+            </div>
+            <div class="form-group">
+
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="inserirFuncionarios()">Enviar</button>
+          </form>
         </div>
       </div>
-      <div class="collapse sub_collapse_inserir" id="collapse_inserir_funcionarios">
-        <form id="form_novo_funcionario" action="#">
-          <div class="form-group">
-            <label for="inputAddress"></label>
-            <input type="text" class="form-control" id="input_name" placeholder="Nome do funcionário:">
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputEmail4"></label>
-              <input type="text" class="form-control" id="input_chavec" placeholder="Chave C do funcionário:">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword4"></label>
-              <input type="text" class="form-control" id="input_matricula" placeholder="Matrícula do funcionário:" >
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputEmail4"></label>
-              <input type="email" class="form-control" id="input_email" placeholder="Email do funcionário:">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword4"></label>
-              <input type="text" class="form-control" id="input_telefone" placeholder="Telefone do funcionário:git ">
-            </div>
-          </div>
-          <div class="form-group">
-
-          </div>
-          <button type="submit" class="btn btn-primary" onclick="inserirFuncionarios()">Enviar</button>
-        </form>
-      </div>
-    </div>
     </div>
   </div>
   </div>

@@ -1,8 +1,15 @@
+var url;
+if (window.location.hostname=='localhost'){
+  url = 'http://localhost:90'
+} else {
+  url = 'https://mbbdev.site/wp-content/plugins/plugin_maxwell/includes/teste1/server'
+}
+
 function listarFuncionarios(){
   $('#linhas').html('');
   $.ajax({
     type: "GET",
-    url: "http://"+window.location.hostname+":90/admin.php?logar",
+    url: url+"/admin.php?logar",
     datatype: 'json',
     success: function(resultado){
       for (var i=0;i<resultado.length;i++){
@@ -16,7 +23,7 @@ function listarFuncionarios(){
 function inserirFuncionarios(){
   $.ajax({
     type: "POST",
-    url: "http://"+window.location.hostname+":90/admin.php",
+    url: url+"/admin.php",
     data: {'acao':'inserirFuncionario','nome': $("#input_name").val(), 'chavec': $("#input_chavec").val(),'matricula': $("#input_matricula").val(),'email': $("#input_email").val(),'telefone': $("#input_telefone").val()},
     datatype: 'json',
     success: function(resultado){
@@ -31,19 +38,48 @@ function inserirFuncionarios(){
   });
 }
 
-function inserirAbono(){
-  console.log('inserir')
+function listarAbonos(){
+  $('#linhas_abonos').html('');
+  $.ajax({
+    type: "GET",
+    url: url+"/admin.php?listarAbonos",
+    datatype: 'json',
+    success: function(resultado){
+      for (var i=0;i<resultado.length;i++){
+        $('#linhas_abonos').append('<tr><td>XXX</td><td>'+resultado[i]['data_inicial']+'</td><td>'+resultado[i]['data_final']+'</td><td>'+resultado[i]['data_solicitacao']+'</td></tr>');
+      }
+    },
+  });
 }
 
-function listarAbonos(){
-  console.log('listar')
+function inserirAbono(){
+  if ($("#input_data_abono").val()!='' && $('#input_abono_dias').val()!='' && $('#input_final_abono').val()!=''){
+    $.ajax({
+      type: "POST",
+      url: url+"/admin.php",
+      data: {'acao':'inserirAbono','dataInicial': $("#input_data_abono").val(),'dataFinal': $('#input_final_abono').val()},
+      datatype: 'json',
+      success: function(resultado){
+        if (resultado==1){
+          alert ("Inserido com sucesso");
+        } else {
+          alert('Erro ao inserir');
+          alert(resultado);
+        }
+      },
+    }).fail(function(jqXHR, textStatus){
+      console.log(jqXHR);
+    });
+  } else {
+    alert('Preencha Todos os campos!');
+  }
 }
 
 function listarFerias(){
   $('#linhas_ferias').html('');
   $.ajax({
     type: "GET",
-    url: "http://"+window.location.hostname+":90/admin.php?listarFerias",
+    url: url+"/admin.php?listarFerias",
     datatype: 'json',
     success: function(resultado){
       for (var i=0;i<resultado.length;i++){
@@ -55,10 +91,7 @@ function listarFerias(){
 }
 
 function inserirFerias(){
-  var x = $('input[name=ferias_abono]:checked');
-  var y = $('input[name=ferias_adiantamento]:checked').val();
-
-  if ($("#input_ferias_data_inicial").val()!='' && $('#input_ferias_final').val()!='' && $('#input_ferias_quantidade_dias').val()){
+  if ($("#input_ferias_data_inicial").val()!='' && $('#input_ferias_final').val()!='' && $('#input_ferias_quantidade_dias').val()!=''){
     // var dataSelecionada= new Date($('#input_ferias_data_inicial').val());
     // dataSelecionada.setDate(dataSelecionada.getDate()+1);
     // var data1 = new Date();
@@ -83,7 +116,7 @@ function inserirFerias(){
 function inserirFeriasAjax(numAbono){
   $.ajax({
     type: "POST",
-    url: "http://"+window.location.hostname+":90/admin.php",
+    url: url+"/admin.php",
     data: {'acao':'inserirFerias','dataInicial': $("#input_ferias_data_inicial").val(),'dataFinal': $('#input_ferias_final').val(),'numAbono': numAbono,'adiantamento':$('input[name=ferias_adiantamento]:checked').val()},
     datatype: 'json',
     success: function(resultado){
@@ -105,6 +138,7 @@ $( document ).ready(function() {
   var m =  ("0" + (data_inicial.getMonth() + 1)).slice(-2);
   var y = data_inicial.getFullYear();
   $('#input_ferias_data_inicial').val(y+'-'+m+'-'+d);
+  $('#input_data_abono').val(y+'-'+m+'-'+d);
 
   $( "#input_ferias_quantidade_dias" ).keyup(function() {
     var date = new Date($('#input_ferias_data_inicial').val());
@@ -114,6 +148,16 @@ $( document ).ready(function() {
     var y = date.getFullYear();
     $('#input_ferias_final').attr("placeholder",d+'/'+m+'/'+y);
     $('#input_ferias_final').val(d+'/'+m+'/'+y);
+  });
+
+  $( "#input_abono_dias" ).keyup(function() {
+    var date = new Date($('#input_data_abono').val());
+    date.setDate(date.getDate()+1+parseInt($("#input_abono_dias").val()));
+    var d = ("0" + date.getDate()).slice(-2);
+    var m =  ("0" + (date.getMonth() + 1)).slice(-2);
+    var y = date.getFullYear();
+    $('#input_final_abono').attr("placeholder",d+'/'+m+'/'+y);
+    $('#input_final_abono').val(d+'/'+m+'/'+y);
   });
 
   $(".submenu-adm button").click(function(){

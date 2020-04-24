@@ -35,6 +35,21 @@ if (isset($_GET['listarFerias'])){
   echo json_encode($resultado);
 }
 
+if (isset($_GET['listarAbonos'])){
+  require_once './connection.php';
+
+  $resultado = [];
+  $consulta = mysqli_query($link,"select data_inicial,data_final,data_solicitacao,funcionario from abonos");
+
+  while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
+    array_push($resultado,$linha);
+  }
+
+  mysqli_close($link);
+  header('Content-type: application/json');
+  echo json_encode($resultado);
+}
+
 if (!empty($_POST)) {
   require_once './connection.php';
   if ($_POST['acao']=='inserirFuncionario'){
@@ -54,6 +69,11 @@ if (!empty($_POST)) {
     mysqli_close($link);
     echo $consulta;
 
+  } else if ($_POST['acao']=='inserirAbono'){
+    $linha = "insert into abonos (data_inicial,data_final,data_solicitacao) values ('".$_POST['dataInicial']."','".$_POST['dataFinal']."','".date('d/m/Y')."');";
+    $consulta = mysqli_query($link,$linha);
+    mysqli_close($link);
+    echo $consulta;
   }
 }
 
