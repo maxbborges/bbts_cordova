@@ -14,7 +14,7 @@ function func_login(){
       datatype: 'json',
       success: function(resultado){
         console.log(resultado)
-          if (resultado == 0 || resultado == null){
+          if (resultado == 0 || resultado == null || resultado['usuario_bbts']== null){
               alert("Usuario incorreto");
           } else {
             window.localStorage.setItem('login', true);
