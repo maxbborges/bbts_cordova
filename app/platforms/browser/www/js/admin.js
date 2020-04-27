@@ -13,7 +13,13 @@ function listarFuncionarios(){
     datatype: 'json',
     success: function(resultado){
       for (var i=0;i<resultado.length;i++){
-        $('#linhas').append('<tr><td>'+resultado[i]['id']+'</td><td>'+resultado[i]['nome']+'</td><td>'+resultado[i]['chave_c']+'</td><td>'+resultado[i]['matricula']+'<td>'+resultado[i]['email']+'</td><td>'+resultado[i]['telefone']+'</td></tr>');
+        $('#linhas').append(
+          '<tr><td>'+resultado[i]['matricula']+
+          '</td><td>'+resultado[i]['nome']+
+          '</td><td>'+resultado[i]['chave_c']+
+          '</td><td>'+resultado[i]['email']+
+          '</td><td>'+resultado[i]['telefone']+
+          '</td></tr>');
       }
 
     },

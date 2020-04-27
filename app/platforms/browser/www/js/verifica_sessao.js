@@ -1,4 +1,4 @@
-if (window.localStorage.getItem('login')=='true'){
+if (window.localStorage.getItem('login')=='true'&&window.localStorage.getItem('usuario_bbts')!=null){
   if (window.location['href']==(window.location['origin']+'/')||window.location.pathname=='/android_asset/www/index.html'){
     window.location = 'paginas/home.html';
   } else if ((window.location.pathname).indexOf("paginas/login.html")>-1){

@@ -5,13 +5,19 @@ require_once './connection.php';
  if (!empty($_POST)) {
    $login = isset($_POST['login']) ? $_POST['login'] : NULL;
    $password = isset($_POST['password']) ? $_POST['password'] : NULL;
-   $check = "select id from funcionario where matricula=".(int)$login.";";
-   $consulta = mysqli_query($link,$check);
-   if (($consulta->fetch_row())[0] == null){
-     echo 0;
-   }else {
-     echo 1;
-   }
+   $check = "select nome,atributo from funcionario,atributos where matricula=".(int)$login." and senha=md5('".$password."') and matricula=matricula_funcionario;";
+
+   if ($result = mysqli_query($link,$check)) {
+     while ($row = $result->fetch_assoc()) {
+       $nome = $row['nome'];
+       $atributos[] =  $row['atributo'];
+    }
+    header('Content-Type: application/json;charset=utf-8');
+    echo json_encode(array('usuario_bbts'=>$nome,'atributos'=>$atributos));
+    $result->close();
+  } else {
+    echo 0;
+  }
  } else {
     echo 0;
   }

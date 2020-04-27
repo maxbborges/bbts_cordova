@@ -13,10 +13,13 @@ function func_login(){
       data: {'login': $("#input_login").val(), 'password': $("#input_password").val()},
       datatype: 'json',
       success: function(resultado){
-          if (resultado == 0){
+        console.log(resultado)
+          if (resultado == 0 || resultado == null){
               alert("Usuario incorreto");
           } else {
             window.localStorage.setItem('login', true);
+            window.localStorage.setItem('usuario_bbts', resultado['usuario_bbts']);
+            window.localStorage.setItem('atributos', resultado['atributos']);
             window.location = "home.html";
           }
       },

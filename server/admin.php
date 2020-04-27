@@ -9,7 +9,7 @@ if (isset($_GET['logar'])){
   require_once './connection.php';
 
   $resultado = [];
-  $consulta = mysqli_query($link,"select id,nome,chave_c,matricula,email,telefone from funcionario");
+  $consulta = mysqli_query($link,"select matricula,nome,chave_c,email,telefone from funcionario");
 
   while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
     array_push($resultado,$linha);
