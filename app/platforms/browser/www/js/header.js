@@ -7,6 +7,8 @@ $( document ).ready(function() {
     });
   } else {
     $("header").load("header.html", function(){
+      $("#dropdownMenuButton").html(window.localStorage.getItem('usuario_bbts'));
+
       $("#btn_logout").click(function(){
         alert('sair!');
         localStorage.clear();
