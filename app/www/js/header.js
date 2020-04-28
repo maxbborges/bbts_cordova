@@ -8,6 +8,7 @@ $( document ).ready(function() {
   } else {
     $("header").load("header.html", function(){
       $("#dropdownMenuButton").html(window.localStorage.getItem('usuario_bbts'));
+      $("#dropdownAtrib").html(window.localStorage.getItem('atributos'));
 
       $("#btn_logout").click(function(){
         alert('sair!');
