@@ -1,25 +1,108 @@
+var url;
+if (window.location.hostname=='localhost'){
+  url = 'http://localhost:90'
+} else {
+  url = 'https://mbbdev.site/wp-content/plugins/plugin_maxwell/includes/teste1/server'
+}
 
 $('#calendario_home').ready(function () {
-  calendario();
-})
-
-function calendario (){
+  var data_atual = new Date();
   const days2020 = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const days2021 = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-  var d = new Date();
-  var n = d.getMonth();
+  calendario(days2020,days2021,data_atual);
+  consultaEventos(days2020,days2021,data_atual);
+})
 
-  var inicio_mes1 = new Date(d.getFullYear(), n, 1);
-  var inicio_mes2 = new Date(d.getFullYear(), n+1, 1);
-  var inicio_mes3 = new Date(d.getFullYear(), n+2, 1);
-  //
-  // var fim_mes1 = new Date(d.getFullYear(), n, 0);
-  // var fim_mes2 = new Date(d.getFullYear(), n+1, 0);
-  // var fim_mes3 = new Date(d.getFullYear(), n+2, 0);
+function consultaEventos(days2020,days2021,data_atual){
+  $.ajax({
+    type: "GET",
+    url: url+"/home.php?listarEventos",
+    datatype: 'json',
+    success: function(resultado){
 
+      for (var i=0;i<resultado.length;i++){
+        var data_inicial_banco = new Date(resultado[i]['data_inicial']);
+        var data_final_banco = new Date(resultado[i]['data_final']);
+        data_inicial_banco.setDate(data_inicial_banco.getDate() + 1);
+        data_final_banco.setDate(data_final_banco.getDate() + 1);
+        var mes_inicial=data_inicial_banco.getMonth();
+        var mes_final=data_final_banco.getMonth();
+
+        if (data_inicial_banco.getMonth()==data_atual.getMonth()){
+          calendario_referente_inicial = '#calendario1'
+        } else if (data_inicial_banco.getMonth()==data_atual.getMonth()+1){
+          calendario_referente_inicial = '#calendario2'
+        } else if (data_inicial_banco.getMonth()==data_atual.getMonth()+2){
+          calendario_referente_inicial = '#calendario3'
+        }
+
+        if (data_final_banco.getMonth()==data_atual.getMonth()){
+          calendario_referente_final = '#calendario1'
+        } else if (data_final_banco.getMonth()==data_atual.getMonth()+1){
+          calendario_referente_final = '#calendario2'
+        } else if (data_final_banco.getMonth()==data_atual.getMonth()+2){
+          calendario_referente_final = '#calendario3'
+        }
+
+        if (mes_inicial==mes_final){
+          for (dia=data_inicial_banco.getDate();dia<=data_final_banco.getDate();dia++){
+            $(calendario_referente_inicial+' td.td'+dia).css('background','green');
+          }
+        } else {
+          for (dia=data_inicial_banco.getDate();dia<=days2020[data_inicial_banco.getMonth()];dia++){
+            $(calendario_referente_inicial+' td.td'+dia).css('background','green');
+            if (dia==days2020[data_inicial_banco.getMonth()]){
+              for (dia1=1;dia1<=data_final_banco.getDate();dia1++){
+                $(calendario_referente_final+' td.td'+dia1).css('background','green');
+              }
+            }
+          }
+        }
+
+
+
+
+
+
+
+        var data = new Date(data_inicial_banco.getFullYear(),data_inicial_banco.getMonth(),data_inicial_banco.getDate());
+        // if (data_inicial_banco.getMonth()==data_atual.getMonth()){
+        //   for (data=data_inicial_banco.getDate();data<=data_final_banco.getDate();data++){
+        //     $('#calendario1 td.td'+data).css('background','green');
+        //   }
+        // } else if (data_inicial_banco.getMonth()==(data_atual.getMonth()+1)){
+        //   for (data=data_inicial_banco.getDate();data<=data_final_banco.getDate();data++){
+        //     $('#calendario2 td.td'+data).css('background','green');
+        //   }
+        // } else if (data_inicial_banco.getMonth()==(data_atual.getMonth()+2)){
+        //   for (data=data_inicial_banco.getDate();data<=data_final_banco.getDate();data++){
+        //     $('#calendario3 td.td'+data).css('background','green');
+        //   }
+        // }
+      }
+
+    },
+  });
+}
+
+function calendario (days2020,days2021,data_atual){
+  var n = data_atual.getMonth();
+
+  var inicio_mes1 = new Date(data_atual.getFullYear(), n, 1);
+  var inicio_mes2 = new Date(data_atual.getFullYear(), n+1, 1);
+  var inicio_mes3 = new Date(data_atual.getFullYear(), n+2, 1);
+
+  var meses = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  $('p#mes1').html(meses[n]);
+  $('p#mes2').html(meses[n+1]);
+  $('p#mes3').html(meses[n+2]);
+
+
+  var num_colunas = 1;
   for (var x=1, y=inicio_mes1.getDay();x<=days2020[n];x++,y++){
     if(y%7==0&&y!=0){
+      num_colunas++;
       $('#calendario1').append('<tr></tr>');
     }
 
@@ -29,12 +112,18 @@ function calendario (){
       }
     }
 
-
     $('#calendario1').append('<td class="td'+x+'">'+x+'</td>');
   }
 
+  if (num_colunas==5){
+    $('#calendario1').append('<tr></tr>');
+    $('#calendario1').append('<td id="blank">1</td><td></td><td></td><td></td><td></td>');
+  }
+
+  var num_colunas = 1;
   for (var x=1, y=inicio_mes2.getDay();x<=days2020[n+1];x++,y++){
     if(y%7==0&&y!=0){
+      num_colunas++;
       $('#calendario2').append('<tr></tr>');
     } else if (x==1){
       for (z=0;z<y;z++){
@@ -43,9 +132,15 @@ function calendario (){
     }
     $('#calendario2').append('<td class="td'+x+'">'+x+'</td>');
   }
+  if (num_colunas==5){
+    $('#calendario2').append('<tr></tr>');
+    $('#calendario2').append('<td id="blank">1</td><td></td><td></td><td></td><td></td>');
+  }
 
+var num_colunas = 1;
   for (var x=1, y=inicio_mes3.getDay();x<=days2020[n+2];x++,y++){
     if(y%7==0&&y!=0){
+      num_colunas++;
       $('#calendario3').append('<tr></tr>');
     } else if (x==1){
       for (z=0;z<y;z++){
@@ -53,5 +148,9 @@ function calendario (){
       }
     }
     $('#calendario3').append('<td class="td'+x+'">'+x+'</td>');
+  }
+  if (num_colunas==5){
+    $('#calendario3').append('<tr></tr>');
+    $('#calendario3').append('<td id="blank">1</td><td></td><td></td><td></td><td></td>');
   }
 }

@@ -1,52 +1,13 @@
-td.td1{
-  background: blue;
+#calendario_home{
+  margin: 0px;
 }
 
-td.td4{
-  background: green;
+div#calendario_home div.col {
+    padding: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-td.td6{
-  background: green;
-}
-
-td.td16{
-  background: green;
-}
-
-td.td21{
-  background: green;
-}
-
-td.td28{
-  background: yellow;
-}
-
-td.td7{
-  background: yellow;
-}
-
-td.td17{
-  background: yellow;
-}
-
-
-td.td5{
-  background: blue;
-}
-
-td.td10{
-  background: blue;
-}
-
-td.td15{
-  background: blue;
-}
-
-td.td22{
-  background: blue;
-}
-
-td.td27{
-  background: blue;
+#blank {
+    color: #343a40;
 }

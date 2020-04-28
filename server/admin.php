@@ -9,7 +9,7 @@ if (isset($_GET['logar'])){
   require_once './connection.php';
 
   $resultado = [];
-  $consulta = mysqli_query($link,"select matricula,nome,chave_c,email,telefone from funcionario");
+  $consulta = mysqli_query($link,"select matricula,nome,chave_c,email from funcionario");
 
   while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
     array_push($resultado,$linha);
@@ -24,7 +24,7 @@ if (isset($_GET['listarFerias'])){
   require_once './connection.php';
 
   $resultado = [];
-  $consulta = mysqli_query($link,"select data_inicial,data_final,data_solicitacao,num_abono,adiantamento,funcionario from ferias");
+  $consulta = mysqli_query($link,"select data_inicial,data_final,data_solicitacao,num_abono,adiantamento,nome from ferias,funcionario where matricula_funcionario=matricula;");
 
   while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
     array_push($resultado,$linha);
@@ -39,7 +39,7 @@ if (isset($_GET['listarAbonos'])){
   require_once './connection.php';
 
   $resultado = [];
-  $consulta = mysqli_query($link,"select data_inicial,data_final,data_solicitacao,funcionario from abonos");
+  $consulta = mysqli_query($link,"select nome,data_inicial,data_final,data_solicitacao from abonos,funcionario where matricula_funcionario=matricula;");
 
   while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
     array_push($resultado,$linha);
@@ -57,20 +57,25 @@ if (!empty($_POST)) {
     $chavec = isset($_POST['chavec']) ? $_POST['chavec'] : NULL;
     $matricula = isset($_POST['matricula']) ? $_POST['matricula'] : NULL;
     $email = isset($_POST['email']) ? $_POST['email'] : NULL;
-    $telefone = isset($_POST['telefone']) ? $_POST['telefone'] : NULL;
-    $linha = "insert into funcionario (nome,chave_c,matricula,email,telefone) values ('".$nome."','".$chavec."',".$matricula.",'".$email."',".(int)$telefone.");";
+    // $telefone = isset($_POST['telefone']) ? $_POST['telefone'] : NULL;
+    $linha = "insert into funcionario (nome,chave_c,matricula,email) values ('".$nome."','".$chavec."',".$matricula.",'".$email."');";
     $consulta = mysqli_query($link,$linha);
 
     mysqli_close($link);
     echo $consulta;
   } else if ($_POST['acao']=='inserirFerias'){
-    $linha = "insert into ferias (data_inicial,data_final,data_solicitacao,num_abono,adiantamento) values ('".$_POST['dataInicial']."','".$_POST['dataFinal']."','".date('d/m/Y')."',".$_POST['numAbono'].",".(int)$_POST['adiantamento'].");";
+    $dataInicial = date("Y-m-d", strtotime($_POST['dataInicial']));
+    $dataFinal = date("Y-m-d", strtotime($_POST['dataFinal']));
+    $linha = "insert into ferias (data_inicial,data_final,data_solicitacao,num_abono,adiantamento,matricula_funcionario,status) values ('".$dataInicial."','".$dataFinal."','".date('Y-m-d')."',".$_POST['numAbono'].",".(int)$_POST['adiantamento'].",".(int)$_POST['matricula'].",'Pendente');";
     $consulta = mysqli_query($link,$linha);
     mysqli_close($link);
     echo $consulta;
 
   } else if ($_POST['acao']=='inserirAbono'){
-    $linha = "insert into abonos (data_inicial,data_final,data_solicitacao) values ('".$_POST['dataInicial']."','".$_POST['dataFinal']."','".date('d/m/Y')."');";
+    $dataInicial = date("Y-m-d", strtotime($_POST['dataInicial']));
+    $dataFinal = date("Y-m-d", strtotime($_POST['dataFinal']));
+
+    $linha = "insert into abonos (data_inicial,data_final,data_solicitacao,matricula_funcionario) values ('".$dataInicial."','".$dataFinal."','".date('Y-m-d')."',".(int)$_POST['matricula'].");";
     $consulta = mysqli_query($link,$linha);
     mysqli_close($link);
     echo $consulta;

@@ -30,31 +30,28 @@ CREATE TABLE `atributos` (
   `matricula_funcionario` int(11) DEFAULT NULL,
   `atributo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `matricula_funcionario` (`matricula_funcionario`),
-  CONSTRAINT `atributos_ibfk_1` FOREIGN KEY (`matricula_funcionario`) REFERENCES `funcionario` (`matricula`)
+  FOREIGN KEY (matricula_funcionario) REFERENCES funcionario(matricula)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `ferias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `matricula_funcionarios` varchar(255) DEFAULT NULL,
+  `matricula_funcionario` int(11) DEFAULT NULL,
   `num_abono` int(11) DEFAULT NULL,
   `adiantamento` int(11) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `data_inicial` date DEFAULT NULL,
   `data_final` date DEFAULT NULL,
   `data_solicitacao` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-  KEY `matricula_funcionario` (`matricula_funcionario`),
-  CONSTRAINT `atributos_ibfk_1` FOREIGN KEY (`matricula_funcionario`) REFERENCES `funcionario` (`matricula`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (matricula_funcionario) REFERENCES funcionario(matricula)
+)
 
 CREATE TABLE `abonos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `matricula_funcionario` varchar(255) DEFAULT NULL,
+  `matricula_funcionario` int(11) DEFAULT NULL,
   `data_final` date DEFAULT NULL,
   `data_inicial` date DEFAULT NULL,
   `data_solicitacao` date DEFAULT NULL,
-  PRIMARY KEY (`id`)
-  KEY `matricula_funcionario` (`matricula_funcionario`),
-  CONSTRAINT `atributos_ibfk_1` FOREIGN KEY (`matricula_funcionario`) REFERENCES `funcionario` (`matricula`)
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (matricula_funcionario) REFERENCES funcionario(matricula)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
