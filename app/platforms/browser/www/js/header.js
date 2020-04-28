@@ -9,6 +9,7 @@ $( document ).ready(function() {
     $("header").load("header.html", function(){
       $("#dropdownMenuButton").html(window.localStorage.getItem('usuario_bbts'));
       $("#dropdownAtrib").html(window.localStorage.getItem('atributos'));
+      $("#dropdownMat").html(window.localStorage.getItem('matricula'));
 
       $("#btn_logout").click(function(){
         alert('sair!');

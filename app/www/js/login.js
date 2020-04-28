@@ -20,6 +20,7 @@ function func_login(){
             window.localStorage.setItem('login', true);
             window.localStorage.setItem('usuario_bbts', resultado['usuario_bbts']);
             window.localStorage.setItem('atributos', resultado['atributos']);
+            window.localStorage.setItem('matricula', resultado['matricula']);
             window.location = "home.html";
           }
       },
