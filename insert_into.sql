@@ -41,3 +41,7 @@ INSERT INTO funcionario (matricula, nome, senha, chave_c, email, ferias_restante
 values (111988,'JOAO AUGUSTO BARBOSA BE', md5(12345),'C1282480','joao.be@bbts.com.br'
 ,30,'03746280176','262591 sspdf',
 '99999','99999','202085580001','2015-05-19');
+
+
+INSERT INTO atributos (matricula_funcionario,atributo) values (105928,'administrativo');
+INSERT INTO atributos (matricula_funcionario,atributo) values (105928,'tecnico');
