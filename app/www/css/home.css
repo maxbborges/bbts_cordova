@@ -6,12 +6,25 @@ div#calendario_home div.col {
     padding: 0px;
     margin-right: 10px;
     margin-left: 10px;
+    min-width: 413px;
+    max-width: 413px;
 }
 
 #blank {
     color: #343a40;
 }
 
-#legenda{
-  color: #ffffff;
+#calendario_home td{
+  padding: 0px;
+  border: inset;
+  border-color: yellow;
+  text-align: center;
+}
+
+.notificacao {
+    visibility: hidden;
+}
+
+.tdSobressalente {
+  border: none !important;
 }
