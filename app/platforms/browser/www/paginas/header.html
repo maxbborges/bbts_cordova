@@ -1,4 +1,5 @@
-<ul class="nav justify-content-center">
+
+<!-- <ul class="nav justify-content-center">
   <li class="nav-item">
     <a class="nav-link active btn btn-primary" href="../index.html">INDEX</a>
   </li>
@@ -20,14 +21,50 @@
         </div>
     </div>
   </li>
+</ul> -->
+
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-large"
+  onclick="w3_close()">Close &times;</button>
+
+  <ul class="nav justify-content-center">
+
+    <li>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class='fas fa-id-card' style='font-size:24px'></i>  Usuário
+        </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" id="dropdownMat" href="#">Matrícula</a>
+            <a class="dropdown-item" id="dropdownAtrib" href="#">Atribuições</a>
+            <a class="dropdown-item" id='btn_logout' href="../index.html">Sair</a>
+          </div>
+      </div>
+    </li>
+  </ul>
+
+  <a href="../index.html" class="w3-bar-item w3-button">INDEX</a>
+  <a href="home.html" class="w3-bar-item w3-button">HOME</a>
+  <a href="admin.html" class="w3-bar-item w3-button">ADMIN</a>
+
+</div>
+
+<!-- <div id="main">
+
+<div class="w3-teal">
+  <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+  <div class="w3-container">
+    <h1>BBTS - Só Serviços </h1>
+  </div>
+</div>
 
 
-  <!-- <button type="button" class="btn btn-default" aria-label="Left Align">
-  <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-</button> -->
+<div class="w3-container">
+<p>In this example, the sidebar is hidden (style="display:none")</p>
+<p>It is shown when you click on the menu icon in the top left corner.</p>
+<p>When it is opened, it shifts the page content to the right.</p>
+<p>We use JavaScript to add a 25% left margin to the div element with id="main" when this happens. The value "25%" matches the width of the sidebar.</p>
+</div>
 
-
-  <!-- <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">DISABLED</a>
-  </li> -->
-</ul>
+</div> -->
+<!-- <script src="../js/header.js"></script> -->

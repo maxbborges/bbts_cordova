@@ -3,10 +3,11 @@
 
 <head>
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://p.typekit.net/; media-src *; img-src 'self' data: content:;  font-src *;script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232 https://mbbdev.site/; connect-src *;">
+    content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://www.w3schools.com https://p.typekit.net/; media-src *; img-src 'self' data: content:;  font-src *;script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232 https://mbbdev.site/; connect-src *;">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" type="text/css" href="../css/admin.css">
   <link rel="stylesheet" type="text/css" href="../css/geral.css">
   <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
@@ -18,10 +19,19 @@
   <title>Admin</title>
 </head>
 
-<body>
+<header>
+</header>
+
+<body background="/img/img1.jpg" bgproperties="fixed">
+    <!-- <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button> -->
+    <div class="w3-teal">
+      <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+      <div class="w3-container">
+
+      </div>
+    </div>
+
   <div class="container">
-    <header>
-    </header>
     <div class="row">
       <div class="row submenu-adm">
         <div class="col">
@@ -129,7 +139,7 @@
             </div>
             <!-- ----------------------------------- ABONO ----------------------------- -->
             <div class="row">
-              <div class='col'>
+              <div class='col' id="AbonoColor">
                 <fieldset class="form-group">
                   <legend class="pt-0">Abono </legend>
                   <div class="form-check">
@@ -148,7 +158,7 @@
               </div>
 
               <!-- ----------------------------------- decimo Terceiro ----------------------------- -->
-              <div class="col">
+              <div class="col" id="decimoColor">
                 <fieldset class="form-group1">
                   <legend class="pt-0">Adiantamento do 13° </legend>
                   <div class="form-check">

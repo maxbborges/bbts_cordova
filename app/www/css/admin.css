@@ -18,3 +18,11 @@ input#input_ferias_quantidade_dias,input#input_abono_dias {
 input#input_final_abono,input#input_ferias_final {
     min-width: 108px;
 }
+
+#AbonoColor{
+  color: #ffffff;
+}
+
+#decimoColor{
+  color: #ffffff;
+}

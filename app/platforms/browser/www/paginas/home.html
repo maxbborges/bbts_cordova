@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://kit-free.fontawesome.com https://p.typekit.net/; font-src *; media-src *; img-src 'self' data: content:; script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232 https://mbbdev.site/; connect-src *;">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://www.w3schools.com https://kit-free.fontawesome.com https://p.typekit.net/; font-src *; media-src *; img-src 'self' data: content:; script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232 https://mbbdev.site/; connect-src *;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta charset="UTF-8">
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <link rel="stylesheet" type="text/css" href="../css/geral.css">
         <link rel="stylesheet" type="text/css" href="../css/home.css">
         <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="../js/bootstrap/jquery.min.js"></script>
         <script src="../js/bootstrap/popper.min.js"></script>
         <script src="../js/bootstrap/bootstrap.min.js"></script>
@@ -18,15 +19,25 @@
         <script src="../js/verifica_sessao.js"></script>
         <title>Home</title>
     </head>
-    <body>
+    <body background="/img/img1.jpg" bgproperties="fixed">
+      <header>
+      </header>
+      <!-- <div class="row" style=''>
+        LEGENDA: <br>
+        AMARELO: ABONO<br>
+        VERDE: FERIAS<br>
+      </div> -->
+        <!-- <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button> -->
+
+        <div class="w3-teal">
+          <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+          <div class="w3-container">
+
+          </div>
+        </div>
+
         <div class="container">
-            <header>
-            </header
-            <div class="row" style=''>
-              LEGENDA: <br>
-              AMARELO: ABONO<br>
-              VERDE: FERIAS<br>
-            </div>
+
             <div class="row" id='calendario_home'>
               <div class="col">
                 <div class="card card-body">
@@ -90,11 +101,18 @@
               </div>
             </div>
 
+            <div id='legenda' class="row" style='' >
+              LEGENDA: <br>
+              AMARELO: ABONO<br>
+              VERDE: FERIAS<br>
+            </div>
+
         </div>
 
 
         <script type="text/javascript" src="../cordova.js"></script>
         <script type="text/javascript" src="../js/home.js"></script>
+
     </body>
     <footer>
     </footer>
