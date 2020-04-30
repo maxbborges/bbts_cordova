@@ -12,7 +12,7 @@ if (isset($_GET['listarEventos'])){
   }
 
   $resultado1 = [];
-  $consulta1 = mysqli_query($link,"select * from abonos where MONTH(data_inicial ) BETWEEN (MONTH(CURDATE())-1) and (MONTH(CURDATE())+3);");
+  $consulta1 = mysqli_query($link,"select * from abonos where MONTH(data_inicial ) BETWEEN (MONTH(CURDATE())-1) and (MONTH(CURDATE())+3) order by data_inicial,data_final;");
   while ($linha = mysqli_fetch_array($consulta1,MYSQLI_ASSOC)){
     array_push($resultado1,$linha);
   }

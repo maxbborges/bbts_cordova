@@ -20,8 +20,9 @@ function consultaEventos(days2020,days2021,data_atual){
     url: url+"/home.php?listarEventos",
     datatype: 'json',
     success: function(resultado){
-      console.log(resultado);
       for (var i=0;i<resultado['abonos'].length;i++){
+        // calendario_referente_inicial = ''
+        calendario_referente_final = ''
         var data_inicial_banco = new Date(resultado['abonos'][i]['data_inicial']);
         var data_final_banco = new Date(resultado['abonos'][i]['data_final']);
         data_inicial_banco.setDate(data_inicial_banco.getDate() + 1);
@@ -44,7 +45,7 @@ function consultaEventos(days2020,days2021,data_atual){
         } else if (data_final_banco.getMonth()==data_atual.getMonth()+2){
           calendario_referente_final = '#calendario3'
         }
-        var x=0;
+
         if (mes_inicial==mes_final){
           for (dia=data_inicial_banco.getDate();dia<=data_final_banco.getDate();dia++){
             var valor = $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-primary').text();
@@ -53,16 +54,16 @@ function consultaEventos(days2020,days2021,data_atual){
           }
         } else {
           for (dia=data_inicial_banco.getDate();dia<=days2020[data_inicial_banco.getMonth()];dia++){
+            if (typeof calendario_referente_inicial!=='undefined'){
             var valor = $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-primary').text();
             $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-primary').css('visibility','visible');
             $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-primary').text(parseInt(valor)+1)
-            // $(calendario_referente_inicial+' td.td'+dia).css('background','yellow');
-            if (dia==days2020[data_inicial_banco.getMonth()]){
+          }
+            if (dia==days2020[data_inicial_banco.getMonth()]&&calendario_referente_final!=''){
               for (dia1=1;dia1<=data_final_banco.getDate();dia1++){
                 var valor = $(calendario_referente_final+' td.td'+dia1+' .notificacao.badge-primary').text();
                 $(calendario_referente_final+' td.td'+dia1+' .notificacao.badge-primary').css('visibility','visible');
                 $(calendario_referente_final+' td.td'+dia1+' .notificacao.badge-primary').text(parseInt(valor)+1)
-                // $(calendario_referente_final+' td.td'+dia1).css('background','yellow');
               }
             }
           }
@@ -71,12 +72,14 @@ function consultaEventos(days2020,days2021,data_atual){
       }
 
       for (var i=0;i<resultado['ferias'].length;i++){
+        calendario_referente_final = ''
         var data_inicial_banco = new Date(resultado['ferias'][i]['data_inicial']);
         var data_final_banco = new Date(resultado['ferias'][i]['data_final']);
         data_inicial_banco.setDate(data_inicial_banco.getDate() + 1);
         data_final_banco.setDate(data_final_banco.getDate() + 1);
         var mes_inicial=data_inicial_banco.getMonth();
         var mes_final=data_final_banco.getMonth();
+
 
         if (data_inicial_banco.getMonth()==data_atual.getMonth()){
           calendario_referente_inicial = '#calendario1'
@@ -99,20 +102,19 @@ function consultaEventos(days2020,days2021,data_atual){
             var valor = $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-light').text();
             $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-light').css('visibility','visible');
             $(calendario_referente_final+' td.td'+dia+' .notificacao.badge-light').text(parseInt(valor)+1)
-            // $(calendario_referente_inicial+' td.td'+dia).css('background','green');
           }
         } else {
           for (dia=data_inicial_banco.getDate();dia<=days2020[data_inicial_banco.getMonth()];dia++){
-            var valor = $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-light').text();
-            $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-light').css('visibility','visible');
-            $(calendario_referente_final+' td.td'+dia+' .notificacao.badge-light').text(parseInt(valor)+1)
-          // $(calendario_referente_inicial+' td.td'+dia).css('background','green');
-            if (dia==days2020[data_inicial_banco.getMonth()]){
+            if (typeof calendario_referente_inicial!=='undefined'){
+              var valor = $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-light').text();
+              $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-light').css('visibility','visible');
+              $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-light').text(parseInt(valor)+1)
+            }
+            if (dia==days2020[data_inicial_banco.getMonth()]&&calendario_referente_final!=''){
               for (dia1=1;dia1<=data_final_banco.getDate();dia1++){
                 var valor = $(calendario_referente_final+' td.td'+dia1+' .notificacao.badge-light').text();
                 $(calendario_referente_final+' td.td'+dia1+' .notificacao.badge-light').css('visibility','visible');
                 $(calendario_referente_final+' td.td'+dia1+' .notificacao.badge-light').text(parseInt(valor)+1)
-                // $(calendario_referente_final+' td.td'+dia1).css('background','green');
               }
             }
           }
