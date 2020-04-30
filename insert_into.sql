@@ -97,8 +97,3 @@ INSERT INTO funcionario (matricula, nome, senha, chave_c, email, ferias_restante
 values (107328,'ELTON SOARES PIRES DE CARVALHO', md5(12345),'C1260257','elton.carvalho@bbts.com.br'
 ,30,'69855234120','2175362 sspdf',
 '99999','99999','202085580001','2012-05-02');
-
-INSERT INTO funcionario (matricula, nome, senha, chave_c, email, ferias_restantes, cpf, rg, cartao_bb, cartao_capital, num_contrato, contratacao)
-values (105928,'HARITON DOS SANTOS RIBEIRO', md5(12345),'C1310326','hariton.ribeiro@bbts.com.br'
-,30,'05057180908','93850017 sspdf',
-'99999','99999','202085580001','2011-11-01');

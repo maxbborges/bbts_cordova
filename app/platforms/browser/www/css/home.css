@@ -4,8 +4,8 @@
 
 div#calendario_home div.col {
     padding: 0px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 15px;
+    margin-left: 0px;
     min-width: 413px;
     max-width: 413px;
 }
@@ -27,4 +27,18 @@ div#calendario_home div.col {
 
 .tdSobressalente {
   border: none !important;
+}
+
+div.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#legenda{
+  color: #ffffff;
+  margin-right: 0px;
+  margin-left: 5px;
 }
