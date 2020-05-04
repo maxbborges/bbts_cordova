@@ -12,7 +12,32 @@ $('#calendario_home').ready(function () {
 
   calendario(days2020,days2021,data_atual);
   consultaEventos(days2020,days2021,data_atual);
+
+  alertaFuncionarios();
 })
+
+function mudaCor(teste){
+  $('.'+teste).css("color","red");
+}
+
+function voltaCor(teste){
+  $('.'+teste).css("color","#ffffff");
+}
+
+function alertaFuncionarios(){
+  for (var i = 0; i <= 31 ; i++) {
+
+    $(".td1"+i).click(function (){
+      alert("Funcionarios");
+    });
+    $(".td2"+i).click(function (){
+      alert("Funcionarios");
+    });
+    $(".td3"+i).click(function (){
+      alert("Funcionarios");
+    });
+   }
+}
 
 function consultaEventos(days2020,days2021,data_atual){
   $.ajax({
@@ -20,7 +45,10 @@ function consultaEventos(days2020,days2021,data_atual){
     url: url+"/home.php?listarEventos",
     datatype: 'json',
     success: function(resultado){
+      
+
       for (var i=0;i<resultado['abonos'].length;i++){
+        console.log(resultado['abonos'][i]['matricula_funcionario'])
         // calendario_referente_inicial = ''
         calendario_referente_final = ''
         var data_inicial_banco = new Date(resultado['abonos'][i]['data_inicial']);
@@ -150,7 +178,8 @@ function calendario (days2020,days2021,data_atual){
         $('#calendario1').append('<td></td>');
       }
     }
-    $('#calendario1').append('<td class="td'+x+'"><span>'+x+'</span></td>');
+
+    $('#calendario1').append('<td class="td'+x+' td11'+x+'" onMouseOver=mudaCor("td11'+x+'") onMouseout=voltaCor("td11'+x+'")><span>'+x+'</span></td>');
   }
   if (num_colunas==5){
     $('#calendario1').append('<tr></tr>');
@@ -171,7 +200,7 @@ function calendario (days2020,days2021,data_atual){
         $('#calendario2').append('<td></td>');
       }
     }
-    $('#calendario2').append('<td class="td'+x+'"><span>'+x+'</span></td>');
+    $('#calendario2').append('<td class="td2'+x+' td222'+x+'" onMouseOver=mudaCor("td222'+x+'") onMouseout=voltaCor("td222'+x+'")><span>'+x+'</span></td>');
   }
   if (num_colunas==5){
     $('#calendario2').append('<tr></tr>');
@@ -190,7 +219,7 @@ var num_colunas = 1;
         $('#calendario3').append('<td></td>');
       }
     }
-    $('#calendario3').append('<td class="td'+x+'"><span>'+x+'</span></td>');
+    $('#calendario3').append('<td class="td3'+x+' td3'+x+'" onMouseOver=mudaCor("td3'+x+'") onMouseout=voltaCor("td3'+x+'")><span>'+x+'</span></td>');
   }
   if (num_colunas==5){
     $('#calendario3').append('<tr></tr>');
