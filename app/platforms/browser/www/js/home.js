@@ -5,6 +5,8 @@ if (window.location.hostname=='localhost'){
   url = 'https://mbbdev.site/wp-content/plugins/plugin_maxwell/includes/teste1/server'
 }
 
+teste = [];
+
 $('#calendario_home').ready(function () {
   var data_atual = new Date();
   const days2020 = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -14,6 +16,7 @@ $('#calendario_home').ready(function () {
   consultaEventos(days2020,days2021,data_atual);
 
   alertaFuncionarios();
+  console.log(teste)
 })
 
 function mudaCor(teste){
@@ -47,7 +50,8 @@ function consultaEventos(days2020,days2021,data_atual){
     success: function(resultado){
       console.log(resultado);
       for (var i=0;i<resultado['abonos'].length;i++){
-        console.log(resultado['abonos'][i]['matricula_funcionario'])
+        teste.push(resultado['abonos'][i]['nome']);
+        // calendario_referente_inicial = ''
         calendario_referente_final = ''
         var data_inicial_banco = new Date(resultado['abonos'][i]['data_inicial']);
         var data_final_banco = new Date(resultado['abonos'][i]['data_final']);
@@ -117,9 +121,8 @@ function consultaEventos(days2020,days2021,data_atual){
 
       }
 
-      delete calendario_referente_inicial;
-
       for (var i=0;i<resultado['ferias'].length;i++){
+        calendario_referente_inicial = ''
         calendario_referente_final = ''
         var data_inicial_banco = new Date(resultado['ferias'][i]['data_inicial']);
         var data_final_banco = new Date(resultado['ferias'][i]['data_final']);
