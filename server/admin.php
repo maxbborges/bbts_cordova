@@ -75,7 +75,7 @@ if (!empty($_POST)) {
     $dataInicial = date("Y-m-d", strtotime($_POST['dataInicial']));
     $dataFinal = date("Y-m-d", strtotime($_POST['dataFinal']));
 
-    $linha = "insert into abonos (data_inicial,data_final,data_solicitacao,matricula_funcionario) values ('".$dataInicial."','".$dataFinal."','".date('Y-m-d')."',".(int)$_POST['matricula'].");";
+    $linha = "insert into abonos (data_inicial,data_final,data_solicitacao,matricula_funcionario,status) values ('".$dataInicial."','".$dataFinal."','".date('Y-m-d')."',".(int)$_POST['matricula'].",'Pendente');";
     $consulta = mysqli_query($link,$linha);
     mysqli_close($link);
     echo $consulta;

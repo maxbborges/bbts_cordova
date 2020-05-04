@@ -6,7 +6,7 @@ if (isset($_GET['listarEventos'])){
   require_once './connection.php';
 
   $resultado = [];
-  $consulta = mysqli_query($link,"select * from ferias");
+  $consulta = mysqli_query($link,"select * from ferias where MONTH(data_inicial ) BETWEEN (MONTH(CURDATE())-1) and (MONTH(CURDATE())+3) order by data_inicial;");
   while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
     array_push($resultado,$linha);
   }

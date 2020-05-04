@@ -52,6 +52,7 @@ CREATE TABLE `abonos` (
   `data_final` date DEFAULT NULL,
   `data_inicial` date DEFAULT NULL,
   `data_solicitacao` date DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (matricula_funcionario) REFERENCES funcionario(matricula)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
