@@ -48,7 +48,6 @@ function consultaEventos(days2020,days2021,data_atual){
       console.log(resultado);
       for (var i=0;i<resultado['abonos'].length;i++){
         console.log(resultado['abonos'][i]['matricula_funcionario'])
-        // calendario_referente_inicial = ''
         calendario_referente_final = ''
         var data_inicial_banco = new Date(resultado['abonos'][i]['data_inicial']);
         var data_final_banco = new Date(resultado['abonos'][i]['data_final']);
@@ -118,8 +117,9 @@ function consultaEventos(days2020,days2021,data_atual){
 
       }
 
+      delete calendario_referente_inicial;
+
       for (var i=0;i<resultado['ferias'].length;i++){
-        calendario_referente_inicial = ''
         calendario_referente_final = ''
         var data_inicial_banco = new Date(resultado['ferias'][i]['data_inicial']);
         var data_final_banco = new Date(resultado['ferias'][i]['data_final']);
