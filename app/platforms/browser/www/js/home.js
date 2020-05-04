@@ -239,7 +239,7 @@ function calendario (days2020,days2021,data_atual){
         $('#calendario2').append('<td></td>');
       }
     }
-    $('#calendario2').append('<td class="td2'+x+' td222'+x+'" onMouseOver=mudaCor("td222'+x+'") onMouseout=voltaCor("td222'+x+'")><span>'+x+'</span></td>');
+    $('#calendario2').append('<td class="td'+x+' td222'+x+'" onMouseOver=mudaCor("td222'+x+'") onMouseout=voltaCor("td222'+x+'")><span>'+x+'</span></td>');
   }
   if (num_colunas==5){
     $('#calendario2').append('<tr></tr>');
@@ -258,7 +258,7 @@ var num_colunas = 1;
         $('#calendario3').append('<td></td>');
       }
     }
-    $('#calendario3').append('<td class="td3'+x+' td3'+x+'" onMouseOver=mudaCor("td3'+x+'") onMouseout=voltaCor("td3'+x+'")><span>'+x+'</span></td>');
+    $('#calendario3').append('<td class="td'+x+' td3'+x+'" onMouseOver=mudaCor("td3'+x+'") onMouseout=voltaCor("td3'+x+'")><span>'+x+'</span></td>');
   }
   if (num_colunas==5){
     $('#calendario3').append('<tr></tr>');
