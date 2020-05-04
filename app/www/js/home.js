@@ -45,8 +45,7 @@ function consultaEventos(days2020,days2021,data_atual){
     url: url+"/home.php?listarEventos",
     datatype: 'json',
     success: function(resultado){
-
-
+      console.log(resultado);
       for (var i=0;i<resultado['abonos'].length;i++){
         console.log(resultado['abonos'][i]['matricula_funcionario'])
         // calendario_referente_inicial = ''
@@ -120,6 +119,7 @@ function consultaEventos(days2020,days2021,data_atual){
       }
 
       for (var i=0;i<resultado['ferias'].length;i++){
+        calendario_referente_inicial = ''
         calendario_referente_final = ''
         var data_inicial_banco = new Date(resultado['ferias'][i]['data_inicial']);
         var data_final_banco = new Date(resultado['ferias'][i]['data_final']);
@@ -149,13 +149,13 @@ function consultaEventos(days2020,days2021,data_atual){
           if (typeof calendario_referente_inicial!=='undefined'){
             for (dia=data_inicial_banco.getDate();dia<=data_final_banco.getDate();dia++){
               if (resultado['ferias'][i]['status']=='Pendente'){
-                var valor = $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-dange').text();
+                var valor = $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-danger').text();
                 $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-danger').css('visibility','visible');
-                $(calendario_referente_final+' td.td'+dia+' .notificacao.badge-danger').text(parseInt(valor)+1)
+                $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-danger').text(parseInt(valor)+1)
               } else {
                 var valor = $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-light').text();
                 $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-light').css('visibility','visible');
-                $(calendario_referente_final+' td.td'+dia+' .notificacao.badge-light').text(parseInt(valor)+1)
+                $(calendario_referente_inicial+' td.td'+dia+' .notificacao.badge-light').text(parseInt(valor)+1)
               }
             }
           }
@@ -239,7 +239,7 @@ function calendario (days2020,days2021,data_atual){
         $('#calendario2').append('<td></td>');
       }
     }
-    $('#calendario2').append('<td class="td'+x+' td222'+x+'" onMouseOver=mudaCor("td222'+x+'") onMouseout=voltaCor("td222'+x+'")><span>'+x+'</span></td>');
+    $('#calendario2').append('<td class="td'+x+' td22'+x+'" onMouseOver=mudaCor("td22'+x+'") onMouseout=voltaCor("td22'+x+'")><span>'+x+'</span></td>');
   }
   if (num_colunas==5){
     $('#calendario2').append('<tr></tr>');
@@ -258,7 +258,7 @@ var num_colunas = 1;
         $('#calendario3').append('<td></td>');
       }
     }
-    $('#calendario3').append('<td class="td'+x+' td3'+x+'" onMouseOver=mudaCor("td3'+x+'") onMouseout=voltaCor("td3'+x+'")><span>'+x+'</span></td>');
+    $('#calendario3').append('<td class="td'+x+' td33'+x+'" onMouseOver=mudaCor("td33'+x+'") onMouseout=voltaCor("td33'+x+'")><span>'+x+'</span></td>');
   }
   if (num_colunas==5){
     $('#calendario3').append('<tr></tr>');
