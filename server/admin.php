@@ -79,7 +79,29 @@ if (!empty($_POST)) {
     $consulta = mysqli_query($link,$linha);
     mysqli_close($link);
     echo $consulta;
-  }
+  } else if ($_POST['acao']=='trocaSenha'){
+      $matricula = isset($_POST['matriculalogin']) ? $_POST['matriculalogin'] : NULL;
+      $senhaatual = isset($_POST['senhaatual']) ? $_POST['senhaatual'] : NULL;
+      $novasenha = isset($_POST['novasenha']) ? $_POST['novasenha'] : NULL;
+
+      if ($matricula!=null&&$senhaatual!=null&&$novasenha!=null){
+        $linha = "select nome from funcionario where matricula = ".(int)$matricula." and senha = md5('".$senhaatual."');";
+        $consulta = mysqli_query($link,$linha);
+        // $resultado = [];
+        while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
+          if ($linha != NULL && $linha != "" ){
+            $consulta1 = mysqli_query($link,"update funcionario set senha= md5('".$novasenha."') where matricula = ".(int)$matricula.";");
+            mysqli_close($link);
+            header('Content-type: application/json');
+            echo json_encode($consulta1);
+          } else {
+            echo 0;
+          }
+        }
+      } else {
+        echo 0;
+      }
+    }
 }
 
 // if(!empty($_POST)){

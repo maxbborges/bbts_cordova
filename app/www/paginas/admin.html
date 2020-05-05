@@ -40,9 +40,9 @@
         <div class="col">
           <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_abonos" data-toggle="collapse" href="#collapse_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Abono </button>
         </div>
-        <!-- <div class="col">
-          <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_outros" data-toggle="collapse" href="#collapse_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Outros </button>
-        </div> -->
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_outros" data-toggle="collapse" href="#collapse_troca_senha" role="button" aria-expanded="false" aria-controls="collapseExample"> Outros </button>
+        </div>
         <div class="col">
           <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_funcionarios" data-toggle="collapse" href="#collapse_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Funcionários</button>
         </div>
@@ -73,11 +73,6 @@
           </button>
         </div>
       </div>
-    </div>
-
-    <div class="collapse" id="collapse_outros">
-      <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir outros </button>
-      <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" data-toggle="collapse" href="#collapse_listar_outros" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar outros </button>
     </div>
 
     <div class="collapse" id="collapse_funcionarios">
@@ -236,57 +231,33 @@
           </form>
         </div>
 
-        <!-- <div class="collapse sub_collapse_listar" id="collapse_listar_outros">
-        Listar outros
-      </div>
-      <div class="collapse sub_collapse_inserir" id="collapse_inserir_outros">
+      <div class="collapse sub_collapse_inserir" id="collapse_troca_senha">
         <form>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputEmail4"></label>
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Email:">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="formGroupExampleInput"></label>
+                <input type="email" class="form-control" id="matriculalogin" disabled>
+              </div>
             </div>
-            <div class="form-group col-md-6">
-              <label for="inputPassword4"></label>
-              <input type="password" class="form-control" id="inputPassword4" placeholder="Password:">
+            <div class="col">
+              <div class="form-group">
+                <label for="formGroupExampleInput2"></label>
+                <input type="password" class="form-control" id="senhaatual" placeholder="Senha Atual:">
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="inputAddress"></label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Endereço:">
-          </div>
-          <div class="form-group">
-            <label for="inputAddress2"></label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Endereço 2:">
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputCity"></label>
-              <input type="text" class="form-control" id="inputCity"placeholder="Cidade:" >
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputState"></label>
-              <select id="inputState" class="form-control">
-                <option selected>Estado</option>
-                <option>...</option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="inputZip"></label>
-              <input type="text" class="form-control" id="inputZip" placeholder="CEP">
+            <div class="col">
+              <div class="form-group">
+                <label for="formGroupExampleInput2"></label>
+                <input type="password" class="form-control" id="novasenha" placeholder="Nova Senha:" >
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                Check me out
-              </label>
-            </div>
+          <div class="row">
+            <button type="button" onclick="trocaSenha()" class="btn btn-primary btn-lg btn-block collapse-button"> Inserir </button>
           </div>
-          <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
-      </div> -->
+      </div>
 
         <div class="collapse sub_collapse_listar" id="collapse_listar_funcionarios">
           <div class="card card-body">

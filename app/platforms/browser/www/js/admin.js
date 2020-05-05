@@ -58,6 +58,22 @@ function listarAbonos(){
   });
 }
 
+function trocaSenha(){
+  $.ajax({
+    type: "POST",
+    url: url+"/admin.php",
+    data:{'acao':'trocaSenha', 'matriculalogin': $("#matriculalogin").val(), 'senhaatual':$("#senhaatual").val(), 'novasenha':$("#novasenha").val()},
+    datatype: 'json',
+    success: function(resultado){
+      if (resultado == 0 ){
+        alert("Senha atual invalida!");
+      }else{
+        alert("Senha alterada com sucesso!");
+      }
+    },
+  });
+}
+
 function inserirAbono(){
   console.log(window.localStorage.getItem('matricula'));
   if ($("#input_data_abono").val()!='' && $('#input_abono_dias').val()!='' && $('#input_final_abono').val()!=''){
@@ -148,6 +164,8 @@ $( document ).ready(function() {
   var y = data_inicial.getFullYear();
   $('#input_ferias_data_inicial').val(y+'-'+m+'-'+d);
   $('#input_data_abono').val(y+'-'+m+'-'+d);
+
+  $('#matriculalogin').val(localStorage.getItem('matricula'));
 
   $( "#input_ferias_quantidade_dias" ).keyup(function() {
     var date = new Date($('#input_ferias_data_inicial').val());
