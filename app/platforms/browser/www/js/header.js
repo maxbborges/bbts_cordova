@@ -1,12 +1,11 @@
 $( document ).ready(function() {
-  if ((window.location.pathname).indexOf("paginas/login.html")==1){
+  if ((window.location.pathname).indexOf("paginas/login.html")>0){
     $("header").load("header_login.html", function(){
     })
   } else if ((window.location.pathname).indexOf("paginas")==-1){
     $("header").load("paginas/header_index.html", function(){
     });
   } else {
-    console.log(window.location.pathname)
     $("header").load("header.html", function(){
       var nome = window.localStorage.getItem('usuario_bbts');
       var atributos = (window.localStorage.getItem('atributos')).split(',');
