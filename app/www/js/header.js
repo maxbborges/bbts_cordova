@@ -6,6 +6,7 @@ $( document ).ready(function() {
     $("header").load("paginas/header_index.html", function(){
     });
   } else {
+    console.log(window.location.pathname)
     $("header").load("header.html", function(){
       var nome = window.localStorage.getItem('usuario_bbts');
       var atributos = (window.localStorage.getItem('atributos')).split(',');
