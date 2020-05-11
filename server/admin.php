@@ -24,7 +24,7 @@ if (isset($_GET['listarFerias'])){
   require_once './connection.php';
 
   $resultado = [];
-  $consulta = mysqli_query($link,"select data_inicial,data_final,data_solicitacao,num_abono,adiantamento,nome from ferias,funcionario where matricula_funcionario=matricula;");
+  $consulta = mysqli_query($link,"select id ,data_inicial,data_final,data_solicitacao,num_abono,adiantamento,nome,status from ferias,funcionario where matricula_funcionario=matricula;");
 
   while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
     array_push($resultado,$linha);
@@ -39,7 +39,7 @@ if (isset($_GET['listarAbonos'])){
   require_once './connection.php';
 
   $resultado = [];
-  $consulta = mysqli_query($link,"select nome,data_inicial,data_final,data_solicitacao from abonos,funcionario where matricula_funcionario=matricula;");
+  $consulta = mysqli_query($link,"select id ,nome,data_inicial,data_final,data_solicitacao,status from abonos,funcionario where matricula_funcionario=matricula;");
 
   while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
     array_push($resultado,$linha);
@@ -101,6 +101,15 @@ if (!empty($_POST)) {
       } else {
         echo 0;
       }
+    } else if ($_POST['acao']=='aceitarFolgas'){
+      $id = $_POST['id'];
+      $tipo = $_POST['tipo'];
+      $status = $_POST['status'];
+      // echo $tipo;
+      $consulta1 = mysqli_query($link,"update ".$tipo." set status='".$status."' where id=".(int)$id.";");
+      mysqli_close($link);
+      header('Content-type: application/json');
+      echo json_encode($consulta1);
     }
 }
 

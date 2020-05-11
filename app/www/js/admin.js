@@ -19,6 +19,7 @@ function listarFuncionarios(){
           '</td><td>'+resultado[i]['chave_c']+
           '</td><td>'+resultado[i]['email']+
           '</td><td>'+resultado[i]['telefone']+
+          // '</td><td>'+resultado[i]['status']+
           '</td></tr>');
       }
 
@@ -44,6 +45,21 @@ function inserirFuncionarios(){
   });
 }
 
+function solicitacaoFolgas(id,tipo,status){
+  $.ajax({
+      type: "POST",
+      url: url+"/admin.php",
+      data: {'acao':'aceitarFolgas', 'id': id,'tipo':tipo,'status':status},
+      datatype: 'json',
+      success: function(resultado){
+        alert('Status Modificado para '+status+'!');
+        location.reload();
+    },
+  }).fail(function(jqXHR, textStatus){
+    console.log(jqXHR);
+  });
+}
+
 function listarAbonos(){
   $('#linhas_abonos').html('');
   $.ajax({
@@ -52,7 +68,14 @@ function listarAbonos(){
     datatype: 'json',
     success: function(resultado){
       for (var i=0;i<resultado.length;i++){
-        $('#linhas_abonos').append('<tr><td>'+resultado[i]['nome']+'</td><td>'+resultado[i]['data_inicial']+'</td><td>'+resultado[i]['data_final']+'</td><td>'+resultado[i]['data_solicitacao']+'</td></tr>');
+        $('#linhas_abonos').append(
+          '<tr><td>'+resultado[i]['nome']+
+          '</td><td>'+resultado[i]['data_inicial']+
+          '</td><td>'+resultado[i]['data_final']+
+          '</td><td>'+resultado[i]['data_solicitacao']+
+          '</td><td>'+resultado[i]['status']+
+          '</td><td><button class="btn-success" onclick=solicitacaoFolgas('+resultado[i]['id']+',"abonos","Aprovado")>AP</button><button class="btn-danger" onclick=solicitacaoFolgas('+resultado[i]['id']+',"abonos","Rejeitado")>RP</button>'+
+          '</td></tr>');
       }
     },
   });
@@ -108,9 +131,19 @@ function listarFerias(){
     datatype: 'json',
     success: function(resultado){
       for (var i=0;i<resultado.length;i++){
-        $('#linhas_ferias').append('<tr><td>'+resultado[i]['nome']+'</td><td>'+resultado[i]['data_inicial']+'</td><td>'+resultado[i]['data_final']+'</td><td>'+resultado[i]['data_solicitacao']+'</td><td>'+resultado[i]['num_abono']+'<td>'+resultado[i]['adiantamento']+'</td></tr>');
+        $('#linhas_ferias').append(
+          '<tr><td>'+resultado[i]['nome']+
+          '</td><td>'+resultado[i]['data_inicial']+
+          '</td><td>'+resultado[i]['data_final']+
+          '</td><td>'+resultado[i]['data_solicitacao']+
+          '</td><td>'+resultado[i]['num_abono']+
+          '</td><td>'+resultado[i]['adiantamento']+
+          '</td><td>'+resultado[i]['status']+
+          // '</td><td><button >X</button><button>V</button>'+
+          // '</td></tr>');
+          '</td><td><button class="btn-success" onclick=solicitacaoFolgas('+resultado[i]['id']+',"ferias","Aprovado")>AP</button><button class="btn-danger" onclick=solicitacaoFolgas('+resultado[i]['id']+',"ferias","Rejeitado")>RP</button>'+
+          '</td></tr>');
       }
-
     },
   });
 }
