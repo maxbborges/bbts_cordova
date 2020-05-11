@@ -7,8 +7,10 @@ $( document ).ready(function() {
     });
   } else {
     $("header").load("header.html", function(){
-      $("#dropdownMenuButton").html(window.localStorage.getItem('usuario_bbts'));
-      $("#dropdownAtrib").html(window.localStorage.getItem('atributos'));
+      var nome = window.localStorage.getItem('usuario_bbts');
+      var atributos = (window.localStorage.getItem('atributos')).split(',');
+      $("#dropdownMenuButton").html(nome.split(' ')[0]);
+      $("#dropdownAtrib").html(atributos[0]);
       $("#dropdownMat").html(window.localStorage.getItem('matricula'));
 
       $("#btn_logout").click(function(){

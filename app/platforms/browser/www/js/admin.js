@@ -200,6 +200,21 @@ $( document ).ready(function() {
 
   $('#matriculalogin').val(localStorage.getItem('matricula'));
 
+  var atributos = (localStorage.getItem('atributos')).split(',');
+
+  if (atributos.length==2){
+  } else if (atributos.length==3){
+  } else {
+    var thingToRemove = document.querySelectorAll(".row .submenu-adm")[0].children[3];
+    thingToRemove.parentNode.removeChild(thingToRemove);
+
+    var thingToRemove = document.querySelectorAll("#collapse_abonos .row")[0].children[1];
+    thingToRemove.parentNode.removeChild(thingToRemove);
+
+    var thingToRemove = document.querySelectorAll("#collapse_ferias .row")[0].children[1];
+    thingToRemove.parentNode.removeChild(thingToRemove);
+  }
+
   $( "#input_ferias_quantidade_dias" ).keyup(function() {
     var date = new Date($('#input_ferias_data_inicial').val());
     date.setDate(date.getDate()+1+parseInt($("#input_ferias_quantidade_dias").val()));

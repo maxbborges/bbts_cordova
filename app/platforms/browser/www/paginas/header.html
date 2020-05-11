@@ -24,28 +24,30 @@
 </ul> -->
 
 <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large"
-  onclick="w3_close()">Close &times;</button>
+  <button class="w3-bar-item w3-button w3-large btn-danger" onclick="w3_close()">
+    <img src="/img/icones/x-square.svg" alt="" width="32" height="32" title="Bootstrap">
+  </button>
 
-  <ul class="nav justify-content-center">
+  <!-- <ul class="nav justify-content-center">
 
-    <li>
+    <li> -->
+
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class='fas fa-id-card' style='font-size:24px'></i>  Usuário
         </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" id="dropdownMat" href="#">Matrícula</a>
-            <a class="dropdown-item" id="dropdownAtrib" href="#">Atribuições</a>
+            <a class="dropdown-item disabled" id="dropdownMat">Matrícula</a>
+            <a class="dropdown-item disabled" id="dropdownAtrib">Atribuições</a>
             <a class="dropdown-item" id='btn_logout' href="../index.html">Sair</a>
           </div>
       </div>
-    </li>
-  </ul>
+    <!-- </li>
+  </ul> -->
 
-  <a href="../index.html" class="w3-bar-item w3-button">INDEX</a>
-  <a href="home.html" class="w3-bar-item w3-button">HOME</a>
-  <a href="admin.html" class="w3-bar-item w3-button">ADMIN</a>
+  <a href="../index.html" class="w3-bar-item btn-primary">Inicial</a>
+  <a href="home.html" class="w3-bar-item btn-primary">Calendarios</a>
+  <a href="admin.html" class="w3-bar-item btn-primary">Administrativo</a>
 
 </div>
 
