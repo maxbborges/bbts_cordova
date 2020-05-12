@@ -10,7 +10,7 @@ $( document ).ready(function() {
       var nome = window.localStorage.getItem('usuario_bbts');
       var atributos = (window.localStorage.getItem('atributos')).split(',');
       $("#dropdownMenuButton").html(nome.split(' ')[0]);
-      $("#dropdownAtrib").html(atributos[0]);
+      $("#dropdownAtrib").html(atributos[atributos.length]);
       $("#dropdownMat").html(window.localStorage.getItem('matricula'));
 
       $("#btn_logout").click(function(){
