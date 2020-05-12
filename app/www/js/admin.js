@@ -67,7 +67,9 @@ function listarAbonos(){
     url: url+"/admin.php?listarAbonos",
     datatype: 'json',
     success: function(resultado){
+      var atributos = (localStorage.getItem('atributos')).split(',');
       for (var i=0;i<resultado.length;i++){
+        if(atributos.length==3){
         $('#linhas_abonos').append(
           '<tr><td>'+resultado[i]['nome']+
           '</td><td>'+resultado[i]['data_inicial']+
@@ -76,10 +78,20 @@ function listarAbonos(){
           '</td><td>'+resultado[i]['status']+
           '</td><td><button class="btn-success" onclick=solicitacaoFolgas('+resultado[i]['id']+',"abonos","Aprovado")>AP</button><button class="btn-danger" onclick=solicitacaoFolgas('+resultado[i]['id']+',"abonos","Rejeitado")>RP</button>'+
           '</td></tr>');
+      }else {
+        $('#linhas_abonos').append(
+          '<tr><td>'+resultado[i]['nome']+
+          '</td><td>'+resultado[i]['data_inicial']+
+          '</td><td>'+resultado[i]['data_final']+
+          '</td><td>'+resultado[i]['data_solicitacao']+
+          '</td><td>'+resultado[i]['status']+
+          '</td></tr>');
       }
+    }
     },
   });
 }
+
 
 function trocaSenha(){
   $.ajax({
@@ -124,28 +136,41 @@ function inserirAbono(){
 }
 
 function listarFerias(){
+
   $('#linhas_ferias').html('');
   $.ajax({
     type: "GET",
     url: url+"/admin.php?listarFerias",
     datatype: 'json',
     success: function(resultado){
+      var atributos = (localStorage.getItem('atributos')).split(',');
       for (var i=0;i<resultado.length;i++){
+        if(atributos.length==3){
         $('#linhas_ferias').append(
-          '<tr><td>'+resultado[i]['nome']+
-          '</td><td>'+resultado[i]['data_inicial']+
-          '</td><td>'+resultado[i]['data_final']+
-          '</td><td>'+resultado[i]['data_solicitacao']+
-          '</td><td>'+resultado[i]['num_abono']+
-          '</td><td>'+resultado[i]['adiantamento']+
-          '</td><td>'+resultado[i]['status']+
-          // '</td><td><button >X</button><button>V</button>'+
-          // '</td></tr>');
-          '</td><td><button class="btn-success" onclick=solicitacaoFolgas('+resultado[i]['id']+',"ferias","Aprovado")>AP</button><button class="btn-danger" onclick=solicitacaoFolgas('+resultado[i]['id']+',"ferias","Rejeitado")>RP</button>'+
-          '</td></tr>');
+            '<tr><td>'+resultado[i]['nome']+
+            '</td><td>'+resultado[i]['data_inicial']+
+            '</td><td>'+resultado[i]['data_final']+
+            '</td><td>'+resultado[i]['data_solicitacao']+
+            '</td><td>'+resultado[i]['num_abono']+
+            '</td><td>'+resultado[i]['adiantamento']+
+            '</td><td>'+resultado[i]['status']+
+            '</td><td><button class="btn-success" onclick=solicitacaoFolgas('+resultado[i]['id']+',"ferias","Aprovado")>AP</button><button class="btn-danger" onclick=solicitacaoFolgas('+resultado[i]['id']+',"ferias","Rejeitado")>RP</button>'+
+            '</td></tr>');
+      } else {
+        $('#linhas_ferias').append(
+            '<tr><td>'+resultado[i]['nome']+
+            '</td><td>'+resultado[i]['data_inicial']+
+            '</td><td>'+resultado[i]['data_final']+
+            '</td><td>'+resultado[i]['data_solicitacao']+
+            '</td><td>'+resultado[i]['num_abono']+
+            '</td><td>'+resultado[i]['adiantamento']+
+            '</td><td>'+resultado[i]['status']+
+            '</td></tr>');
       }
+    }
     },
   });
+
 }
 
 function inserirFerias(){
@@ -201,19 +226,22 @@ $( document ).ready(function() {
   $('#matriculalogin').val(localStorage.getItem('matricula'));
 
   var atributos = (localStorage.getItem('atributos')).split(',');
+   if (atributos.length==2){
+     var thingToRemove = document.querySelectorAll("#gerenciar")[0];
+     thingToRemove.parentNode.removeChild(thingToRemove);
 
-  // if (atributos.length==2){
-  // } else if (atributos.length==3){
-  // } else {
-  //   var thingToRemove = document.querySelectorAll(".row .submenu-adm")[0].children[3];
-  //   thingToRemove.parentNode.removeChild(thingToRemove);
-  //
-  //   var thingToRemove = document.querySelectorAll("#collapse_abonos .row")[0].children[1];
-  //   thingToRemove.parentNode.removeChild(thingToRemove);
-  //
-  //   var thingToRemove = document.querySelectorAll("#collapse_ferias .row")[0].children[1];
-  //   thingToRemove.parentNode.removeChild(thingToRemove);
-  // }
+
+   } else if (atributos.length==3){
+   } else {
+     var thingToRemove = document.querySelectorAll(".row .submenu-adm")[0].children[3];
+     thingToRemove.parentNode.removeChild(thingToRemove);
+
+     var thingToRemove = document.querySelectorAll("#collapse_abonos .row")[0].children[1];
+     thingToRemove.parentNode.removeChild(thingToRemove);
+
+    var thingToRemove = document.querySelectorAll("#collapse_ferias .row")[0].children[1];
+    thingToRemove.parentNode.removeChild(thingToRemove);
+  }
 
   $( "#input_ferias_quantidade_dias" ).keyup(function() {
     var date = new Date($('#input_ferias_data_inicial').val());

@@ -9,8 +9,8 @@ $( document ).ready(function() {
     $("header").load("header.html", function(){
       var nome = window.localStorage.getItem('usuario_bbts');
       var atributos = window.localStorage.getItem('atributos');
-      // var nome = ((window.localStorage.getItem('usuario_bbts')).split(' '))[0];
-      // var atributos = ((window.localStorage.getItem('atributos')).split(','))[0];
+      var nome = ((window.localStorage.getItem('usuario_bbts')).split(' '))[0];
+      var atributos = ((window.localStorage.getItem('atributos')).split(','))[0];
       $("#dropdownMenuButton").html(nome);
       $("#dropdownAtrib").html(atributos);
       $("#dropdownMat").html(window.localStorage.getItem('matricula'));
