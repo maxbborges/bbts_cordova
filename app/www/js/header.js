@@ -8,9 +8,11 @@ $( document ).ready(function() {
   } else {
     $("header").load("header.html", function(){
       var nome = window.localStorage.getItem('usuario_bbts');
-      var atributos = (window.localStorage.getItem('atributos')).split(',');
-      $("#dropdownMenuButton").html(nome.split(' ')[0]);
-      $("#dropdownAtrib").html(atributos[atributos.length]);
+      var atributos = window.localStorage.getItem('atributos');
+      // var nome = ((window.localStorage.getItem('usuario_bbts')).split(' '))[0];
+      // var atributos = ((window.localStorage.getItem('atributos')).split(','))[0];
+      $("#dropdownMenuButton").html(nome);
+      $("#dropdownAtrib").html(atributos);
       $("#dropdownMat").html(window.localStorage.getItem('matricula'));
 
       $("#btn_logout").click(function(){
