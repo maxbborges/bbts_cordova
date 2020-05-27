@@ -1,62 +1,359 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<head>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://www.w3schools.com https://p.typekit.net/; media-src *; img-src 'self' data: content:;  font-src *;script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232 https://mbbdev.site/; connect-src *;">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" type="text/css" href="../css/draw.css">
+  <!-- <link rel="stylesheet" type="text/css" href="../css/geral.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="../css/header.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="../css/w3.css"> -->
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+  <script src="../js/bootstrap/jquery.min.js"></script>
+  <script src="../js/bootstrap/popper.min.js"></script>
+  <script src="../js/bootstrap/bootstrap.min.js"></script>
+  <!-- <script src="../js/header.js"></script> -->
+  <script src="../js/verifica_sessao.js"></script>
+  <title>DRAW</title>
+</head>
 
 <body>
-
-<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-  <button class="w3-bar-item w3-button w3-large"
-  onclick="w3_close()">Close &times;</button>
-
-  <ul class="nav justify-content-center">
-
-    <li>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class='fas fa-id-card' style='font-size:24px'></i>  Usuário
-        </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" id="dropdownMat" href="#">Matrícula</a>
-            <a class="dropdown-item" id="dropdownAtrib" href="#">Atribuições</a>
-            <a class="dropdown-item" id='btn_logout' href="../index.html">Sair</a>
-          </div>
+  <header class="row">
+      <div class="col">
+        <div class="">
+          <img src="../img/logobb.png" alt="logo BB">
+        </div>
+        <div class="row row1">
+        </div>
       </div>
-    </li>
-  </ul>
+  </header>
+<main>
+    <!-- <button id="openNav" class="w3-button" onclick="w3_open()">&#9776;</button> -->
 
-  <a href="../index.html" class="w3-bar-item w3-button">INDEX</a>
-  <a href="home.html" class="w3-bar-item w3-button">HOME</a>
-  <a href="admin.html" class="w3-bar-item w3-button">ADMIN</a>
+    <input type="checkbox" id="chec">
+    <label id="labelNav" for="chec">
+      <img src="../img/navblack.png">
+    </label>
+    <nav>
+      <ul>
+        <li><img id="perfil" src="../img/perfil.png"></li>
+        <li><a href="">Home </a></li>
+        <li><a href="../index.html">Inicial </a></li>
+        <li><a href="admin.html">Administrativo</a></li>
+        <li><a href="home.html">Calendarios</a></li>
+         <li><a href="">Contatos</a></li>
+        <li><a href="">Sobre</a></li>
+      </ul>
+    </nav>
 
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="row submenu-adm">
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_ferias" data-toggle="collapse" href="#collapse_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Ferias </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_abonos" data-toggle="collapse" href="#collapse_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Abono </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_outros" data-toggle="collapse" href="#collapse_troca_senha" role="button" aria-expanded="false" aria-controls="collapseExample"> Troca senha </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block collapse-button btn_funcionarios" data-toggle="collapse" href="#collapse_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Funcionários</button>
+        </div>
 
-<div id="main">
+      </div>
+    </div>
 
-<div class="w3-teal">
-  <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-  <div class="w3-container">
-    <h1>BBTS - Só Serviços </h1>
+    <div class="collapse" id="collapse_ferias">
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir ferias </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" onclick="listarFerias()" data-toggle="collapse" href="#collapse_listar_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar ferias
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="collapse" id="collapse_abonos">
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir abono </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" onclick="listarAbonos()" data-toggle="collapse" href="#collapse_listar_abonos" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar abonos
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="collapse" id="collapse_funcionarios">
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir Funcionario </button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" onclick="listarFuncionarios()" data-toggle="collapse" href="#collapse_listar_funcionarios" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar
+            Funcionarios </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class='col'>
+        <div class="collapse sub_collapse_listar" id="collapse_listar_ferias">
+          <div class="card card-body">
+            <div class="table-responsive">
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">Funcionario</th>
+                  <th scope="col">Inicial</th>
+                  <th scope="col">Final</th>
+                  <th scope="col">Cadastramento</th>
+                  <th scope="col">Pecuniário</th>
+                  <th scope="col">Adiantamento</th>
+                  <th scope="col">Status</th>
+                  <th id="gerenciar" scope="col">Gerenciar</th>
+                </tr>
+              </thead>
+              <tbody id='linhas_ferias'>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+        <!-- -----------------------------------INSERIR FERIAS ----------------------------------- -->
+        <div class="collapse sub_collapse_inserir" id="collapse_inserir_ferias">
+          <form>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput"></label>
+                  <input type="date" class="form-control" id="input_ferias_data_inicial" placeholder="Data inicial Pretendida:">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput2"></label>
+                  <input type="number" class="form-control" id="input_ferias_quantidade_dias" placeholder="Quantidade de dias:" min="1" max="30">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput2"></label>
+                  <input type="text" class="form-control" id='input_ferias_final' placeholder="Data final:" disabled>
+                </div>
+              </div>
+            </div>
+            <!-- ----------------------------------- ABONO ----------------------------- -->
+            <div class="row">
+              <div class='col' id="AbonoColor">
+                <fieldset class="form-group">
+                  <legend class="pt-0">Abono </legend>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ferias_abono" id="ferias_com_abono" value='1'>
+                    <label class="form-check-label" for="ferias_com_abono">
+                      Com abono pecuniário
+                    </label>
+                  </div>
+                  <div class="form-check" nome='teste'>
+                    <input class="form-check-input" type="radio" name="ferias_abono" id="ferias_sem_abono" value='0' checked>
+                    <label class="form-check-label" for="ferias_sem_abono">
+                      Sem abono pecuniário
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- ----------------------------------- decimo Terceiro ----------------------------- -->
+              <div class="col" id="decimoColor">
+                <fieldset class="form-group1">
+                  <legend class="pt-0">Adiantamento do 13° </legend>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ferias_adiantamento" id="ferias_adiantamento_sim" value="1">
+                    <label class="form-check-label" for="ferias_adiantamento_sim">
+                      Adiantamento deo 13°
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ferias_adiantamento" id="ferias_adiantamento_nao" value="0" checked>
+                    <label class="form-check-label" for="ferias_adiantamento_nao">
+                      Não adiantar o 13°
+                    </label>
+                  </div>
+              </div>
+              </fieldset>
+            </div>
+            <!-- ----------------------------------- QTD ABONO ----------------------------- -->
+            <div class="form-group input_qtd_abono">
+              <label for="ferias_qtd_dias_abono"></label>
+              <input type="text" class="form-control" id="ferias_qtd_dias_abono" placeholder="Quantidade dias de abono pecuniário:">
+            </div>
+            <div class="row">
+              <button type="button" onclick="inserirFerias()" class="btn btn-primary btn-lg btn-block collapse-button"> Inserir </button>
+            </div>
+          </form>
+        </div>
+
+<!-- -----------------------------------LISTAR ABONOS ----------------------------------- -->
+        <div class="collapse sub_collapse_listar" id="collapse_listar_abonos">
+          <div class="card card-body">
+            <div class="table-responsive">
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">Funcionario</th>
+                  <th scope="col">Inicial</th>
+                  <th scope="col">Final</th>
+                  <th scope="col">Cadastramento</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Gerenciar</th>
+                </tr>
+              </thead>
+              <tbody id='linhas_abonos'>
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+
+<!-- -----------------------------------INSERIR ABONOS ----------------------------------- -->
+        <div class="collapse sub_collapse_inserir" id="collapse_inserir_abonos">
+          <form>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput"></label>
+                  <input type="date" class="form-control" id="input_data_abono" placeholder="Data inicial Pretendida:">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput2"></label>
+                  <input type="number" class="form-control" id="input_abono_dias" placeholder="Quantidade de dias:">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="formGroupExampleInput2"></label>
+                  <input type="text" class="form-control" id="input_final_abono" placeholder="Data Final" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <button type="button" onclick="inserirAbono()" class="btn btn-primary btn-lg btn-block collapse-button"> Inserir </button>
+            </div>
+          </form>
+        </div>
+
+      <div class="collapse sub_collapse_inserir" id="collapse_troca_senha">
+        <form>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="formGroupExampleInput"></label>
+                <input type="email" class="form-control" id="matriculalogin" disabled>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="formGroupExampleInput2"></label>
+                <input type="password" class="form-control" id="senhaatual" placeholder="Senha Atual:">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="formGroupExampleInput2"></label>
+                <input type="password" class="form-control" id="novasenha" placeholder="Nova Senha:" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <button type="button" onclick="trocaSenha()" class="btn btn-primary btn-lg btn-block collapse-button"> Trocar </button>
+          </div>
+        </form>
+      </div>
+
+        <div class="collapse sub_collapse_listar" id="collapse_listar_funcionarios">
+          <div class="card card-body">
+            <div class="table-responsive">
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">Matricula</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">chave_c</th>
+                  <th scope="col">email</th>
+                  <th scope="col">telefone</th>
+                </tr>
+              </thead>
+              <tbody id='linhas'>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+        <div class="collapse sub_collapse_inserir" id="collapse_inserir_funcionarios">
+          <form id="form_novo_funcionario" action="#">
+            <div class="form-group">
+              <label for="inputAddress"></label>
+              <input type="text" class="form-control" id="input_name" placeholder="Nome do funcionário:">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4"></label>
+                <input type="text" class="form-control" id="input_chavec" placeholder="Chave C do funcionário:">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4"></label>
+                <input type="text" class="form-control" id="input_matricula" placeholder="Matrícula do funcionário:">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4"></label>
+                <input type="email" class="form-control" id="input_email" placeholder="Email do funcionário:">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4"></label>
+                <input type="text" class="form-control" id="input_telefone" placeholder="Telefone do funcionário:git ">
+              </div>
+            </div>
+            <div class="form-group">
+
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="inserirFuncionarios()">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<!-- ################################################################# -->
-
-
-<h1 id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()">Mouse over me</h1>
-
-<script>
-function mouseOver() {
-  document.getElementById("demo").style.color = "red";
-}
-
-function mouseOut() {
-  document.getElementById("demo").style.color = "black";
-}
-</script>
+  </div>
+</main>
 
 
-<script src="../js/draw.js"></script>
+  <script type="text/javascript" src="../cordova.js"></script>
+  <script type="text/javascript" src="../js/admin.js"></script>
+
+  <footer>
+    <div class="row row1">
+      <!-- div -->
+    </div>
+    <div class="row row2">
+        &copy  2020 Luiz & Maxwell
+    </div>
+    <div class="row row3">
+      <!-- row3 -->
+    </div>
+  </footer>
+
 </body>
 </html>

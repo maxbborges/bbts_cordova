@@ -9,28 +9,26 @@
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <link rel="stylesheet" type="text/css" href="../css/geral.css">
         <link rel="stylesheet" type="text/css" href="../css/home.css">
-        <link rel="stylesheet" type="text/css" href="../css/w3.css">
+        <link rel="stylesheet" type="text/css" href="../css/header.css">
+        <link rel="stylesheet" type="text/css" href="../css/footer.css">
         <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="../js/bootstrap/jquery.min.js"></script>
         <script src="../js/bootstrap/popper.min.js"></script>
         <script src="../js/bootstrap/bootstrap.min.js"></script>
         <script src="../js/header.js"></script>
+        <script src="../js/footer.js"></script>
         <script src="../js/verifica_sessao.js"></script>
-        <title>Home</title>
+        <title>HOME</title>
     </head>
-    <body bgproperties="fixed">
-      <header>
+    <body>
+
+      <header class="row">
       </header>
 
-        <div class="w3-teal">
-          <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-          <div class="w3-container">
+<main>
 
-          </div>
-        </div>
 
-        <div class="container">
             <div class="row" id='calendario_home'>
               <div class="col">
                 <div class="card card-body">
@@ -94,19 +92,18 @@
               </div>
             </div>
 
-            <div id='legenda' class="row" style='' >
-              LEGENDA: <br>
-              BRANCO: FÉRIAS <br>
-              AZUL: ABONO <br>
-              VERMELHO : REVISÃO <br>
-            </div>
+<fieldset id="fieldsetLegenda">
+  <legend id="legendaLegenda">LEGENDA</legend>
+    BRANCO: FÉRIAS <br>
+    AZUL: ABONO <br>
+    VERMELHO : REVISÃO <br>
+</fieldset>
 
-        </div>
+      </main>
+      <footer>
+      </footer>
 
         <script type="text/javascript" src="../cordova.js"></script>
         <script type="text/javascript" src="../js/home.js"></script>
-
     </body>
-    <footer>
-    </footer>
 </html>

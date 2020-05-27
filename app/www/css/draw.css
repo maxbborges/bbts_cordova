@@ -1,0 +1,176 @@
+.row.submenu-adm {
+    /* margin: 0% 0 0% 0; */
+    min-width: 100%;
+}
+
+.tabela-adm {
+    min-width: 100%;
+}
+
+/* .row{
+  margin : 1%;
+} */
+.collapse {
+  margin: 1%;
+  position: relative;
+  right: 2%;
+}
+.btn {
+  margin: 1%;
+
+}
+
+.row .btn-primary {
+    color: #fff;
+    background-color: #0033a0;
+    border-color: #0033a0;
+}
+
+div.form-group.input_qtd_abono {
+    display: none;
+}
+
+input#input_ferias_quantidade_dias,input#input_abono_dias {
+    min-width: 128px;
+}
+
+input#input_final_abono,input#input_ferias_final {
+    min-width: 108px;
+}
+
+.container {
+    width: 100%;
+    padding-top: 4%;
+    padding-right: 1%;
+    padding-left: 1%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* html body{
+      min-width: 360px;
+      background-image: url(../img/img1.jpg);
+  } */
+
+ #openNav{
+   position : fixed;
+   top: 1%;
+   left: 10%;
+   background-color: #0033a0;
+ }
+
+ footer .row{
+ margin-right: 0px;
+ }
+
+ footer .row{
+ position: fixed;
+ width: 100%;
+ bottom: 20px;
+ height: 5px;
+ background: #0033a0;
+ }
+
+ footer .row1{
+ position: fixed;
+ bottom: 0px;
+ height: 20px;
+ background: #fedb00;
+ }
+
+ footer .row3{
+ display: none;
+ }
+
+ header{
+   top: 0px;
+ background: #fedb00;
+ }
+
+header .row{
+  margin: 0px;
+}
+
+ header .row1{
+ height: 5px;
+ background: #0033a0;
+ }
+
+ header img {
+position: relative;
+left: 60%;
+ }
+
+ main{
+   top: 1%;
+   position: relative;
+ }
+
+ label img{
+   width: 20px;
+ }
+
+ a{
+   text-decoration: none;
+   color: black;
+ }
+
+ body{
+   font-family: :arial;
+   /* background: url("../img/bb1366.png"); */
+ }
+
+ ul{
+   list-style: none;
+ }
+ input[type="checkbox"]{
+   display: none;
+ }
+
+ nav{
+   background-color: rgba(1,1,1,.5);
+   width: 350px;
+   height: 100%;
+   left: -350px;
+   position: fixed;
+   transition: all .5s;
+   z-index: 2;
+
+ }
+
+ input[type="checkbox"]:checked ~ nav
+ {
+   transform: translateX(350px);
+ }
+
+ ul{
+   /* background-color: blue; */
+   top: 70px;
+   position: absolute;
+   width: 100%;
+ }
+
+ a{
+   display: block;
+   padding: 10px 5px;
+   color : white;
+ }
+
+ a:hover {
+   background-color: rgb(176,224,230);
+   color: black;
+ }
+
+ #labelNav {
+   padding: 0px;
+   position: fixed;
+   left: 2%;
+   top: 2px;
+   z-index: 3;
+ }
+
+ #perfil{
+   width: 80px;
+   height: 80px;
+   left: 1%;
+ }

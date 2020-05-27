@@ -1,3 +1,8 @@
+body{
+  font-family: :arial;
+  /* background: url("../img/bb1366.png"); */
+}
+
 #calendario_home{
   margin: 0px;
 }
@@ -19,6 +24,7 @@ div#calendario_home div.col {
   border: inset;
   border-color: yellow;
   text-align: center;
+
 }
 
 .notificacao {
@@ -29,16 +35,21 @@ div#calendario_home div.col {
   border: none !important;
 }
 
-div.container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 0px;
-    margin-right: auto;
-    margin-left: auto;
+#fieldsetLegenda{
+  width: 200px;
+  border: 1px solid #fedb00;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: left;
+  margin-bottom: 28px;
 }
 
-#legenda{
-  color: #ffffff;
-  margin-right: 0px;
-  margin-left: 5px;
+#legendaLegenda{
+  background-color: #fedb00;
+  border: 1px solid #0033a0;
+  border-radius: 10px;
+  padding: 4px 10px;
+  text-align: left;
+  text-transform: uppercase;
+  font-family: Arial, Verdana , sans-serif;
 }

@@ -1,4 +1,5 @@
 app/plugins
 app/node_modules
 app/hooks
-
+app/www/paginas/draw.html
+app/www/css/draw.css

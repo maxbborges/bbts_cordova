@@ -1,0 +1,67 @@
+header {
+  background: #fedb00;
+  border-bottom-color: blue;
+  border-width: 10px;
+  border-bottom: solid;
+}
+
+header.row {
+    margin-right: 0px;
+}
+
+header label img{
+  width: 20px;
+}
+
+header a{
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 10px 5px;
+  color : white;
+}
+
+header a:hover {
+  background-color: rgb(176,224,230);
+  color: black;
+}
+
+header ul{
+  list-style: none;
+  top: 70px;
+  position: absolute;
+  width: 100%;
+}
+
+header input[type="checkbox"]{
+  display: none;
+}
+
+header nav{
+  background-color: rgba(1,1,1,.5);
+  width: 350px;
+  height: 100%;
+  left: -350px;
+  position: fixed;
+  transition: all .5s;
+  z-index: 2;
+
+}
+
+header input[type="checkbox"]:checked ~ nav
+{
+  transform: translateX(350px);
+}
+
+#labelNav {
+  padding: 0px;
+  position: fixed;
+  left: 2%;
+  z-index: 3;
+}
+
+#perfil{
+  width: 80px;
+  height: 80px;
+  left: 1%;
+}

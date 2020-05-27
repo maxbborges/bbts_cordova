@@ -14,8 +14,6 @@ calendario1[1]=[1]
 calendario1[2]=[1]
 calendario1[3]=[1]
 
-// console.log(calendario1[1][1])
-
 $('#calendario_home').ready(function () {
   var data_atual = new Date();
   const days2020 = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
