@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://www.w3schools.com https://p.typekit.net/; media-src *; img-src 'self' data: content:;  font-src *;script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232 https://mbbdev.site/; connect-src *;">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/geral.css">
+  <!-- <link rel="stylesheet" type="text/css" href="../css/admin.css"> -->
+  <link rel="stylesheet" type="text/css" href="../css/ferias.css">
+  <link rel="stylesheet" type="text/css" href="../css/header.css">
+  <link rel="stylesheet" type="text/css" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+  <script src="../js/bootstrap/jquery.min.js"></script>
+  <script src="../js/bootstrap/popper.min.js"></script>
+  <script src="../js/bootstrap/bootstrap.min.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/footer.js"></script>
+  <script src="../js/verifica_sessao.js"></script>
+  <title>Ferias</title>
+</head>
+
+<body>
+  <header class="row">
+  </header>
+<main>
+
+
+    <fieldset id="fieldsetFerias">
+      <legend id="legendFerias"> Marcar Férias </legend>
+
+
+<!-- -----------------------------------INSERIR FERIAS ----------------------------------- -->
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="formGroupExampleInput"></label>
+          <input type="date" class="form-control" id="input_ferias_data_inicial" placeholder="Data inicial Pretendida:">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="formGroupExampleInput2"></label>
+          <input type="number" class="form-control" id="input_ferias_quantidade_dias" placeholder="Quantidade de dias:" min="1" max="30">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="formGroupExampleInput2"></label>
+          <input type="text" class="form-control" id='input_ferias_final' placeholder="Data final:" disabled>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ----------------------------------- decimo Terceiro ----------------------------- -->
+    <div class="row">
+      <div class='col' id="AbonoColor">
+        <fieldset class="form-group">
+          <legend class="pt-0">Abono </legend>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ferias_abono" id="ferias_com_abono" value='1'>
+            <label class="form-check-label" for="ferias_com_abono">
+              Com abono pecuniário
+            </label>
+          </div>
+          <div class="form-check" nome='teste'>
+            <input class="form-check-input" type="radio" name="ferias_abono" id="ferias_sem_abono" value='0' checked>
+            <label class="form-check-label" for="ferias_sem_abono">
+              Sem abono pecuniário
+            </label>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- ----------------------------------- decimo Terceiro ----------------------------- -->
+      <div class="col" id="decimoColor">
+        <!-- <fieldset class="form-group1"> -->
+          <legend class="pt-0">Adiantamento do 13° </legend>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ferias_adiantamento" id="ferias_adiantamento_sim" value="1">
+            <label class="form-check-label" for="ferias_adiantamento_sim">
+              Adiantamento deo 13°
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="ferias_adiantamento" id="ferias_adiantamento_nao" value="0" checked>
+            <label class="form-check-label" for="ferias_adiantamento_nao">
+              Não adiantar o 13°
+            </label>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row submenu-adm">
+        <div class="col">
+          <div class="col">
+            <button type="button" class="btn btn-primary btn-lg btn-block btn_inserir" data-toggle="collapse" href="#collapse_inserir_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Inserir ferias
+            </button>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary btn-lg btn-block btn_listar" onclick="listarFerias()" data-toggle="collapse" href="#collapse_listar_ferias" role="button" aria-expanded="false" aria-controls="collapseExample"> Listar ferias
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class='col'>
+        <div class="collapse sub_collapse_listar" id="collapse_listar_ferias">
+          <div class="card card-body">
+            <div class="table-responsive">
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">Funcionario</th>
+                  <th scope="col">Inicial</th>
+                  <th scope="col">Final</th>
+                  <th scope="col">Cadastramento</th>
+                  <th scope="col">Pecuniário</th>
+                  <th scope="col">Adiantamento</th>
+                  <th scope="col">Status</th>
+                  <th id="gerenciar" scope="col">Gerenciar</th>
+                </tr>
+              </thead>
+              <tbody id='linhas_ferias'>
+              </tbody>
+            </table>
+          </div>
+          </div>
+
+          </fieldset>
+        </div>
+</main>
+
+<footer>
+</footer>
+
+  <script type="text/javascript" src="../cordova.js"></script>
+  <script type="text/javascript" src="../js/admin.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+body{
+  font-family: :arial;
+}
+
+.row.submenu-adm {
+    /* margin: 0% 0 0% 0; */
+    min-width: 100%;
+}
+
+.tabela-adm {
+    min-width: 100%;
+}
+
+.row .btn-primary {
+    color: #fff;
+    background-color: #0033a0;
+}
+
+div.form-group.input_qtd_abono {
+    display: none;
+}
+
+input#input_ferias_quantidade_dias,input#input_abono_dias {
+    min-width: 128px;
+}
+
+input#input_final_abono,input#input_ferias_final {
+    min-width: 108px;
+}
+
+main .row {
+    margin-right: 0px;
+}
+
+
+#fieldsetAbono{
+  width: 95%;
+  border: 3px solid #fedb00;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: left;
+  margin : 2%;
+}
+
+#legendAbono{
+  background-color: #fedb00;
+  border: 1px solid #0033a0;
+  border-radius: 10px;
+  padding: 4px 10px;
+  text-align: left;
+  text-transform: uppercase;
+  font-family: Arial, Verdana , sans-serif;
+}
+
+fieldset form button {
+  margin: 1%;
+}
