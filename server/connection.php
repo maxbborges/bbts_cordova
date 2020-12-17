@@ -5,7 +5,8 @@
 //   $link = mysqli_connect("localhost", "u293760499_user", "123456", "u293760499_banco_bbts");
 // }
 
-$link = mysqli_connect("localhost", "user", "123456", "banco_bbts");
+// $link = mysqli_connect("localhost", "user", "123456", "banco_bbts");
+$link = mysqli_connect("213.190.6.1", "u293760499_maxwell", "Max485279", "u293760499_bbts");
 
 if (!$link) {
     echo "Erro: " . PHP_EOL;
