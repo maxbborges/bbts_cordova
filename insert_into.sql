@@ -332,7 +332,7 @@ values (110942,'WILLIAN DE PAULA GUIMARAES', md5(12345),'C1277878 ','willian.gui
 select * from funcionario
 
 max , marcus carvalho
-INSERT INTO atributos (matricula_funcionario,atributo) values (112528,'tecnico');
+INSERT INTO atributos (matricula_funcionario,atributo) values (112243,'tecnico');
 INSERT INTO atributos (matricula_funcionario,atributo) values (107884,'tecnico');
 
 

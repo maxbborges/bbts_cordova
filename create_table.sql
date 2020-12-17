@@ -31,7 +31,7 @@ CREATE TABLE `atributos` (
   `atributo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (matricula_funcionario) REFERENCES funcionario(matricula)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+);
 
 CREATE TABLE `ferias` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -44,7 +44,7 @@ CREATE TABLE `ferias` (
   `data_solicitacao` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (matricula_funcionario) REFERENCES funcionario(matricula)
-)
+);
 
 CREATE TABLE `abonos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -55,4 +55,4 @@ CREATE TABLE `abonos` (
   `status` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (matricula_funcionario) REFERENCES funcionario(matricula)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);

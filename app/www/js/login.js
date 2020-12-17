@@ -1,9 +1,7 @@
-var url;
-if (window.location.hostname=='localhost'){
-  url = 'http://localhost:90'
-} else {
-  url = 'https://mbbdev.site/wp-content/plugins/plugin_maxwell/includes/teste1/server'
-}
+url = null
+$.getJSON( "../js/teste.json", function( json ) {
+  url = json.parametros.url
+});
 
 function func_login(){
   if (($("#input_login").val())!=''&&($("#input_password").val())!=''){

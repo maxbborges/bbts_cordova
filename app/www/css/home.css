@@ -1,5 +1,5 @@
 body{
-  font-family: :arial;
+  font-family: arial;
   /* background: url("../img/bb1366.png"); */
 }
 
@@ -7,12 +7,23 @@ body{
   margin: 0px;
 }
 
-div#calendario_home div.col {
+div#calendario_home div.col.calendarioGeral {
     padding: 0px;
     margin-right: 15px;
     margin-left: 0px;
-    min-width: 413px;
+    min-width: 357px;
     max-width: 413px;
+}
+
+div#calendario_home div.calendarioInterno, div#calendario_home div.row {
+  padding: 0px;
+  margin: 0px;
+}
+
+.col.calendarioData .row {
+  width: 100%;
+  height: 100%;
+  align-items: center;
 }
 
 #blank {
@@ -20,6 +31,7 @@ div#calendario_home div.col {
 }
 
 #calendario_home td{
+  /* min-width: 60px; */
   padding: 0px;
   border: inset;
   border-color: yellow;
@@ -35,7 +47,25 @@ div#calendario_home div.col {
   border: none !important;
 }
 
-#fieldsetLegenda{
+
+.legenda{
+  height: 100%;
+  text-align: center;
+}
+
+p.titulo{
+  background-color: #fedb00;
+  border: 1px solid #0033a0;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.calendarioGeral span{
+  visibility: hidden;
+}
+
+
+/* #fieldsetLegenda{
   width: 200px;
   border: 1px solid #fedb00;
   border-radius: 10px;
@@ -52,4 +82,4 @@ div#calendario_home div.col {
   text-align: left;
   text-transform: uppercase;
   font-family: Arial, Verdana , sans-serif;
-}
+} */

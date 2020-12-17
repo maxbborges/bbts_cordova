@@ -5,13 +5,29 @@
   </label>
   <nav>
     <ul>
-      <li><img id="perfil" src="img/perfil.png"></li>
-      <li><a href="index.html">Iniciar </a></li>
-      <li><a href="paginas/admin.html">Administrativo</a></li>
-      <li><a href="paginas/home.html">Calendarios</a></li>
+      <li id='perfil'><img src="img/perfil.png"></li>
+      <li class='semLogin' id='btn_login'><a class='bg-primary' href="paginas/login.html">Login</a></li>
+      <li class="comLogin ">
+        <button class="btn dropdown-toggle bg-primary" id="dropdown_nome" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+        <div class="dropdown-menu" aria-labelledby="dropdown_nome">
+          <button class="dropdown-item" id='dropdownAtrib' disabled></button>
+          <button class="dropdown-item" id='dropdownMat' disabled></button>
+          <!-- <a class="dropdown-item" href="trocaSenha.html">Troca Senha</a> -->
+        </div>
+      </li>
+      <li class="comLogin ">
+        <button class="btn dropdown-toggle bg-primary" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrativo</button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="ferias.html">Férias</a>
+          <a class="dropdown-item" href="abono.html">Abono</a>
+          <a class="dropdown-item" href="trocaSenha.html">Troca Senha</a>
+        </div>
+      </li>
+      <li class='comLogin'><a class='bg-primary' href="paginas/home.html">Calendarios</a></li>
+      <li class='comLogin'><a class='bg-primary' href="index.html" id='btn_logout'>Sair</a></li>
     </ul>
   </nav>
 </div>
-  <div class="col">
-      <img src="img/logobb.png" alt="logo BB">
-    </div>
+<div class="col">
+  <img src="img/logobb.png" alt="logo BB">
+</div>

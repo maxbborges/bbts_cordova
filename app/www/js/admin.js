@@ -1,9 +1,7 @@
-var url;
-if (window.location.hostname=='localhost'){
-  url = 'http://localhost:90'
-} else {
-  url = 'https://mbbdev.site/wp-content/plugins/plugin_maxwell/includes/teste1/server'
-}
+url = null
+$.getJSON( "../js/teste.json", function( json ) {
+  url = json.parametros.url
+});
 
 function listarFuncionarios(){
   $('#linhas').html('');
@@ -45,175 +43,175 @@ function inserirFuncionarios(){
   });
 }
 
-function solicitacaoFolgas(id,tipo,status){
-  $.ajax({
-      type: "POST",
-      url: url+"/admin.php",
-      data: {'acao':'aceitarFolgas', 'id': id,'tipo':tipo,'status':status},
-      datatype: 'json',
-      success: function(resultado){
-        alert('Status Modificado para '+status+'!');
-        location.reload();
-    },
-  }).fail(function(jqXHR, textStatus){
-    console.log(jqXHR);
-  });
-}
+// function solicitacaoFolgas(id,tipo,status){
+//   $.ajax({
+//       type: "POST",
+//       url: url+"/admin.php",
+//       data: {'acao':'aceitarFolgas', 'id': id,'tipo':tipo,'status':status},
+//       datatype: 'json',
+//       success: function(resultado){
+//         alert('Status Modificado para '+status+'!');
+//         location.reload();
+//     },
+//   }).fail(function(jqXHR, textStatus){
+//     console.log(jqXHR);
+//   });
+// }
 
-function listarAbonos(){
-  $('#linhas_abonos').html('');
-  $.ajax({
-    type: "GET",
-    url: url+"/admin.php?listarAbonos",
-    datatype: 'json',
-    success: function(resultado){
-      var atributos = (localStorage.getItem('atributos')).split(',');
-      for (var i=0;i<resultado.length;i++){
-        if(atributos.length==3){
-        $('#linhas_abonos').append(
-          '<tr><td>'+resultado[i]['nome']+
-          '</td><td>'+resultado[i]['data_inicial']+
-          '</td><td>'+resultado[i]['data_final']+
-          '</td><td>'+resultado[i]['data_solicitacao']+
-          '</td><td>'+resultado[i]['status']+
-          '</td><td><button class="btn-success" onclick=solicitacaoFolgas('+resultado[i]['id']+',"abonos","Aprovado")>AP</button><button class="btn-danger" onclick=solicitacaoFolgas('+resultado[i]['id']+',"abonos","Rejeitado")>RP</button>'+
-          '</td></tr>');
-      }else {
-        $('#linhas_abonos').append(
-          '<tr><td>'+resultado[i]['nome']+
-          '</td><td>'+resultado[i]['data_inicial']+
-          '</td><td>'+resultado[i]['data_final']+
-          '</td><td>'+resultado[i]['data_solicitacao']+
-          '</td><td>'+resultado[i]['status']+
-          '</td></tr>');
-      }
-    }
-    },
-  });
-}
+// function listarAbonos(){
+//   $('#linhas_abonos').html('');
+//   $.ajax({
+//     type: "GET",
+//     url: url+"/admin.php?listarAbonos",
+//     datatype: 'json',
+//     success: function(resultado){
+//       var atributos = (localStorage.getItem('atributos')).split(',');
+//       for (var i=0;i<resultado.length;i++){
+//         if(atributos.length==3){
+//         $('#linhas_abonos').append(
+//           '<tr><td>'+resultado[i]['nome']+
+//           '</td><td>'+resultado[i]['data_inicial']+
+//           '</td><td>'+resultado[i]['data_final']+
+//           '</td><td>'+resultado[i]['data_solicitacao']+
+//           '</td><td>'+resultado[i]['status']+
+//           '</td><td><button class="btn-success" onclick=solicitacaoFolgas('+resultado[i]['id']+',"abonos","Aprovado")>AP</button><button class="btn-danger" onclick=solicitacaoFolgas('+resultado[i]['id']+',"abonos","Rejeitado")>RP</button>'+
+//           '</td></tr>');
+//       }else {
+//         $('#linhas_abonos').append(
+//           '<tr><td>'+resultado[i]['nome']+
+//           '</td><td>'+resultado[i]['data_inicial']+
+//           '</td><td>'+resultado[i]['data_final']+
+//           '</td><td>'+resultado[i]['data_solicitacao']+
+//           '</td><td>'+resultado[i]['status']+
+//           '</td></tr>');
+//       }
+//     }
+//     },
+//   });
+// }
 
 
-function trocaSenha(){
-  $.ajax({
-    type: "POST",
-    url: url+"/admin.php",
-    data:{'acao':'trocaSenha', 'matriculalogin': $("#matriculalogin").val(), 'senhaatual':$("#senhaatual").val(), 'novasenha':$("#novasenha").val()},
-    datatype: 'json',
-    success: function(resultado){
-      if (resultado == 0 ){
-        alert("Senha atual invalida!");
-      }else{
-        alert("Senha alterada com sucesso!");
-      }
-    },
-  });
-}
+// function trocaSenha(){
+//   $.ajax({
+//     type: "POST",
+//     url: url+"/admin.php",
+//     data:{'acao':'trocaSenha', 'matriculalogin': $("#matriculalogin").val(), 'senhaatual':$("#senhaatual").val(), 'novasenha':$("#novasenha").val()},
+//     datatype: 'json',
+//     success: function(resultado){
+//       if (resultado == 0 ){
+//         alert("Senha atual invalida!");
+//       }else{
+//         alert("Senha alterada com sucesso!");
+//       }
+//     },
+//   });
+// }
 
-function inserirAbono(){
-  console.log(window.localStorage.getItem('matricula'));
-  if ($("#input_data_abono").val()!='' && $('#input_abono_dias').val()!='' && $('#input_final_abono').val()!=''){
-    $.ajax({
-      type: "POST",
-      url: url+"/admin.php",
-      data: {'acao':'inserirAbono','matricula': window.localStorage.getItem('matricula'),'dataInicial': $("#input_data_abono").val(),'dataFinal': $('#input_final_abono').val()},
-      datatype: 'json',
-      success: function(resultado){
-        if (resultado==1){
-          alert ("Inserido com sucesso");
-        } else {
-          // alert('Erro ao inserir');
-          // alert(resultado);
-          console.log(resultado);
-        }
-      },
-    }).fail(function(jqXHR, textStatus){
-      console.log(jqXHR);
-      console.log(textStatus);
-    });
-  } else {
-    alert('Preencha Todos os campos!');
-  }
-}
+// function inserirAbono(){
+//   console.log(window.localStorage.getItem('matricula'));
+//   if ($("#input_data_abono").val()!='' && $('#input_abono_dias').val()!='' && $('#input_final_abono').val()!=''){
+//     $.ajax({
+//       type: "POST",
+//       url: url+"/admin.php",
+//       data: {'acao':'inserirAbono','matricula': window.localStorage.getItem('matricula'),'dataInicial': $("#input_data_abono").val(),'dataFinal': $('#input_final_abono').val()},
+//       datatype: 'json',
+//       success: function(resultado){
+//         if (resultado==1){
+//           alert ("Inserido com sucesso");
+//         } else {
+//           // alert('Erro ao inserir');
+//           // alert(resultado);
+//           console.log(resultado);
+//         }
+//       },
+//     }).fail(function(jqXHR, textStatus){
+//       console.log(jqXHR);
+//       console.log(textStatus);
+//     });
+//   } else {
+//     alert('Preencha Todos os campos!');
+//   }
+// }
 
-function listarFerias(){
+// function listarFerias(){
 
-  $('#linhas_ferias').html('');
-  $.ajax({
-    type: "GET",
-    url: url+"/admin.php?listarFerias",
-    datatype: 'json',
-    success: function(resultado){
-      var atributos = (localStorage.getItem('atributos')).split(',');
-      for (var i=0;i<resultado.length;i++){
-        if(atributos.length==3){
-        $('#linhas_ferias').append(
-            '<tr><td>'+resultado[i]['nome']+
-            '</td><td>'+resultado[i]['data_inicial']+
-            '</td><td>'+resultado[i]['data_final']+
-            '</td><td>'+resultado[i]['data_solicitacao']+
-            '</td><td>'+resultado[i]['num_abono']+
-            '</td><td>'+resultado[i]['adiantamento']+
-            '</td><td>'+resultado[i]['status']+
-            '</td><td><button class="btn-success" onclick=solicitacaoFolgas('+resultado[i]['id']+',"ferias","Aprovado")>AP</button><button class="btn-danger" onclick=solicitacaoFolgas('+resultado[i]['id']+',"ferias","Rejeitado")>RP</button>'+
-            '</td></tr>');
-      } else {
-        $('#linhas_ferias').append(
-            '<tr><td>'+resultado[i]['nome']+
-            '</td><td>'+resultado[i]['data_inicial']+
-            '</td><td>'+resultado[i]['data_final']+
-            '</td><td>'+resultado[i]['data_solicitacao']+
-            '</td><td>'+resultado[i]['num_abono']+
-            '</td><td>'+resultado[i]['adiantamento']+
-            '</td><td>'+resultado[i]['status']+
-            '</td></tr>');
-      }
-    }
-    },
-  });
+//   $('#linhas_ferias').html('');
+//   $.ajax({
+//     type: "GET",
+//     url: url+"/admin.php?listarFerias",
+//     datatype: 'json',
+//     success: function(resultado){
+//       var atributos = (localStorage.getItem('atributos')).split(',');
+//       for (var i=0;i<resultado.length;i++){
+//         if(atributos.length==3){
+//         $('#linhas_ferias').append(
+//             '<tr><td>'+resultado[i]['nome']+
+//             '</td><td>'+resultado[i]['data_inicial']+
+//             '</td><td>'+resultado[i]['data_final']+
+//             '</td><td>'+resultado[i]['data_solicitacao']+
+//             '</td><td>'+resultado[i]['num_abono']+
+//             '</td><td>'+resultado[i]['adiantamento']+
+//             '</td><td>'+resultado[i]['status']+
+//             '</td><td><button class="btn-success" onclick=solicitacaoFolgas('+resultado[i]['id']+',"ferias","Aprovado")>AP</button><button class="btn-danger" onclick=solicitacaoFolgas('+resultado[i]['id']+',"ferias","Rejeitado")>RP</button>'+
+//             '</td></tr>');
+//       } else {
+//         $('#linhas_ferias').append(
+//             '<tr><td>'+resultado[i]['nome']+
+//             '</td><td>'+resultado[i]['data_inicial']+
+//             '</td><td>'+resultado[i]['data_final']+
+//             '</td><td>'+resultado[i]['data_solicitacao']+
+//             '</td><td>'+resultado[i]['num_abono']+
+//             '</td><td>'+resultado[i]['adiantamento']+
+//             '</td><td>'+resultado[i]['status']+
+//             '</td></tr>');
+//       }
+//     }
+//     },
+//   });
 
-}
+// }
 
-function inserirFerias(){
-  if ($("#input_ferias_data_inicial").val()!='' && $('#input_ferias_final').val()!='' && $('#input_ferias_quantidade_dias').val()!=''){
-    // var dataSelecionada= new Date($('#input_ferias_data_inicial').val());
-    // dataSelecionada.setDate(dataSelecionada.getDate()+1);
-    // var data1 = new Date();
-    // var data2 = new Date(dataSelecionada);
+// function inserirFerias(){
+//   if ($("#input_ferias_data_inicial").val()!='' && $('#input_ferias_final').val()!='' && $('#input_ferias_quantidade_dias').val()!=''){
+//     // var dataSelecionada= new Date($('#input_ferias_data_inicial').val());
+//     // dataSelecionada.setDate(dataSelecionada.getDate()+1);
+//     // var data1 = new Date();
+//     // var data2 = new Date(dataSelecionada);
 
-    if ($('input[name=ferias_abono]:checked').val()=='1'){
-      if ($('#ferias_qtd_dias_abono').val()==''){
-        alert ('Preencha a quantidade de dias de abono!');
-      } else {
-        var numAbono = $('#ferias_qtd_dias_abono').val();
-        inserirFeriasAjax(numAbono);
-      }
-    } else{
-      var numAbono = 0;
-      inserirFeriasAjax(numAbono);
-    }
-  } else {
-    alert('Preencha Todos os campos!');
-  }
-}
+//     if ($('input[name=ferias_abono]:checked').val()=='1'){
+//       if ($('#ferias_qtd_dias_abono').val()==''){
+//         alert ('Preencha a quantidade de dias de abono!');
+//       } else {
+//         var numAbono = $('#ferias_qtd_dias_abono').val();
+//         inserirFeriasAjax(numAbono);
+//       }
+//     } else{
+//       var numAbono = 0;
+//       inserirFeriasAjax(numAbono);
+//     }
+//   } else {
+//     alert('Preencha Todos os campos!');
+//   }
+// }
 
-function inserirFeriasAjax(numAbono){
-  $.ajax({
-    type: "POST",
-    url: url+"/admin.php",
-    data: {'acao':'inserirFerias', 'matricula':window.localStorage.getItem('matricula') ,'dataInicial': $("#input_ferias_data_inicial").val(),'dataFinal': $('#input_ferias_final').val(),'numAbono': numAbono,'adiantamento':$('input[name=ferias_adiantamento]:checked').val()},
-    datatype: 'json',
-    success: function(resultado){
-      if (resultado==1){
-        alert ("Inserido com sucesso");
-      } else {
-        alert('Erro ao inserir');
-        alert(resultado);
-      }
-    },
-  }).fail(function(jqXHR, textStatus){
-    console.log(jqXHR);
-  });
-}
+// function inserirFeriasAjax(numAbono){
+//   $.ajax({
+//     type: "POST",
+//     url: url+"/admin.php",
+//     data: {'acao':'inserirFerias', 'matricula':window.localStorage.getItem('matricula') ,'dataInicial': $("#input_ferias_data_inicial").val(),'dataFinal': $('#input_ferias_final').val(),'numAbono': numAbono,'adiantamento':$('input[name=ferias_adiantamento]:checked').val()},
+//     datatype: 'json',
+//     success: function(resultado){
+//       if (resultado==1){
+//         alert ("Inserido com sucesso");
+//       } else {
+//         alert('Erro ao inserir');
+//         alert(resultado);
+//       }
+//     },
+//   }).fail(function(jqXHR, textStatus){
+//     console.log(jqXHR);
+//   });
+// }
 
 $( document ).ready(function() {
   var data_inicial = new Date();
@@ -243,25 +241,25 @@ $( document ).ready(function() {
     thingToRemove.parentNode.removeChild(thingToRemove);
   }
 
-  $( "#input_ferias_quantidade_dias" ).keyup(function() {
-    var date = new Date($('#input_ferias_data_inicial').val());
-    date.setDate(date.getDate()+1+parseInt($("#input_ferias_quantidade_dias").val()));
-    var d = ("0" + date.getDate()).slice(-2);
-    var m =  ("0" + (date.getMonth() + 1)).slice(-2);
-    var y = date.getFullYear();
-    $('#input_ferias_final').attr("placeholder",d+'-'+m+'-'+y);
-    $('#input_ferias_final').val(d+'-'+m+'-'+y);
-  });
+  // $( "#input_ferias_quantidade_dias" ).keyup(function() {
+  //   var date = new Date($('#input_ferias_data_inicial').val());
+  //   date.setDate(date.getDate()+1+parseInt($("#input_ferias_quantidade_dias").val()));
+  //   var d = ("0" + date.getDate()).slice(-2);
+  //   var m =  ("0" + (date.getMonth() + 1)).slice(-2);
+  //   var y = date.getFullYear();
+  //   $('#input_ferias_final').attr("placeholder",d+'-'+m+'-'+y);
+  //   $('#input_ferias_final').val(d+'-'+m+'-'+y);
+  // });
 
-  $( "#input_abono_dias" ).keyup(function() {
-    var date = new Date($('#input_data_abono').val());
-    date.setDate(date.getDate()+1+parseInt($("#input_abono_dias").val()));
-    var d = ("0" + date.getDate()).slice(-2);
-    var m =  ("0" + (date.getMonth() + 1)).slice(-2);
-    var y = date.getFullYear();
-    $('#input_final_abono').attr("placeholder",d+'-'+m+'-'+y);
-    $('#input_final_abono').val(d+'-'+m+'-'+y);
-  });
+  // $( "#input_abono_dias" ).keyup(function() {
+  //   var date = new Date($('#input_data_abono').val());
+  //   date.setDate(date.getDate()+1+parseInt($("#input_abono_dias").val()));
+  //   var d = ("0" + date.getDate()).slice(-2);
+  //   var m =  ("0" + (date.getMonth() + 1)).slice(-2);
+  //   var y = date.getFullYear();
+  //   $('#input_final_abono').attr("placeholder",d+'-'+m+'-'+y);
+  //   $('#input_final_abono').val(d+'-'+m+'-'+y);
+  // });
 
   $(".submenu-adm button").click(function(){
     $(".sub_collapse_inserir").removeClass('show').addClass("");

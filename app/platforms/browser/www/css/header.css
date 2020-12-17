@@ -3,10 +3,12 @@ header {
   border-bottom-color: blue;
   border-width: 10px;
   border-bottom: solid;
+  width: 100%ß;
 }
 
 header.row {
     margin-right: 0px;
+    min-width: 100%;
 }
 
 header label img{
@@ -28,9 +30,15 @@ header a:hover {
 
 header ul{
   list-style: none;
-  top: 70px;
+  top: 5%;
   position: absolute;
   width: 100%;
+  text-align: center;
+  padding-left: 0px;
+}
+
+header ul a{
+  margin: 0px 50px 5px 50px;
 }
 
 header input[type="checkbox"]{
@@ -60,8 +68,22 @@ header input[type="checkbox"]:checked ~ nav
   z-index: 3;
 }
 
-#perfil{
+#perfil {
+  padding-bottom: 10px;
+}
+
+#perfil img{
   width: 80px;
   height: 80px;
-  left: 1%;
+}
+
+button#dropdownMenuButton,button#dropdown_nome {
+  color: white;
+  margin-bottom: 1%;
+  width: 254px;
+}
+
+button.dropdown-item, a.dropdown-item {
+  margin: 0px;
+  text-align: center;
 }

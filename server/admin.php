@@ -21,14 +21,31 @@ if (isset($_GET['logar'])){
 }
 
 if (isset($_GET['listarFerias'])){
+  $matricula= $_GET['matricula'];
   require_once './connection.php';
 
   $resultado = [];
-  $consulta = mysqli_query($link,"select id ,data_inicial,data_final,data_solicitacao,num_abono,adiantamento,nome,status from ferias,funcionario where matricula_funcionario=matricula;");
 
-  while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
-    array_push($resultado,$linha);
-  }
+  // $consulta = mysqli_query($link,'select count(*) as contador FROM atributos where matricula_funcionario='.$matricula.';');
+
+  // if(((int)(mysqli_fetch_array($consulta,MYSQLI_ASSOC)['contador']))>=2){
+    // $consulta = mysqli_query($link,"select id ,data_inicial,data_final,data_solicitacao,num_abono,adiantamento,nome,status from ferias,funcionario where matricula_funcionario=matricula;");
+
+    // while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
+    //   array_push($resultado,$linha);
+    // }
+  // } else {
+    // $consulta = mysqli_query($link,"select id ,data_inicial,data_final,data_solicitacao,num_abono,adiantamento,nome,status from ferias,funcionario where matricula_funcionario=matricula and matricula=".$matricula.';');
+
+    // while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
+    //   array_push($resultado,$linha);
+    // }
+  // }
+
+      $consulta = mysqli_query($link,"select f2.id,a.matricula_funcionario, a.data_cadastro , f2.data_inicio , f2.data_fim from ferias f2, administrativo a, faltas_folgas ff where f2.id_faltas_folgas = ff.id and ff.id_administrativo = a.id ;");
+      while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
+          array_push($resultado,$linha);
+        }
 
   mysqli_close($link);
   header('Content-type: application/json');
@@ -37,9 +54,25 @@ if (isset($_GET['listarFerias'])){
 
 if (isset($_GET['listarAbonos'])){
   require_once './connection.php';
+  $matricula= $_GET['matricula'];
 
   $resultado = [];
-  $consulta = mysqli_query($link,"select id ,nome,data_inicial,data_final,data_solicitacao,status from abonos,funcionario where matricula_funcionario=matricula;");
+
+  $consulta = mysqli_query($link,'select count(*) as contador FROM abonos where matricula_funcionario='.$matricula.';');
+
+  if(((int)(mysqli_fetch_array($consulta,MYSQLI_ASSOC)['contador']))>=2){
+    $consulta = mysqli_query($link,"select id ,nome,data_inicial,data_final,data_solicitacao,status from abonos,funcionario where matricula_funcionario=matricula;");
+
+    while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
+      array_push($resultado,$linha);
+    }
+  } else {
+    $consulta = mysqli_query($link,"select id ,nome,data_inicial,data_final,data_solicitacao,status from abonos,funcionario where matricula_funcionario=matricula and matricula=".$matricula.';');
+
+    while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
+      array_push($resultado,$linha);
+    }
+  }
 
   while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
     array_push($resultado,$linha);
@@ -66,8 +99,22 @@ if (!empty($_POST)) {
   } else if ($_POST['acao']=='inserirFerias'){
     $dataInicial = date("Y-m-d", strtotime($_POST['dataInicial']));
     $dataFinal = date("Y-m-d", strtotime($_POST['dataFinal']));
-    $linha = "insert into ferias (data_inicial,data_final,data_solicitacao,num_abono,adiantamento,matricula_funcionario,status) values ('".$dataInicial."','".$dataFinal."','".date('Y-m-d')."',".$_POST['numAbono'].",".(int)$_POST['adiantamento'].",".(int)$_POST['matricula'].",'Pendente');";
-    $consulta = mysqli_query($link,$linha);
+
+
+    $inserir_dados = "
+    START TRANSACTION;
+      INSERT INTO administrativo (matricula_funcionario ,data_cadastro ,data_alteracao ) VALUES (112243,'2020-01-01','2020-01-01');
+      INSERT INTO faltas_folgas (id_administrativo) VALUES (LAST_INSERT_ID());
+      INSERT INTO ferias (id_falta_folgas,numero_abonos ,adiantamento ,status ) VALUES (LAST_INSERT_ID(),0,'false','pendente');
+      COMMIT;";
+
+
+
+
+    // $linha = "insert into ferias (data_inicial,data_final,data_solicitacao,num_abono,adiantamento,matricula_funcionario,status) values ('".$dataInicial."','".$dataFinal."','".date('Y-m-d')."',".$_POST['numAbono'].",".(int)$_POST['adiantamento'].",".(int)$_POST['matricula'].",'Pendente');";
+    
+    
+    $consulta = mysqli_query($inserir_dados,$linha) or die(mysqli_error($link);
     mysqli_close($link);
     echo $consulta;
 

@@ -1,17 +1,19 @@
-if (window.localStorage.getItem('login')=='true'&&window.localStorage.getItem('usuario_bbts')!=null){
-  if (window.location['href']==(window.location['origin']+'/')||window.location.pathname=='/android_asset/www/index.html'){
-    window.location = 'paginas/home.html';
-  } else if ((window.location.pathname).indexOf("paginas/login.html")>-1){
-    window.location = 'home.html';
-  }
-} else {
-  console.log(window.location.pathname);
-  if((window.location.pathname).indexOf("paginas")>-1&&((window.location.pathname).indexOf("paginas/login.html")==-1)){
-      window.location = 'login.html';
-  } else if ((window.location.pathname).indexOf("paginas/login.html")==-1&&(window.location.pathname).indexOf("/")==-1) {
-      window.location = 'paginas/login.html';
-  }
-}
+// if (window.localStorage.getItem('login')=='true'&&window.localStorage.getItem('usuario_bbts')!=null){
+//   if (window.location['href']==(window.location['origin']+'/')||window.location.pathname=='/android_asset/www/index.html'){
+//     window.location = 'paginas/home.html';
+//   } else if ((window.location.pathname).indexOf("paginas/login.html")>-1){
+//     window.location = 'home.html';
+//   }
+// } else {
+//   console.log(window.location.pathname);
+//   if((window.location.pathname).indexOf("paginas")>-1&&((window.location.pathname).indexOf("paginas/login.html")==-1)){
+//       window.location = 'login.html';
+//   } else if ((window.location.pathname).indexOf("paginas/login.html")==-1&&(window.location.pathname).indexOf("/")==-1) {
+//       window.location = 'paginas/login.html';
+//   }
+// }
+
+
 
 
 

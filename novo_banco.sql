@@ -1,5 +1,4 @@
-
---Novo banco
+-- Novo banco
 
 -- banco_bbts.funcionario definition
 
@@ -14,35 +13,24 @@ CREATE TABLE `funcionario` (
 CREATE TABLE `administrativo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `matricula_funcionario` int(11) DEFAULT NULL,
-  `data_cadastro` date DEFAULT NULL,
-  `data_alteracao` date DEFAULT NULL,
+  `data_cadastro` TIMESTAMP DEFAULT NULL,
+  `data_alteracao` TIMESTAMP DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `matricula_funcionario` (`matricula_funcionario`),
   CONSTRAINT `administrativo_ibfk_1` FOREIGN KEY (`matricula_funcionario`) REFERENCES `funcionario` (`matricula`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
-
--- banco_bbts.cadastro definition
-
-CREATE TABLE `cadastro` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_cadastro` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_cadastro` (`id_cadastro`),
-  CONSTRAINT `cadastro_ibfk_1` FOREIGN KEY (`id_cadastro`) REFERENCES `administrativo` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
 
 -- banco_bbts.dados_funcionario definition
 
 CREATE TABLE `dados_funcionario` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `matricula_funcionario` int(11) DEFAULT NULL,
-  `data_cadastro` date DEFAULT NULL,
-  `data_alteracao` date DEFAULT NULL,
+  `data_cadastro` TIMESTAMP DEFAULT NULL,
+  `data_alteracao` TIMESTAMP DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `matricula_funcionario` (`matricula_funcionario`),
-  CONSTRAINT `dados_funcionario_ibfk_1` FOREIGN KEY (`matricula_funcionario`) REFERENCES `funcionario` (`matricula`)
+  CONSTRAINT `dados_funcionario_ibfk_1` FOREIGN KEY (`matricula_funcionario`) REFERENCES `funcionario` (`matricula`),
+  UNIQUE (`matricula_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 
@@ -52,7 +40,6 @@ CREATE TABLE `dados_pessoais` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_funcionario` int(11) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
-  `senha` varchar(255) DEFAULT NULL,
   `cpf` varchar(255) DEFAULT NULL,
   `rg` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -65,24 +52,27 @@ CREATE TABLE `dados_pessoais` (
 
 CREATE TABLE `faltas_folgas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_cadastro` int(11) DEFAULT NULL,
+  `id_administrativo` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_cadastro` (`id_cadastro`),
-  CONSTRAINT `faltas_folgas_ibfk_1` FOREIGN KEY (`id_cadastro`) REFERENCES `cadastro` (`id`)
+  KEY `id_administrativo` (`id_administrativo`),
+  CONSTRAINT `faltas_folgas_ibfk_1` FOREIGN KEY (`id_administrativo`) REFERENCES `administrativo` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 
 -- banco_bbts.ferias definition
 
-CREATE TABLE `ferias` (
+CREATE TABLE `ferias_abonos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_ferias` int(11) DEFAULT NULL,
+  `id_faltas_folgas` int(11) DEFAULT NULL,
   `numero_abonos` int(2) DEFAULT NULL,
   `adiantamento` varchar(255) DEFAULT NULL,
+  `data_inicio` TIMESTAMP DEFAULT NULL,
+  `data_fim` TIMESTAMP DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_ferias` (`id_ferias`),
-  CONSTRAINT `ferias_ibfk_1` FOREIGN KEY (`id_ferias`) REFERENCES `faltas_folgas` (`id`)
+  KEY `id_faltas_folgas` (`id_faltas_folgas`),
+  CONSTRAINT `ferias_ibfk_1` FOREIGN KEY (`id_faltas_folgas`) REFERENCES `faltas_folgas` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 
@@ -90,13 +80,13 @@ CREATE TABLE `ferias` (
 
 CREATE TABLE `outros` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_outros` int(11) DEFAULT NULL,
+  `id_faltas_folgas` int(11) DEFAULT NULL,
   `tipo` varchar(255) DEFAULT NULL,
-  `data_inicio` date DEFAULT NULL,
-  `data_fim` date DEFAULT NULL,
+  `data_inicio` TIMESTAMP DEFAULT NULL,
+  `data_fim` TIMESTAMP DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_outros` (`id_outros`),
-  CONSTRAINT `outros_ibfk_1` FOREIGN KEY (`id_outros`) REFERENCES `faltas_folgas` (`id`)
+  KEY `id_faltas_folgas` (`id_faltas_folgas`),
+  CONSTRAINT `outros_ibfk_1` FOREIGN KEY (`id_faltas_folgas`) REFERENCES `faltas_folgas` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 
@@ -104,10 +94,10 @@ CREATE TABLE `outros` (
 
 CREATE TABLE `ponto` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_cadastro` int(11) DEFAULT NULL,
+  `id_administrativo` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_cadastro` (`id_cadastro`),
-  CONSTRAINT `ponto_ibfk_1` FOREIGN KEY (`id_cadastro`) REFERENCES `cadastro` (`id`)
+  KEY `id_administrativo` (`id_administrativo`),
+  CONSTRAINT `ponto_ibfk_1` FOREIGN KEY (`id_administrativo`) REFERENCES `administrativo` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 
@@ -132,23 +122,6 @@ CREATE TABLE `senhas` (
   KEY `id_seguranca` (`id_seguranca`),
   CONSTRAINT `senhas_ibfk_1` FOREIGN KEY (`id_seguranca`) REFERENCES `seguranca` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
-
--- banco_bbts.abonos definition
-
-CREATE TABLE `abonos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_abonos` int(11) DEFAULT NULL,
-  `numero_abonos` int(2) DEFAULT NULL,
-  `data_inicio` date DEFAULT NULL,
-  `data_fim` date DEFAULT NULL,
-  `data_solicitada` varchar(255) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_abonos` (`id_abonos`),
-  CONSTRAINT `abonos_ibfk_1` FOREIGN KEY (`id_abonos`) REFERENCES `faltas_folgas` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
-
 
 -- banco_bbts.calcula_horas definition
 
@@ -199,7 +172,7 @@ CREATE TABLE `dados_corporativos` (
   `cartao_capital` varchar(255) DEFAULT NULL,
   `cartao_bbts` varchar(255) DEFAULT NULL,
   `num_contrato` varchar(255) DEFAULT NULL,
-  `data_contratacao` date DEFAULT NULL,
+  `data_contratacao` TIMESTAMP DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_funcionario` (`id_funcionario`),
   CONSTRAINT `dados_corporativos_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `dados_funcionario` (`id`)
@@ -275,3 +248,42 @@ CREATE TABLE `telefone_corporativo` (
   KEY `id_telefone_corporativo` (`id_telefone_corporativo`),
   CONSTRAINT `telefone_corporativo_ibfk_1` FOREIGN KEY (`id_telefone_corporativo`) REFERENCES `contatos_corporativos` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+
+
+
+
+
+START TRANSACTION;
+-- 	INSERT INTO funcionario (matricula) VALUES (112243);
+	INSERT INTO administrativo (matricula_funcionario ,data_cadastro ,data_alteracao ) VALUES (112243,'2020-01-01','2020-01-01');
+	INSERT INTO faltas_folgas (id_administrativo) VALUES (LAST_INSERT_ID());
+	INSERT INTO ferias (id_falta_folgas,numero_abonos ,adiantamento ,status ) VALUES (LAST_INSERT_ID(),0,'false','pendente');
+COMMIT;
+
+
+SELECT a.id,f.status,a.data_cadastro FROM ferias f, faltas_folgas ff , administrativo a WHERE f.id_falta_folgas = ff.id and ff.id_administrativo = a.id and a.matricula_funcionario = 112243;
+-- select * from ferias;
+-- select * from faltas_folgas ff ;
+-- select * from funcionario;
+-- select * from administrativo a2 ;
+
+
+SELECT * FROM ferias f 
+
+ROLLBACK;
+
+
+
+SELECT * from funcionario f ;
+SELECT * from administrativo a ;
+select * from cadastro c ;
+select * from faltas_folgas ff;
+-- 
+DELETE from funcionario where matricula=112243;
+DELETE from cadastro where id=16;
+DELETE from administrativo where id=16;
+
+SELECT a.id,f.status,a.data_cadastro FROM ferias f, faltas_folgas ff , administrativo a WHERE f.id_falta_folgas = ff.id and ff.id_administrativo = a.id and a.matricula_funcionario = 112243;
+
+

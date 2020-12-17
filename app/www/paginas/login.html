@@ -2,8 +2,7 @@
 <html>
 
 <head>
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://*;font-src *; media-src *; img-src 'self' data: content:; script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232 https://mbbdev.site/; connect-src *;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://*;font-src *; media-src *; img-src 'self' data: content:; script-src 'unsafe-inline' http://* https://* http://localhost:* 35.202.138.232 https://mbbdev.site/ http://177.235.105.41:32768/ http://192.168.0.100:32768; connect-src *;">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -19,6 +18,7 @@
   <script src="../js/header.js"></script>
   <script src="../js/footer.js"></script>
   <script src="../js/verifica_sessao.js"></script>
+  <script src="../js/index.js"></script>
   <title>Login</title>
 </head>
 
@@ -28,10 +28,7 @@
   <main>
 
     <div class="row justify-content-md-center">
-      <div class="col col-lg-2">
-        <!-- 1 of 3 -->
-      </div>
-      <div class="col-md-auto" id="colorLogin">
+      <div class="col" id="colorLogin">
         <div class="field">
             <form>
               <fieldset id="fieldsetLogin">

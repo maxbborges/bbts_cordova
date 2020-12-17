@@ -1,109 +1,1425 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://www.w3schools.com https://kit-free.fontawesome.com https://p.typekit.net/; font-src *; media-src *; img-src 'self' data: content:; script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232 https://mbbdev.site/; connect-src *;">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta charset="UTF-8">
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <link rel="stylesheet" type="text/css" href="../css/geral.css">
-        <link rel="stylesheet" type="text/css" href="../css/home.css">
-        <link rel="stylesheet" type="text/css" href="../css/header.css">
-        <link rel="stylesheet" type="text/css" href="../css/footer.css">
-        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="../js/bootstrap/jquery.min.js"></script>
-        <script src="../js/bootstrap/popper.min.js"></script>
-        <script src="../js/bootstrap/bootstrap.min.js"></script>
-        <script src="../js/header.js"></script>
-        <script src="../js/footer.js"></script>
-        <script src="../js/verifica_sessao.js"></script>
-        <title>HOME</title>
-    </head>
-    <body>
 
-      <header class="row">
-      </header>
+<head>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://www.w3schools.com https://kit-free.fontawesome.com https://p.typekit.net/; font-src *; media-src *; img-src 'self' data: content:; script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232 https://mbbdev.site/ http://177.235.105.41:32768/ http://192.168.0.100:32768/; connect-src *;">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <meta charset="UTF-8">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <link rel="stylesheet" type="text/css" href="../css/geral.css">
+  <link rel="stylesheet" type="text/css" href="../css/home.css">
+  <link rel="stylesheet" type="text/css" href="../css/header.css">
+  <link rel="stylesheet" type="text/css" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../js/bootstrap/jquery.min.js"></script>
+  <script src="../js/bootstrap/popper.min.js"></script>
+  <script src="../js/bootstrap/bootstrap.min.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/footer.js"></script>
+  <script src="../js/verifica_sessao.js"></script>
+  <title>HOME</title>
+</head>
 
-<main>
+<body>
+
+  <header class="row">
+  </header>
+
+  <main>
 
 
-            <div class="row" id='calendario_home'>
-              <div class="col">
-                <div class="card card-body">
-                  <p id='mes1'></p>
-                    <table class="table table-dark">
-                        <thead>
-                          <tr>
-                            <th scope="col">D</th>
-                            <th scope="col">S</th>
-                            <th scope="col">T</th>
-                            <th scope="col">Q</th>
-                            <th scope="col">Q</th>
-                            <th scope="col">S</th>
-                            <th scope="col">S</th>
-                          </tr>
-                        </thead>
-                        <tbody id='calendario1'>
-                        </tbody>
-                      </table>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card card-body">
-                  <p id='mes2'></p>
-                    <table class="table table-dark">
-                        <thead>
-                          <tr>
-                            <th scope="col">D</th>
-                            <th scope="col">S</th>
-                            <th scope="col">T</th>
-                            <th scope="col">Q</th>
-                            <th scope="col">Q</th>
-                            <th scope="col">S</th>
-                            <th scope="col">S</th>
-                          </tr>
-                        </thead>
-                        <tbody id='calendario2'>
-                        </tbody>
-                      </table>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card card-body">
-                  <p id='mes3'></p>
-                    <table class="table table-dark">
-                        <thead>
-                          <tr>
-                            <th scope="col">D</th>
-                            <th scope="col">S</th>
-                            <th scope="col">T</th>
-                            <th scope="col">Q</th>
-                            <th scope="col">Q</th>
-                            <th scope="col">S</th>
-                            <th scope="col">S</th>
-                          </tr>
-                        </thead>
-                        <tbody id='calendario3'>
-                        </tbody>
-                      </table>
-                </div>
-              </div>
-            </div>
+    <div class="row" id='calendario_home'>
+      <div class="col calendarioGeral">
+        <div class="card card-body">
+          <p id='mes1'></p>
+          <table class="table table-dark" id='calendario0'>
+            <thead>
+              <tr>
+                <th scope="col">D</th>
+                <th scope="col">S</th>
+                <th scope="col">T</th>
+                <th scope="col">Q</th>
+                <th scope="col">Q</th>
+                <th scope="col">S</th>
+                <th scope="col">S</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'><input type="button" value="1" class='click'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
-<fieldset id="fieldsetLegenda">
-  <legend id="legendaLegenda">LEGENDA</legend>
-    BRANCO: FÉRIAS <br>
-    AZUL: ABONO <br>
-    VERMELHO : REVISÃO <br>
-</fieldset>
+          <div class="card card-body legenda">
+            <p>
+              BRANCO: FÉRIAS <br>
+              AZUL: ABONO <br>
+              VERMELHO : REVISÃO <br>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col calendarioGeral geral1">
+        <div class="card card-body">
+          <p id='mes1'></p>
+          <table class="table table-dark" id='calendario1'>
+            <thead>
+              <tr>
+                <th scope="col">D</th>
+                <th scope="col">S</th>
+                <th scope="col">T</th>
+                <th scope="col">Q</th>
+                <th scope="col">Q</th>
+                <th scope="col">S</th>
+                <th scope="col">S</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card card-body legenda">
+            <p>
+              BRANCO: FÉRIAS <br>
+              AZUL: ABONO <br>
+              VERMELHO : REVISÃO <br>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col calendarioGeral geral1">
+        <div class="card card-body">
+          <p id='mes1'></p>
+          <table class="table table-dark" id='calendario2'>
+            <thead>
+              <tr>
+                <th scope="col">D</th>
+                <th scope="col">S</th>
+                <th scope="col">T</th>
+                <th scope="col">Q</th>
+                <th scope="col">Q</th>
+                <th scope="col">S</th>
+                <th scope="col">S</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class='row'>
+                    <div class='col calendarioInterno calendarioAlertas'>
+                      <div class='row'><span class="badge badge-danger">0</span></div>
+                      <div class='row'><span class="badge badge-light">0</span></div>
+                      <div class='row'><span class="badge badge-primary">0</span></div>
+                    </div>
+                    <div class="col calendarioInterno calendarioData">
+                      <div class='row'></div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card card-body legenda">
+            <p>
+              BRANCO: FÉRIAS <br>
+              AZUL: ABONO <br>
+              VERMELHO : REVISÃO <br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      </main>
-      <footer>
-      </footer>
+    <!-- <fieldset id="fieldsetLegenda">
+      <legend id="legendaLegenda">LEGENDA</legend>
+      BRANCO: FÉRIAS <br>
+      AZUL: ABONO <br>
+      VERMELHO : REVISÃO <br>
+    </fieldset> -->
 
-        <script type="text/javascript" src="../cordova.js"></script>
-        <script type="text/javascript" src="../js/home.js"></script>
-    </body>
+  </main>
+  <footer>
+  </footer>
+
+  <script type="text/javascript" src="../cordova.js"></script>
+  <script type="text/javascript" src="../js/home.js"></script>
+</body>
+
 </html>

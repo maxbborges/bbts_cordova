@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: gap: script-src: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://www.w3schools.com https://p.typekit.net/; media-src *; img-src 'self' data: content:;  font-src *;script-src 'unsafe-inline' https://* http://localhost:* 35.202.138.232 https://mbbdev.site/ http://177.235.106.168:32768/ http://192.168.0.100:32768; connect-src *;">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../css/geral.css">
+  <!-- <link rel="stylesheet" type="text/css" href="../css/admin.css"> -->
+  <link rel="stylesheet" type="text/css" href="../css/ferias.css">
+  <link rel="stylesheet" type="text/css" href="../css/header.css">
+  <link rel="stylesheet" type="text/css" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+  <script src="../js/bootstrap/jquery.min.js"></script>
+  <script src="../js/bootstrap/popper.min.js"></script>
+  <script src="../js/bootstrap/bootstrap.min.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/footer.js"></script>
+  <script src="../js/verifica_sessao.js"></script>
+  <title>Ferias</title>
+</head>
+
+<body>
+  <header class="row">
+  </header>
+  <main>
+    <div class="card card-body">
+      <div class="table-responsive">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Funcionario</th>
+              <th scope="col">Inicial</th>
+              <th scope="col">Final</th>
+              <th scope="col">Cadastramento</th>
+              <th scope="col">Pecuniário</th>
+              <th scope="col">Adiantamento</th>
+              <th scope="col">Status</th>
+              <th id="gerenciar" scope="col">Gerenciar</th>
+            </tr>
+          </thead>
+          <tbody id='linhas_ferias'>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+  </footer>
+
+  <script type="text/javascript" src="../cordova.js"></script>
+  <script type="text/javascript" src="../js/ferias_listar.js"></script>
+
+</body>
+
+</html>
