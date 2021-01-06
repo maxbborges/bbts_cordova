@@ -22,6 +22,7 @@ if (isset($_GET['logar'])){
 
 if (isset($_GET['listarFerias'])){
   $matricula= $_GET['matricula'];
+  $tipo= $_GET['tipo'];
   require_once './connection.php';
 
   $resultado = [];
@@ -42,7 +43,7 @@ if (isset($_GET['listarFerias'])){
     // }
   // }
 
-      $consulta = mysqli_query($link,"select f2.id,a.matricula_funcionario, a.data_cadastro , f2.data_inicio , f2.data_fim from ferias f2, administrativo a, faltas_folgas ff where f2.id_faltas_folgas = ff.id and ff.id_administrativo = a.id ;");
+      $consulta = mysqli_query($link,"select f2.id,a.matricula_funcionario, a.data_cadastro , f2.data_inicio , f2.data_fim, f2.numero_abonos, f2.adiantamento, f2.status from ferias_abonos f2, administrativo a, faltas_folgas ff where f2.id_faltas_folgas = ff.id and ff.id_administrativo = a.id and YEAR(f2.data_inicio)>=YEAR(CURDATE()) and MONTH(f2.data_inicio)>=MONTH(CURDATE()) and tipo=".$tipo.";");
       while ($linha = mysqli_fetch_array($consulta,MYSQLI_ASSOC)){
           array_push($resultado,$linha);
         }
@@ -98,34 +99,31 @@ if (!empty($_POST)) {
     echo $consulta;
   } else if ($_POST['acao']=='inserirFerias'){
     $dataInicial = date("Y-m-d", strtotime($_POST['dataInicial']));
-    $dataFinal = date("Y-m-d", strtotime($_POST['dataFinal']));
+    $dataFinal = date("Y-m-d 23:59:59", strtotime($_POST['dataFinal']));
+    $all_query_ok=true;
+    mysqli_autocommit($link, FALSE);
 
-
-    $inserir_dados = "
-    START TRANSACTION;
-      INSERT INTO administrativo (matricula_funcionario ,data_cadastro ,data_alteracao ) VALUES (112243,'2020-01-01','2020-01-01');
-      INSERT INTO faltas_folgas (id_administrativo) VALUES (LAST_INSERT_ID());
-      INSERT INTO ferias (id_falta_folgas,numero_abonos ,adiantamento ,status ) VALUES (LAST_INSERT_ID(),0,'false','pendente');
-      COMMIT;";
-
-
-
-
-    // $linha = "insert into ferias (data_inicial,data_final,data_solicitacao,num_abono,adiantamento,matricula_funcionario,status) values ('".$dataInicial."','".$dataFinal."','".date('Y-m-d')."',".$_POST['numAbono'].",".(int)$_POST['adiantamento'].",".(int)$_POST['matricula'].",'Pendente');";
+    $link->query("INSERT INTO administrativo (matricula_funcionario ,data_cadastro ,data_alteracao ) VALUES (".(int)$_POST['matricula'].",CURDATE(),CURDATE());") ? null : $all_query_ok=false;
+    $link->query("INSERT INTO faltas_folgas (id_administrativo) VALUES (LAST_INSERT_ID());")? null : $all_query_ok=false;
+    $link->query("INSERT INTO ferias_abonos (id_faltas_folgas,numero_abonos ,adiantamento,data_inicio,data_fim,status,tipo ) VALUES (LAST_INSERT_ID(),0,'false','".$dataInicial."','".$dataFinal."','pendente','ferias');")? null : $all_query_ok=false;
     
-    
-    $consulta = mysqli_query($inserir_dados,$linha) or die(mysqli_error($link);
-    mysqli_close($link);
-    echo $consulta;
+    $all_query_ok ? $link->commit() : $link->rollback();
+    echo $all_query_ok ? '1' : '0';
+    $link->close();
 
   } else if ($_POST['acao']=='inserirAbono'){
     $dataInicial = date("Y-m-d", strtotime($_POST['dataInicial']));
-    $dataFinal = date("Y-m-d", strtotime($_POST['dataFinal']));
+    $dataFinal = date("Y-m-d 23:59:59", strtotime($_POST['dataFinal']));
+    $all_query_ok=true;
+    mysqli_autocommit($link, FALSE);
 
-    $linha = "insert into abonos (data_inicial,data_final,data_solicitacao,matricula_funcionario,status) values ('".$dataInicial."','".$dataFinal."','".date('Y-m-d')."',".(int)$_POST['matricula'].",'Pendente');";
-    $consulta = mysqli_query($link,$linha);
-    mysqli_close($link);
-    echo $consulta;
+    $link->query("INSERT INTO administrativo (matricula_funcionario ,data_cadastro ,data_alteracao ) VALUES (".(int)$_POST['matricula'].",CURDATE(),CURDATE());") ? null : $all_query_ok=false;
+    $link->query("INSERT INTO faltas_folgas (id_administrativo) VALUES (LAST_INSERT_ID());")? null : $all_query_ok=false;
+    $link->query("INSERT INTO ferias_abonos (id_faltas_folgas,numero_abonos ,adiantamento,data_inicio,data_fim,status,tipo ) VALUES (LAST_INSERT_ID(),0,'false','".$dataInicial."','".$dataFinal."','pendente','abonos');")? null : $all_query_ok=false;
+    
+    $all_query_ok ? $link->commit() : $link->rollback();
+    echo $all_query_ok ? '1' : '0';
+    $link->close();
   } else if ($_POST['acao']=='trocaSenha'){
       $matricula = isset($_POST['matriculalogin']) ? $_POST['matriculalogin'] : NULL;
       $senhaatual = isset($_POST['senhaatual']) ? $_POST['senhaatual'] : NULL;
@@ -152,11 +150,20 @@ if (!empty($_POST)) {
       $id = $_POST['id'];
       $tipo = $_POST['tipo'];
       $status = $_POST['status'];
-      // echo $tipo;
-      $consulta1 = mysqli_query($link,"update ".$tipo." set status='".$status."' where id=".(int)$id.";");
-      mysqli_close($link);
-      header('Content-type: application/json');
-      echo json_encode($consulta1);
+
+      $all_query_ok=true;
+      mysqli_autocommit($link, FALSE);
+      $link->query("update ferias_abonos set status='".$status."' where id=".(int)$id.";") ? null : $all_query_ok=false;
+      
+      $all_query_ok ? $link->commit() : $link->rollback();
+      echo $all_query_ok ? '1' : '0';
+      $link->close();
+
+
+      // $consulta1 = mysqli_query($link,"update ".$tipo." set status='".$status."' where id=".(int)$id.";");
+      // mysqli_close($link);
+      // header('Content-type: application/json');
+      // echo json_encode($consulta1);
     }
 }
 

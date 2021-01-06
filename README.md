@@ -13,6 +13,12 @@
         $ git clone https://gitlab.com/maxbborges/bbts.git
         $ cd bbts/app
         $ npm install
+        $ mkdir /usr/local/lib/node_modules
+        $ mkdir /usr/local/bin
+        $ chown $USER /usr/local/lib/node_modules
+        $ chown $USER /usr/local/bin
+        $ npm install -g cordova
+        $ install php-mysql
         $ cordova platforms add browser
         $ cordova run browser
         ou

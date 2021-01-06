@@ -1,7 +1,7 @@
 {
     "parametros": {
-        "url2": "http://192.168.0.100:80",
+        "url": "http://localhost",
         "url1": "http://177.235.105.41:5001",
-        "url": "server"
+        "url3": "../../../server"
     }
 }    

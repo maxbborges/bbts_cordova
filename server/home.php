@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 if (isset($_GET['listarEventos'])){
   require_once './connection.php';
-  $consulta = mysqli_query($link,"SELECT f.id,f.status,f.numero_abonos,f.adiantamento,a.data_cadastro,f.data_inicio, f.data_fim, f.tipo, a.matricula_funcionario, (SELECT nome FROM dados_pessoais dp , dados_funcionario df where df.matricula_funcionario = 112243 and dp.id_funcionario = df.id) as nome  FROM ferias_abonos f, faltas_folgas ff , administrativo a WHERE f.id_faltas_folgas = ff.id and ff.id_administrativo = a.id and a.matricula_funcionario = 112243 ORDER BY f.data_inicio;");
+  $consulta = mysqli_query($link,"SELECT f.id,f.status,f.numero_abonos,f.adiantamento,a.data_cadastro,f.data_inicio, f.data_fim, f.tipo, a.matricula_funcionario, (SELECT nome FROM dados_pessoais dp , dados_funcionario df where df.matricula_funcionario = a.matricula_funcionario and dp.id_funcionario = df.id) as nome  FROM ferias_abonos f, faltas_folgas ff , administrativo a WHERE f.id_faltas_folgas = ff.id and ff.id_administrativo = a.id and YEAR(f.data_inicio)>=YEAR(CURDATE()) and MONTH(f.data_inicio)>=MONTH(CURDATE()) ORDER BY f.data_inicio;");
 
   $faltas = [];
 

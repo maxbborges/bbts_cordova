@@ -37,6 +37,7 @@ function inserirFeriasAjax(numAbono) {
     data: { 'acao': 'inserirFerias', 'matricula': window.localStorage.getItem('matricula'), 'dataInicial': $("#input_ferias_data_inicial").val(), 'dataFinal': $('#input_ferias_final').val(), 'numAbono': numAbono, 'adiantamento': $('input[name=ferias_adiantamento]:checked').val() },
     datatype: 'json',
     success: function (resultado) {
+      console.log(resultado)
       if (resultado == 1) {
         alert("Inserido com sucesso");
         window.location = 'home.html';
@@ -47,6 +48,7 @@ function inserirFeriasAjax(numAbono) {
     },
   }).fail(function (jqXHR, textStatus) {
     console.log(jqXHR);
+    console.log(textStatus)
   });
 }
 

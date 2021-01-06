@@ -63,8 +63,7 @@ header input[type="checkbox"]:checked ~ nav
 
 #labelNav {
   padding: 0px;
-  position: fixed;
-  left: 2%;
+  padding-left: 2%;
   z-index: 3;
 }
 
@@ -86,4 +85,9 @@ button#dropdownMenuButton,button#dropdown_nome {
 button.dropdown-item, a.dropdown-item {
   margin: 0px;
   text-align: center;
+}
+
+nav .dropdown-menu.show {
+  width: 230px;
+  margin: 0 4% 0 4%;
 }

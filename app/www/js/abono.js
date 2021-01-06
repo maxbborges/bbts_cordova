@@ -3,7 +3,6 @@ $.getJSON("../js/teste.json", function (json) {
 });
 
 function inserirAbono() {
-  console.log(window.localStorage.getItem('matricula'));
   if ($("#input_data_abono").val() != '' && $('#input_abono_dias').val() != '' && $('#input_final_abono').val() != '') {
     $.ajax({
       type: "POST",

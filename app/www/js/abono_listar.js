@@ -7,18 +7,18 @@ function listarAbonos(url) {
     $('#linhas_abonos').html('');
     $.ajax({
         type: "GET",
-        url: url + "/admin.php?listarAbonos&matricula=" + window.localStorage.getItem('matricula'),
+        url: url + "/admin.php?listarFerias&matricula=" + window.localStorage.getItem('matricula')+"&tipo='abonos'",
         datatype: 'json',
         success: function (resultado) {
             var atributos = (localStorage.getItem('atributos')).split(',');
-            console.log(atributos.length)
+            console.log(resultado)
             for (var i = 0; i < resultado.length; i++) {
-                if (atributos.length == 3) {
+                if (atributos.length == 1) {
                     $('#linhas_abonos').append(
-                        '<tr><td>' + resultado[i]['nome'] +
-                        '</td><td>' + resultado[i]['data_inicial'] +
-                        '</td><td>' + resultado[i]['data_final'] +
-                        '</td><td>' + resultado[i]['data_solicitacao'] +
+                        '<tr><td>' + resultado[i]['matricula_funcionario'] +
+                        '</td><td>' + resultado[i]['data_inicio'] +
+                        '</td><td>' + resultado[i]['data_fim'] +
+                        '</td><td>' + resultado[i]['data_cadastro'] +
                         '</td><td>' + resultado[i]['status'] +
                         '</td><td><button class="btn-success" onclick=solicitacaoFolgas(' + resultado[i]['id'] + ',"abonos","Aprovado")>AP</button><button class="btn-danger" onclick=solicitacaoFolgas(' + resultado[i]['id'] + ',"abonos","Rejeitado")>RP</button>' +
                         '</td></tr>');
@@ -28,10 +28,10 @@ function listarAbonos(url) {
                         remover.parentNode.removeChild(remover);
                     }
                     $('#linhas_abonos').append(
-                        '<tr><td>' + resultado[i]['nome'] +
-                        '</td><td>' + resultado[i]['data_inicial'] +
-                        '</td><td>' + resultado[i]['data_final'] +
-                        '</td><td>' + resultado[i]['data_solicitacao'] +
+                        '<tr><td>' + resultado[i]['matricula_funcionario'] +
+                        '</td><td>' + resultado[i]['data_inicio'] +
+                        '</td><td>' + resultado[i]['data_fim'] +
+                        '</td><td>' + resultado[i]['data_cadastro'] +
                         '</td><td>' + resultado[i]['status'] +
                         '</td></tr>');
                 }
