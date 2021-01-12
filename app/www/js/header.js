@@ -42,13 +42,7 @@ function preencheDivs(){
 
 // VERIFICA O ENDEREÇO E ATRIBUI O RESPECTIVO HEADER
 $(document).ready(function () {
-  if ((window.location.pathname).indexOf("paginas") == -1) {
-    $("header").load("paginas/header_index.html", function () {
-      removerDivs();
-    });
-  } else {
-    $("header").load("header.html", function () {
-      removerDivs();
-    });
-  }
+  $("header .container-fluid").load("/paginas/header_index.html", function () {
+    removerDivs();
+  });
 });

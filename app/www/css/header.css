@@ -1,93 +1,10 @@
+#perfil img, a.navbar-brand img{
+    max-width: 56px;
+} 
+
 header {
   background: #fedb00;
-  border-bottom-color: blue;
-  border-width: 10px;
   border-bottom: solid;
-  width: 100%ß;
-}
-
-header.row {
-    margin-right: 0px;
-    min-width: 100%;
-}
-
-header label img{
-  width: 20px;
-}
-
-header a{
-  text-decoration: none;
-  color: black;
-  display: block;
-  padding: 10px 5px;
-  color : white;
-}
-
-header a:hover {
-  background-color: rgb(176,224,230);
-  color: black;
-}
-
-header ul{
-  list-style: none;
-  top: 5%;
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  padding-left: 0px;
-}
-
-header ul a{
-  margin: 0px 50px 5px 50px;
-}
-
-header input[type="checkbox"]{
-  display: none;
-}
-
-header nav{
-  background-color: rgba(1,1,1,.5);
-  width: 350px;
-  height: 100%;
-  left: -350px;
-  position: fixed;
-  transition: all .5s;
-  z-index: 2;
-
-}
-
-header input[type="checkbox"]:checked ~ nav
-{
-  transform: translateX(350px);
-}
-
-#labelNav {
-  padding: 0px;
-  padding-left: 2%;
-  z-index: 3;
-}
-
-#perfil {
-  padding-bottom: 10px;
-}
-
-#perfil img{
-  width: 80px;
-  height: 80px;
-}
-
-button#dropdownMenuButton,button#dropdown_nome {
-  color: white;
-  margin-bottom: 1%;
-  width: 254px;
-}
-
-button.dropdown-item, a.dropdown-item {
-  margin: 0px;
-  text-align: center;
-}
-
-nav .dropdown-menu.show {
-  width: 230px;
-  margin: 0 4% 0 4%;
+  border-bottom-color: blue;
+  border-width: 5px;
 }

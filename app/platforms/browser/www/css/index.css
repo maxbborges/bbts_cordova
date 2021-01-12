@@ -1,47 +1,57 @@
 @media screen and (max-width: 755px) {
-  main .coluna1 {
-    min-width: 100%;
-    padding: 0px !important;
-    /* padding-bottom: 15px; */
-  }
-
-  .banner p{
-    max-height: 200px !important;
-    overflow: scroll !important;
+  main .main-carousel{
+    height: 250px !important;
   }
 }
 
-body{
-  font-family: arial;
-  /* background: url("../img/bb1366.png"); */
+/*####################### carousel ###########################*/
+main .main-carousel{
+  height: 400px;
+  margin-bottom: 10px;
 }
 
-main .carousel-inner img{
-  width: 100%;
-  height: 500px;
+main .carousel-cell {
+  text-align: center;
+  width: 90%;
+  height: 100%;
+  margin-right: 10px;
+  background: #8C8;
+  border-radius: 5px;
 }
 
-.banner {
-  min-width: 100%;
-  padding-bottom: 10px;
+main .carousel-cell-image{
+  max-height: 100%;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+main .flickity-page-dots { 
+  bottom: 10px; 
+}
+
+/*####################### Avisos ###########################*/
+
+main .avisos p{
+  text-align: justify;
+}
+
+main .avisos figure{
+  margin-top: 5px;
   text-align: center;
 }
 
-.banner p{
-  text-align: justify;
-  max-height: 500px;
-  overflow: scroll;
+main .avisos img{
+  max-height: 30px;
 }
 
-.banner img{
-  width: 50%;
+main .avisos {
+  background: #8C8;
+  margin:10px;
+  border: solid;
+  border-radius: 50px;
 }
 
-main.row {
-  margin-right: 0px;
-}
-
-main .coluna1 {
-  min-width: 100%;
-  padding: 0 10% 2% 10%;
+/*####################### Outros ###########################*/
+main .container{
+  margin-bottom: 30px;
 }

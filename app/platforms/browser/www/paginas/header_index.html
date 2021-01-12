@@ -1,33 +1,39 @@
-<div class="col">
-  <input type="checkbox" id="chec">
-  <label id="labelNav" for="chec">
-    <img src="img/navblack.png">
-  </label>
-  <nav>
-    <ul>
-      <li id='perfil'><img src="img/perfil.png"></li>
-      <li class='semLogin' id='btn_login'><a class='bg-primary' href="paginas/login.html">Login</a></li>
-      <li class="comLogin ">
-        <button class="btn dropdown-toggle bg-primary" id="dropdown_nome" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+<nav class="navbar navbar-expand-sm navbar-light">
+  <a class="navbar-brand" href="#">
+    <img src="/img/bb.png">
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" id='perfil'>
+        <img src="/img/perfil.png">
+      </li>
+      <li class="nav-item dropdown comLogin">
+        <a class="nav-link dropdown-toggle" id="dropdown_nome" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Nome</a>
         <div class="dropdown-menu" aria-labelledby="dropdown_nome">
-          <button class="dropdown-item" id='dropdownAtrib' disabled></button>
-          <button class="dropdown-item" id='dropdownMat' disabled></button>
-          <!-- <a class="dropdown-item" href="trocaSenha.html">Troca Senha</a> -->
+          <a class="dropdown-item" id='dropdownAtrib' disabled></a>
+          <a class="dropdown-item" id='dropdownMat' disabled></a>
         </div>
       </li>
-      <li class="comLogin ">
-        <button class="btn dropdown-toggle bg-primary" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrativo</button>
+      <li class="nav-item dropdown comLogin">
+        <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Administrativo</a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="ferias.html">Férias</a>
           <a class="dropdown-item" href="abono.html">Abono</a>
           <a class="dropdown-item" href="trocaSenha.html">Troca Senha</a>
         </div>
       </li>
-      <li class='comLogin'><a class='bg-primary' href="paginas/home.html">Calendarios</a></li>
-      <li class='comLogin'><a class='bg-primary' href="index.html" id='btn_logout'>Sair</a></li>
+      <li class='nav-item' id='btn_login'><a class='nav-link' href="/paginas/login.html">Login</a></li>
+      <li class='nav-item comLogin'><a class='nav-link' href="/paginas/home.html">Calendarios</a></li>
+      <li class='nav-item comLogin'><a class='nav-link' href="/index.html">Pag. Inicial</a></li>
+      <li class='nav-item comLogin'><a class='nav-link' href="/index.html" id='btn_logout'>Sair</a></li>
     </ul>
-  </nav>
-</div>
-<div class="col">
-  <img src="img/logobb.png" alt="logo BB">
-</div>
+  </div>
+</nav>
