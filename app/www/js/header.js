@@ -42,7 +42,8 @@ function preencheDivs(){
 
 // VERIFICA O ENDEREÇO E ATRIBUI O RESPECTIVO HEADER
 $(document).ready(function () {
-  $("header .container-fluid").load("/paginas/header_index.html", function () {
+  url = window.localStorage.getItem('path')
+  $("header .container-fluid").load("header_index.html", function () {
     removerDivs();
   });
 });
